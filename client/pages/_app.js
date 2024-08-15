@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "../style/style.scss";
 
 import buildClient from "../api/buildClient";
-import Header from "../components/header";
+import Header from "../components/Header";
 
 const AppComponent = ({ Component, pageProps, currentUser }) => {
   return (

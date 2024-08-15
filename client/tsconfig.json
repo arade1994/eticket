@@ -69,7 +69,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "components/header.tsx",
+    "components/Header.tsx",
     "api/buildClient.ts",
     "pages/_app.js",
     "hooks/useRequest.js"

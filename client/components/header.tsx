@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { type User } from "../types/user";
+import ProfileIcon from "./ProfileIcon";
 
 interface Props {
-  currentUser: { id: string; email: string };
+  currentUser: User;
 }
 
 interface LinkMap {
@@ -43,6 +45,12 @@ export default ({ currentUser }: Props) => {
       </Link>
       <div className="d-flex justify-content-end">
         <ul className="nav d-flex align-items-center">{links}</ul>
+        {currentUser && (
+          <ProfileIcon
+            firstName={currentUser.firstName}
+            lastName={currentUser.lastName}
+          />
+        )}
       </div>
     </nav>
   );

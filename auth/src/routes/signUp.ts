@@ -10,6 +10,17 @@ const router = express.Router();
 router.post(
   "/api/users/signup",
   [
+    body("firstName")
+      .trim()
+      .isLength({ min: 1 })
+      .withMessage("First name must be longer than one string!"),
+    body("lastName")
+      .trim()
+      .isLength({ min: 1 })
+      .withMessage("First name must be longer than one string!"),
+    body("age")
+      .isFloat({ min: 18 })
+      .withMessage("Users age must be bigger than 18!"),
     body("email").isEmail().withMessage("Email must be valid!"),
     body("password")
       .trim()
@@ -18,7 +29,7 @@ router.post(
   ],
   validateRequest,
   async (req: Request, res: Response) => {
-    const { email, password } = req.body;
+    const { firstName, lastName, age, email, password } = req.body;
 
     const usedUser = await User.findOne({ email });
 
@@ -26,7 +37,7 @@ router.post(
       throw new BadRequestError("Email already in use!!!");
     }
 
-    const user = User.createNew({ email, password });
+    const user = User.createNew({ firstName, lastName, age, email, password });
     await user.save();
 
     const userJwt = jwt.sign(
