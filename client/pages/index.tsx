@@ -1,6 +1,13 @@
+import { type AxiosInstance } from "axios";
+import { type NextPageContext } from "next";
 import Link from "next/link";
+import { type Ticket } from "../types/ticket";
 
-const HomePage = ({ currentUser, tickets }) => {
+interface Props {
+  tickets: Ticket[];
+}
+
+const HomePage = ({ tickets }: Props) => {
   const ticketList = tickets.map((ticket) => {
     return (
       <tr key={ticket.id}>
@@ -8,7 +15,7 @@ const HomePage = ({ currentUser, tickets }) => {
         <td>{ticket.price}</td>
         <td>
           <Link href="/tickets/[ticketId]" as={`/tickets/${ticket.id}`}>
-            <a>View</a>
+            View
           </Link>
         </td>
       </tr>
@@ -32,7 +39,10 @@ const HomePage = ({ currentUser, tickets }) => {
   );
 };
 
-HomePage.getInitialProps = async (context, client, currentUser) => {
+HomePage.getInitialProps = async (
+  context: NextPageContext,
+  client: AxiosInstance
+) => {
   const { data } = await client.get("/api/tickets");
 
   return { tickets: data };

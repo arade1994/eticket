@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { type FormEvent, useState } from "react";
 import Router from "next/router";
 import { useRequest } from "../../hooks/useRequest";
 
-const CreateTicket = () => {
+const CreateTicket: React.FC = () => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const { sendRequest, errors } = useRequest({
@@ -20,7 +20,7 @@ const CreateTicket = () => {
     setPrice(value.toFixed(2));
   };
 
-  const onSubmitHandler = (event) => {
+  const onSubmitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     sendRequest();

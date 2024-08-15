@@ -1,14 +1,22 @@
 import Router from "next/router";
 import { useRequest } from "../../hooks/useRequest";
+import { type Ticket } from "../../types/ticket";
+import { type Order } from "../../types/order";
+import { type NextPageContext } from "next";
+import { type AxiosInstance } from "axios";
 
-const TicketView = ({ ticket }) => {
+interface Props {
+  ticket: Ticket;
+}
+
+const TicketView = ({ ticket }: Props) => {
   const { sendRequest, errors } = useRequest({
     url: "/api/orders",
     method: "post",
     body: {
       ticketId: ticket.id,
     },
-    onSuccess: (order) =>
+    onSuccess: (order: Order) =>
       Router.push("/orders/[orderId]", `/orders/${order.id}`),
   });
 
@@ -24,7 +32,10 @@ const TicketView = ({ ticket }) => {
   );
 };
 
-TicketView.getInitialProps = async (context, client) => {
+TicketView.getInitialProps = async (
+  context: NextPageContext,
+  client: AxiosInstance
+) => {
   const { ticketId } = context.query;
 
   const { data } = await client.get(`/api/tickets/${ticketId}`);

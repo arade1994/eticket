@@ -17,7 +17,7 @@ export const useRequest = ({ url, method, body, onSuccess }) => {
         <div className="alert alert-danger">
           <h4>Form validation error!</h4>
           <ul className="my-0">
-            {error.response.data.errors.map((error) => (
+            {error.response.data.errors?.map((error) => (
               <li key={error.message}>{error.message}</li>
             ))}
           </ul>
