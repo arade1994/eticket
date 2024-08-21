@@ -6,8 +6,8 @@
     height: 100%;
     background: radial-gradient(
       circle,
-      rgba(122, 177, 192, 1) 0%,
-      rgba(41, 108, 127, 1) 100%
+      rgb(211, 215, 216) 0%,
+      rgb(201, 221, 226) 100%
     );
 
     & .header {
@@ -42,6 +42,29 @@
           rgba(4, 60, 110, 1) 0%,
           rgba(10, 68, 119, 0.95) 100%
         );
+      }
+    }
+
+    & .table {
+      border: 1px solid grey;
+      box-shadow: 2px 4px 10px grey;
+
+      & thead {
+        background: linear-gradient(
+          90deg,
+          rgba(107, 148, 161, 1) 0%,
+          rgba(7, 64, 82, 1) 100%
+        );
+      }
+
+      & th {
+        background: rgba(7, 64, 82, 1);
+        color: white;
+      }
+
+      & th,
+      td {
+        border: 1px solid grey;
       }
     }
 

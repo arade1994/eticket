@@ -22,6 +22,7 @@ export default ({ currentUser }: Props) => {
       currentUser && { label: "Sell Tickets", href: "/tickets/create" },
       currentUser && { label: "My Orders", href: "/orders" },
       currentUser && { label: "Sign Out", href: "/auth/signout" },
+      currentUser && { label: "Users", href: "/users" },
     ] as LinkMap[]
   )
     .filter((link) => link)

@@ -8,6 +8,7 @@ interface UserAttributes {
   age: number;
   email: string;
   password: string;
+  rating?: number;
 }
 
 interface UserDocument extends mongoose.Document {
@@ -16,6 +17,7 @@ interface UserDocument extends mongoose.Document {
   age: number;
   email: string;
   password: string;
+  rating?: number;
 }
 
 interface UserModel extends mongoose.Model<UserDocument> {
@@ -43,6 +45,10 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
+    },
+    rating: {
+      type: Number,
+      required: false,
     },
   },
   {

@@ -16,11 +16,14 @@ const TicketList = ({ tickets, users }: Props) => {
         <td>{ticket.title}</td>
         <td>{ticket.price}</td>
         <td>
+          {user ? `${user?.firstName} ${user?.lastName}` : "-"}{" "}
+          {user?.rating ? `(${user?.rating.toFixed(2)})` : ""}
+        </td>
+        <td>
           <Link href="/tickets/[ticketId]" as={`/tickets/${ticket.id}`}>
             View
           </Link>
         </td>
-        <td>{user ? `${user?.firstName}${user?.lastName}` : "-"}</td>
       </tr>
     );
   });
