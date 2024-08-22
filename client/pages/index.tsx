@@ -1,28 +1,29 @@
 import { type AxiosInstance } from "axios";
 import { type NextPageContext } from "next";
 import { type Ticket } from "../types/ticket";
-import { type User } from "../types/user";
+import { Rating, type User } from "../types/user";
 import TicketList from "../components/TicketList";
 
 interface Props {
   tickets: Ticket[];
   users: User[];
+  ratings: Rating[];
 }
 
-const HomePage = ({ tickets, users }: Props) => {
+const HomePage = ({ tickets, users, ratings }: Props) => {
   return (
     <>
       <table className="table">
         <thead>
           <tr>
             <th>Title</th>
-            <th>Price</th>
+            <th>Price($)</th>
             <th>User</th>
             <th>Link</th>
           </tr>
         </thead>
         <tbody>
-          <TicketList tickets={tickets} users={users} />
+          <TicketList tickets={tickets} users={users} ratings={ratings} />
         </tbody>
       </table>
     </>
@@ -37,7 +38,9 @@ HomePage.getInitialProps = async (
 
   const { data: users } = await client.get("/api/users");
 
-  return { tickets, users };
+  const { data: ratings } = await client.get("/api/users/ratings");
+
+  return { tickets, users, ratings };
 };
 
 export default HomePage;

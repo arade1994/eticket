@@ -38,7 +38,7 @@ const OrderList = ({ orders, users }: Props) => {
       </thead>
       <tbody>
         {orders.map((order) => (
-          <tr>
+          <tr key={order.id}>
             <td>{order.ticket.title}</td>
             <td>{order.ticket.price}</td>
             <td>{getUserFullName(order.userId)}</td>
