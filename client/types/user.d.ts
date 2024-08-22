@@ -5,5 +5,11 @@ export interface User {
   age: number;
   email: string;
   password: string;
-  rating?: number;
+}
+
+export interface Rating {
+  id: string;
+  rate: number;
+  userId: string;
+  ratedUserId: string;
 }

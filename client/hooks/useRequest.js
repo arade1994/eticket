@@ -2,15 +2,17 @@ import { useState } from "react";
 import axios from "axios";
 
 export const useRequest = ({ url, method, body, onSuccess }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState(null);
 
   const sendRequest = async (props) => {
     try {
+      setIsLoading(true);
       setErrors(null);
       const response = await axios[method](url, { ...body, ...props });
 
       if (onSuccess) onSuccess(response.data);
-
+      setIsLoading(false);
       return response.data;
     } catch (error) {
       setErrors(
@@ -26,5 +28,5 @@ export const useRequest = ({ url, method, body, onSuccess }) => {
     }
   };
 
-  return { sendRequest, errors };
+  return { sendRequest, errors, isLoading };
 };

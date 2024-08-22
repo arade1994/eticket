@@ -19,8 +19,8 @@ beforeAll(async () => {
   const mongoURI = await mongo.getUri();
 
   await mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
   });
 });
 
