@@ -19,6 +19,7 @@ const HomePage = ({ tickets, users, ratings }: Props) => {
             <th>Title</th>
             <th>Price($)</th>
             <th>User</th>
+            <th>Category</th>
             <th>Link</th>
           </tr>
         </thead>

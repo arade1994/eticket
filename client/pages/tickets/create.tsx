@@ -1,15 +1,24 @@
 import { type FormEvent, useState } from "react";
+import Select from "react-select";
 import Router from "next/router";
 import { useRequest } from "../../hooks/useRequest";
 import { toast } from "react-toastify";
+import { TICKET_CATEGORIES } from "../../utils/constants";
+
+const categories = TICKET_CATEGORIES.map((category) => ({
+  value: category.toLowerCase(),
+  label: category,
+}));
 
 const CreateTicket: React.FC = () => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
+  const [category, setCategory] = useState(categories[0]);
+
   const { sendRequest, errors } = useRequest({
     url: "/api/tickets",
     method: "post",
-    body: { title, price },
+    body: { title, price, category: category.value },
     onSuccess: () => {
       toast.success("Successfully created new ticket");
       Router.push("/");
@@ -50,6 +59,14 @@ const CreateTicket: React.FC = () => {
             className="form-control"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label>Category</label>
+          <Select
+            value={category}
+            onChange={(option) => setCategory(option)}
+            options={categories}
           />
         </div>
         {errors}

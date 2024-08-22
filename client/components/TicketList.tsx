@@ -33,6 +33,7 @@ const TicketList = ({ tickets, users, ratings }: Props) => {
           {user ? `${user?.firstName} ${user?.lastName}` : "-"}{" "}
           {userRating ? `(${userRating})` : ""}
         </td>
+        <td>{ticket.category}</td>
         <td>
           <Link href="/tickets/[ticketId]" as={`/tickets/${ticket.id}`}>
             View

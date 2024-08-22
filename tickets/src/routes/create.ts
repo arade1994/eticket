@@ -16,14 +16,16 @@ router.post(
     body("price")
       .isFloat({ gt: 0 })
       .withMessage("Price must be greater than 0!!!"),
+    body("category").exists().withMessage("Category must be selected!!!"),
   ],
   validateRequest,
   async (req: Request, res: Response) => {
-    const { title, price } = req.body;
+    const { title, price, category } = req.body;
 
     const ticket = Ticket.createNew({
       title,
       price,
+      category,
       userId: req.currentUser!.id,
     });
 
