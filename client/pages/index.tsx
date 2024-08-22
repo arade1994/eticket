@@ -11,8 +11,7 @@ interface Props {
 
 const HomePage = ({ tickets, users }: Props) => {
   return (
-    <div>
-      <h1>List of tickets</h1>
+    <>
       <table className="table">
         <thead>
           <tr>
@@ -26,7 +25,7 @@ const HomePage = ({ tickets, users }: Props) => {
           <TicketList tickets={tickets} users={users} />
         </tbody>
       </table>
-    </div>
+    </>
   );
 };
 

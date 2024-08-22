@@ -2,6 +2,7 @@ import { type FormEvent, useState } from "react";
 import Router from "next/router";
 
 import { useRequest } from "../../hooks/useRequest";
+import { toast } from "react-toastify";
 
 const SignUp: React.FC = () => {
   const [firstName, setFirstName] = useState("");
@@ -14,7 +15,10 @@ const SignUp: React.FC = () => {
     url: "/api/users/signup",
     method: "post",
     body: { firstName, lastName, age, email, password },
-    onSuccess: () => Router.push("/"),
+    onSuccess: () => {
+      toast.success("You are signed up!");
+      Router.push("/");
+    },
   });
 
   const submit = async (event: FormEvent<HTMLFormElement>) => {

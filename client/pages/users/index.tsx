@@ -53,7 +53,6 @@ const UserList = ({ users, tickets, currentUser }: Props) => {
 
   return (
     <>
-      <h1>List of users</h1>
       <table className="table">
         <thead>
           <tr>

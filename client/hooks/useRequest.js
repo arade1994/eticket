@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export const useRequest = ({ url, method, body, onSuccess }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -15,6 +16,7 @@ export const useRequest = ({ url, method, body, onSuccess }) => {
       setIsLoading(false);
       return response.data;
     } catch (error) {
+      toast.error(error.message);
       setErrors(
         <div className="alert alert-danger">
           <h4>Form validation error!</h4>

@@ -4,6 +4,7 @@ import { type Ticket } from "../../types/ticket";
 import { type Order } from "../../types/order";
 import { type NextPageContext } from "next";
 import { type AxiosInstance } from "axios";
+import { toast } from "react-toastify";
 
 interface Props {
   ticket: Ticket;
@@ -16,8 +17,10 @@ const TicketView = ({ ticket }: Props) => {
     body: {
       ticketId: ticket.id,
     },
-    onSuccess: (order: Order) =>
-      Router.push("/orders/[orderId]", `/orders/${order.id}`),
+    onSuccess: (order: Order) => {
+      toast.success("Order created!");
+      Router.push("/orders/[orderId]", `/orders/${order.id}`);
+    },
   });
 
   return (

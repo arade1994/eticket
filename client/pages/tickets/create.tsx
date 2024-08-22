@@ -1,6 +1,7 @@
 import { type FormEvent, useState } from "react";
 import Router from "next/router";
 import { useRequest } from "../../hooks/useRequest";
+import { toast } from "react-toastify";
 
 const CreateTicket: React.FC = () => {
   const [title, setTitle] = useState("");
@@ -9,7 +10,10 @@ const CreateTicket: React.FC = () => {
     url: "/api/tickets",
     method: "post",
     body: { title, price },
-    onSuccess: () => Router.push("/"),
+    onSuccess: () => {
+      toast.success("Successfully created new ticket");
+      Router.push("/");
+    },
   });
 
   const onBlurHandler = () => {
