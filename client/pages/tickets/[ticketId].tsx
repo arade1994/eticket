@@ -5,12 +5,18 @@ import { type Order } from "../../types/order";
 import { type NextPageContext } from "next";
 import { type AxiosInstance } from "axios";
 import { toast } from "react-toastify";
+import { type Rating, type User } from "../../types/user";
+import { useMemo } from "react";
+import { getUserRating } from "../../utils/user";
 
 interface Props {
   ticket: Ticket;
+  users: User[];
+  ratings: Rating[];
+  currentUser: { id: string; email: string };
 }
 
-const TicketView = ({ ticket }: Props) => {
+const TicketView = ({ ticket, users, ratings, currentUser }: Props) => {
   const { sendRequest, errors } = useRequest({
     url: "/api/orders",
     method: "post",
@@ -23,14 +29,34 @@ const TicketView = ({ ticket }: Props) => {
     },
   });
 
+  const user = useMemo(
+    () => users?.find((user) => user.id === ticket.userId),
+    [users, ticket]
+  );
+
+  const isCurrentUser = user?.id === currentUser.id;
+  console.log(isCurrentUser);
+
   return (
     <div>
       <h1>{ticket.title}</h1>
-      <p>Price: {ticket.price}</p>
+      <p>Price: {ticket.price}$</p>
+      {user && (
+        <p>
+          Created By:{" "}
+          {`${user?.firstName} ${user?.lastName} (${getUserRating(
+            user.id,
+            ratings
+          )})`}
+        </p>
+      )}
+      <p>Category: {ticket.category}</p>
       {errors}
-      <button className="btn btn-primary" onClick={() => sendRequest()}>
-        Order
-      </button>
+      {!isCurrentUser && (
+        <button className="btn btn-primary" onClick={() => sendRequest()}>
+          Order
+        </button>
+      )}
     </div>
   );
 };
@@ -43,7 +69,11 @@ TicketView.getInitialProps = async (
 
   const { data } = await client.get(`/api/tickets/${ticketId}`);
 
-  return { ticket: data };
+  const { data: users } = await client.get("/api/users");
+
+  const { data: ratings } = await client.get("/api/users/ratings");
+
+  return { ticket: data, users, ratings };
 };
 
 export default TicketView;

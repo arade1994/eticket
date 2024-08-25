@@ -1,7 +1,8 @@
-import { memo, useCallback } from "react";
+import { memo } from "react";
 import { type Ticket } from "../types/ticket";
 import { Rating, type User } from "../types/user";
 import Link from "next/link";
+import { getUserRating } from "../utils/user";
 
 interface Props {
   tickets: Ticket[];
@@ -10,21 +11,10 @@ interface Props {
 }
 
 const TicketList = ({ tickets, users, ratings }: Props) => {
-  const getUserRating = useCallback(
-    (userId: string) => {
-      const userRates = ratings
-        ?.filter((rating) => rating.ratedUserId === userId)
-        ?.map((rating) => rating.rate);
-      const ratesSum = userRates?.reduce((a, b) => a + b, 0);
-      if (!ratesSum || isNaN(ratesSum)) return null;
-      return (ratesSum / userRates?.length).toFixed(1);
-    },
-    [ratings]
-  );
-
   return tickets.map((ticket) => {
     const user = users.find((user) => user.id === ticket.userId);
-    const userRating = getUserRating(ticket.userId);
+    const userRating = getUserRating(ticket.userId, ratings);
+
     return (
       <tr key={ticket.id}>
         <td>{ticket.title}</td>

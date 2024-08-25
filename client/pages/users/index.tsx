@@ -1,9 +1,13 @@
 import { type AxiosInstance } from "axios";
 import { type NextPageContext } from "next";
 import { type Rating, type User } from "../../types/user";
-import { getNumOfCreatedTickets } from "../../utils/user";
+import {
+  getIsUserRated,
+  getNumOfCreatedTickets,
+  getUserRating,
+} from "../../utils/user";
 import { type Ticket } from "../../types/ticket";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import RatingModal from "../../components/RatingModal";
 import { useRequest } from "../../hooks/useRequest";
 
@@ -17,6 +21,7 @@ const UserList = ({ users, tickets, currentUser }: Props) => {
   const [ratings, setRatings] = useState<Rating[]>([]);
   const [showRatingModal, setShowRatingModal] = useState(false);
   const [selectedUserId, setSelectedUserId] = useState("");
+  const [searchText, setSearchText] = useState("");
   const { sendRequest } = useRequest({
     url: "/api/users/ratings",
     method: "get",
@@ -26,33 +31,54 @@ const UserList = ({ users, tickets, currentUser }: Props) => {
     },
   });
 
-  const getUserRating = useCallback(
-    (userId: string) => {
-      const userRates = ratings
-        .filter((rating) => rating.ratedUserId === userId)
-        ?.map((rating) => rating.rate);
-      const ratesSum = userRates.reduce((a, b) => a + b, 0);
-      if (!ratesSum || isNaN(ratesSum)) return "-";
-      return (ratesSum / userRates.length).toFixed(1);
-    },
-    [ratings]
-  );
+  const resetAllFilters = useCallback(() => {
+    setSearchText("");
+  }, []);
 
-  const getIsUserRated = useCallback(
-    (userId: string) =>
-      ratings.filter(
-        (rating) =>
-          rating.ratedUserId === userId && rating.userId === currentUser.id
-      )?.length,
-    [ratings, currentUser]
-  );
+  const filteredUsers = useMemo(() => {
+    let filteredUsers = [...users];
+
+    if (searchText.trim() !== "")
+      filteredUsers = filteredUsers.filter(
+        (user) =>
+          user.firstName.toLowerCase().includes(searchText) ||
+          user.lastName.toLowerCase().includes(searchText)
+      );
+
+    return filteredUsers;
+  }, [users, searchText]);
+
+  const areFiltersApplied = searchText.trim() !== "";
 
   useEffect(() => {
     sendRequest();
   }, []);
 
   return (
-    <>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "30px",
+        marginTop: "50px",
+      }}
+    >
+      <div style={{ display: "flex", flexDirection: "row", gap: "15px" }}>
+        <input
+          type="text"
+          placeholder="Insert first name or last"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+        {areFiltersApplied && (
+          <div
+            style={{ cursor: "pointer", alignSelf: "center" }}
+            onClick={resetAllFilters}
+          >
+            Reset filters
+          </div>
+        )}
+      </div>
       <table className="table">
         <thead>
           <tr>
@@ -66,36 +92,37 @@ const UserList = ({ users, tickets, currentUser }: Props) => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
+          {filteredUsers.map((user) => (
             <tr key={user.id}>
               <td>{user?.firstName}</td>
               <td>{user?.lastName}</td>
               <td>{user?.age}</td>
               <td>{user?.email}</td>
               <td>{getNumOfCreatedTickets(user, tickets)}</td>
-              <td>{getUserRating(user.id)}</td>
+              <td>{getUserRating(user.id, ratings)}</td>
               <td>
                 <button
                   disabled={
-                    user.id === currentUser.id || getIsUserRated(user.id) !== 0
+                    user.id === currentUser.id ||
+                    getIsUserRated(user.id, ratings, currentUser.id) !== 0
                   }
                   style={{
                     fontWeight: "bolder",
                     borderRadius: 5,
                     backgroundColor:
                       user.id === currentUser.id ||
-                      getIsUserRated(user.id) !== 0
+                      getIsUserRated(user.id, ratings, currentUser.id) !== 0
                         ? "lightgray"
                         : "rgba(7, 64, 82, 1)",
                     color:
                       user.id === currentUser.id ||
-                      getIsUserRated(user.id) !== 0
+                      getIsUserRated(user.id, ratings, currentUser.id) !== 0
                         ? "black"
                         : "white",
                     fontSize: 20,
                     cursor:
                       user.id === currentUser.id ||
-                      getIsUserRated(user.id) !== 0
+                      getIsUserRated(user.id, ratings, currentUser.id) !== 0
                         ? "not-allowed"
                         : "pointer",
                   }}
@@ -120,7 +147,7 @@ const UserList = ({ users, tickets, currentUser }: Props) => {
           fetchRatings={sendRequest}
         />
       )}
-    </>
+    </div>
   );
 };
 
