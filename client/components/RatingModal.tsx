@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import Modal from "react-modal";
 import { useRequest } from "../hooks/useRequest";
 import { toast } from "react-toastify";
+import RateInput from "./RateInput";
 
 interface Props {
   open: boolean;
@@ -19,10 +20,11 @@ const RatingModal = ({
   fetchRatings,
 }: Props) => {
   const [rate, setRate] = useState(5);
+  const [comment, setComment] = useState("");
   const { sendRequest, isLoading } = useRequest({
     url: "/api/users/rate",
     method: "post",
-    body: { rate, userId: currentUserId, ratedUserId: selectedUserId },
+    body: { rate, comment, userId: currentUserId, ratedUserId: selectedUserId },
     onSuccess: () => {},
   });
 
@@ -33,6 +35,8 @@ const RatingModal = ({
     fetchRatings();
   }, [sendRequest, handleCloseClick]);
 
+  console.log(rate, comment);
+
   return (
     <Modal
       isOpen={open}
@@ -40,7 +44,7 @@ const RatingModal = ({
       style={{
         content: {
           width: 400,
-          height: 300,
+          height: 400,
           margin: "auto",
           display: "flex",
           flexDirection: "column",
@@ -68,22 +72,17 @@ const RatingModal = ({
       <div
         style={{
           width: "100%",
-          height: 100,
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-evenly",
           textAlign: "center",
         }}
       >
-        <input
-          type="range"
-          min={1}
-          max={10}
-          step={1}
-          value={rate}
-          onChange={(e) => setRate(+e.target.value)}
+        <RateInput
+          comment={comment}
+          setComment={setComment}
+          setRate={setRate}
         />
-        <div style={{ fontSize: 24 }}>{rate}</div>
       </div>
       <div
         style={{

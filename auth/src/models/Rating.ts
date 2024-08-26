@@ -2,12 +2,14 @@ import mongoose from "mongoose";
 
 interface RatingAttributes {
   rate: number;
+  comment: string;
   userId: string;
   ratedUserId: string;
 }
 
 interface RatingDocument extends mongoose.Document {
   rate: number;
+  comment: string;
   userId: string;
   ratedUserId: string;
 }
@@ -20,6 +22,10 @@ const ratingSchema = new mongoose.Schema(
   {
     rate: {
       type: Number,
+      required: true,
+    },
+    comment: {
+      type: String,
       required: true,
     },
     userId: {

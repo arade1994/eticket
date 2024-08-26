@@ -4,6 +4,7 @@ import { type Rating, type User } from "../../types/user";
 import {
   getIsUserRated,
   getNumOfCreatedTickets,
+  getUserRaters,
   getUserRating,
 } from "../../utils/user";
 import { type Ticket } from "../../types/ticket";
@@ -99,7 +100,12 @@ const UserList = ({ users, tickets, currentUser }: Props) => {
               <td>{user?.age}</td>
               <td>{user?.email}</td>
               <td>{getNumOfCreatedTickets(user, tickets)}</td>
-              <td>{getUserRating(user.id, ratings)}</td>
+              <td>
+                {getUserRating(user.id, ratings)}
+                {getUserRaters(user.id, ratings)?.length
+                  ? ` (${getUserRaters(user.id, ratings)?.length})`
+                  : ""}
+              </td>
               <td>
                 <button
                   disabled={
