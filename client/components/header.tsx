@@ -19,7 +19,7 @@ export default ({ currentUser }: Props) => {
     [
       !currentUser && { label: "Sign In", href: "/auth/signin" },
       !currentUser && { label: "Sign Up", href: "/auth/signup" },
-      currentUser && { label: "Tickets", href: "/" },
+      currentUser && { label: "Buy Ticket", href: "/" },
       currentUser && { label: "Sell Ticket", href: "/tickets/create" },
       currentUser && { label: "My Orders", href: "/orders" },
       currentUser && { label: "Users", href: "/users" },
