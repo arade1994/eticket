@@ -21,7 +21,7 @@ const RatingModal = ({
 }: Props) => {
   const [rate, setRate] = useState(5);
   const [comment, setComment] = useState("");
-  const { sendRequest, isLoading } = useRequest({
+  const { sendRequest } = useRequest({
     url: "/api/users/rate",
     method: "post",
     body: { rate, comment, userId: currentUserId, ratedUserId: selectedUserId },
@@ -34,8 +34,6 @@ const RatingModal = ({
     toast.success("User rated");
     fetchRatings();
   }, [sendRequest, handleCloseClick]);
-
-  console.log(rate, comment);
 
   return (
     <Modal

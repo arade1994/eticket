@@ -110,6 +110,10 @@
   & input:checked ~ .star {
     color: orange;
   }
+
+  & .checked {
+    color: orange;
+  }
 }
 
 .comment {

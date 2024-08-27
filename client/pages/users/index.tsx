@@ -11,6 +11,7 @@ import { type Ticket } from "../../types/ticket";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import RatingModal from "../../components/RatingModal";
 import { useRequest } from "../../hooks/useRequest";
+import RatingModalList from "../../components/RatingModalList";
 
 interface Props {
   users: User[];
@@ -21,6 +22,7 @@ interface Props {
 const UserList = ({ users, tickets, currentUser }: Props) => {
   const [ratings, setRatings] = useState<Rating[]>([]);
   const [showRatingModal, setShowRatingModal] = useState(false);
+  const [showRatingsModalList, setShowRatingsModalList] = useState(false);
   const [selectedUserId, setSelectedUserId] = useState("");
   const [searchText, setSearchText] = useState("");
   const { sendRequest } = useRequest({
@@ -101,10 +103,30 @@ const UserList = ({ users, tickets, currentUser }: Props) => {
               <td>{user?.email}</td>
               <td>{getNumOfCreatedTickets(user, tickets)}</td>
               <td>
-                {getUserRating(user.id, ratings)}
-                {getUserRaters(user.id, ratings)?.length
-                  ? ` (${getUserRaters(user.id, ratings)?.length})`
-                  : ""}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    gap: 5,
+                    alignItems: "center",
+                  }}
+                >
+                  {getUserRating(user.id, ratings)}
+                  {getUserRaters(user.id, ratings)?.length
+                    ? ` (${getUserRaters(user.id, ratings)?.length})`
+                    : ""}
+                  {getIsUserRated(user.id, ratings, currentUser.id) ? (
+                    <div
+                      style={{ cursor: "pointer", color: "lightcoral" }}
+                      onClick={() => {
+                        setSelectedUserId(user.id);
+                        setShowRatingsModalList(true);
+                      }}
+                    >
+                      View
+                    </div>
+                  ) : null}
+                </div>
               </td>
               <td>
                 <button
@@ -151,6 +173,15 @@ const UserList = ({ users, tickets, currentUser }: Props) => {
           selectedUserId={selectedUserId}
           handleCloseClick={() => setShowRatingModal(false)}
           fetchRatings={sendRequest}
+        />
+      )}
+      {showRatingsModalList && (
+        <RatingModalList
+          open={showRatingsModalList}
+          ratings={ratings}
+          users={users}
+          userId={selectedUserId}
+          handleCloseClick={() => setShowRatingsModalList(false)}
         />
       )}
     </div>

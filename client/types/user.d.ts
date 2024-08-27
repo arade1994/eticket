@@ -9,6 +9,7 @@ export interface User {
 
 export interface Rating {
   id: string;
+  comment: string;
   rate: number;
   userId: string;
   ratedUserId: string;
