@@ -19,10 +19,7 @@ beforeAll(async () => {
   mongo = new MongoMemoryServer();
   const mongoURI = await mongo.getUri();
 
-  await mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  await mongoose.connect(mongoURI);
 });
 
 beforeEach(async () => {

@@ -2,8 +2,16 @@ import { useEffect, useState } from "react";
 import StripeCheckout from "react-stripe-checkout";
 import { useRequest } from "../../hooks/useRequest";
 import Router from "next/router";
+import { type NextPageContext } from "next";
+import { type AxiosInstance } from "axios";
+import { type Order } from "../../types/order";
 
-const OrderView = ({ order, currentUser }) => {
+interface Props {
+  order: Order;
+  currentUser: { id: string; email: string };
+}
+
+const OrderView = ({ order, currentUser }: Props) => {
   const [time, setTime] = useState(0);
   const { sendRequest, errors } = useRequest({
     url: "/api/payments",
@@ -11,12 +19,14 @@ const OrderView = ({ order, currentUser }) => {
     body: {
       orderId: order.id,
     },
-    onSuccess: (payment) => Router.push("/orders"),
+    onSuccess: () => Router.push("/orders"),
   });
 
   useEffect(() => {
     const calculateTime = () => {
-      const msLeft = new Date(order.expiresAt) - new Date();
+      const msLeft =
+        new Date(order.expiresAt).getMilliseconds() -
+        new Date().getMilliseconds();
       setTime(Math.round(msLeft / 1000));
     };
 
@@ -43,7 +53,10 @@ const OrderView = ({ order, currentUser }) => {
   );
 };
 
-OrderView.getInitialProps = async (context, client) => {
+OrderView.getInitialProps = async (
+  context: NextPageContext,
+  client: AxiosInstance
+) => {
   const { orderId } = context.query;
 
   const { data } = await client.get(`/api/orders/${orderId}`);
