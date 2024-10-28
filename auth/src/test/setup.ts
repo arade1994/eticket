@@ -1,22 +1,13 @@
 import { MongoMemoryServer } from "mongodb-memory-server";
-import request from "supertest";
 import mongoose from "mongoose";
 
-import { app } from "../app";
-
-declare global {
-  namespace NodeJS {
-    interface Global {
-      signin(): Promise<string[]>;
-    }
-  }
-}
+import { signup } from "./utils";
 
 let mongo: any;
 beforeAll(async () => {
   process.env.JWT_KEY = "asafssgdg";
 
-  mongo = new MongoMemoryServer();
+  mongo = await MongoMemoryServer.create();
   const mongoURI = await mongo.getUri();
 
   await mongoose.connect(mongoURI);
@@ -35,13 +26,4 @@ afterAll(async () => {
   await mongoose.connection.close();
 });
 
-global.signin = async () => {
-  const authResponse = await request(app)
-    .post("/api/users/signup")
-    .send({ email: "test@test.com", password: "password" })
-    .expect(201);
-
-  const cookie = authResponse.get("Set-Cookie");
-
-  return cookie;
-};
+global.signup = signup;

@@ -35,7 +35,6 @@ const TicketView = ({ ticket, users, ratings, currentUser }: Props) => {
   );
 
   const isCurrentUser = user?.id === currentUser.id;
-  console.log(isCurrentUser);
 
   return (
     <div>
