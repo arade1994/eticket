@@ -5,8 +5,10 @@ import {
   NotFoundError,
   OrderStatus,
   requireAuth,
+  validateRequest,
 } from "@radetickets/shared";
 import mongoose from "mongoose";
+
 import { Order } from "../models/Order";
 import { OrderCancelledPublisher } from "../events/publishers/OrderCancelledPublisher";
 import { natsWrapper } from "../natsWrapper";
@@ -16,6 +18,7 @@ const router = express.Router();
 router.delete(
   "/api/orders/:orderId",
   requireAuth,
+  validateRequest,
   async (req: Request, res: Response) => {
     if (!mongoose.Types.ObjectId.isValid(req.params.orderId)) {
       throw new BadRequestError("OrderId is not valid");

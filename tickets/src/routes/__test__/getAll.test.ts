@@ -9,7 +9,11 @@ describe("Api to fetch all created tickets", () => {
     await createTicket("Bethoveen Concert", 140, "Theatre Event");
     await createTicket("Carmina Burana", 80, "Opera Ticket");
 
-    const response = await request(app).get("/api/tickets").send().expect(200);
+    const response = await request(app)
+      .get("/api/tickets")
+      .set("Cookie", global.signin())
+      .send()
+      .expect(200);
 
     expect(response.body.length).toEqual(3);
   });

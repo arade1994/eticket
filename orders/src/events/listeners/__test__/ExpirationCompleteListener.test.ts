@@ -1,5 +1,6 @@
-import { ExpirationCompleteEvent, OrderStatus } from "@radetickets/shared";
 import mongoose from "mongoose";
+import { ExpirationCompleteEvent, OrderStatus } from "@radetickets/shared";
+
 import { Order } from "../../../models/Order";
 import { Ticket } from "../../../models/Ticket";
 import { natsWrapper } from "../../../natsWrapper";
@@ -9,9 +10,9 @@ const setup = async () => {
   const listener = new ExpirationCompleteListener(natsWrapper.client);
 
   const ticket = Ticket.createNew({
-    id: mongoose.Types.ObjectId().toHexString(),
-    title: "concert",
-    price: 20,
+    id: new mongoose.Types.ObjectId().toHexString(),
+    title: "Bon Jovi Concert",
+    price: 230,
   });
   await ticket.save();
 
@@ -35,32 +36,34 @@ const setup = async () => {
   return { listener, order, ticket, data, msg };
 };
 
-it("Updates the status to cancelled", async () => {
-  const { listener, order, data, msg } = await setup();
+describe("ExpirationCompleteListener", () => {
+  test("Updates the status to cancelled", async () => {
+    const { listener, order, data, msg } = await setup();
 
-  await listener.onMessage(data, msg);
+    await listener.onMessage(data, msg);
 
-  const updatedOrder = await Order.findById(order.id);
-  expect(updatedOrder!.status).toEqual(OrderStatus.Cancelled);
-});
+    const updatedOrder = await Order.findById(order.id);
+    expect(updatedOrder!.status).toEqual(OrderStatus.Cancelled);
+  });
 
-it("Emits the OrderCancelled events", async () => {
-  const { listener, order, data, msg } = await setup();
+  test("Emits the OrderCancelled events", async () => {
+    const { listener, order, data, msg } = await setup();
 
-  await listener.onMessage(data, msg);
+    await listener.onMessage(data, msg);
 
-  expect(natsWrapper.client.publish).toHaveBeenCalled();
+    expect(natsWrapper.client.publish).toHaveBeenCalled();
 
-  const eventData = JSON.parse(
-    (natsWrapper.client.publish as jest.Mock).mock.calls[0][1]
-  );
-  expect(eventData.id).toEqual(order.id);
-});
+    const eventData = JSON.parse(
+      (natsWrapper.client.publish as jest.Mock).mock.calls[0][1]
+    );
+    expect(eventData.id).toEqual(order.id);
+  });
 
-it("Acks the message", async () => {
-  const { listener, data, msg } = await setup();
+  test("Acks the message", async () => {
+    const { listener, data, msg } = await setup();
 
-  await listener.onMessage(data, msg);
+    await listener.onMessage(data, msg);
 
-  expect(msg.ack).toHaveBeenCalled();
+    expect(msg.ack).toHaveBeenCalled();
+  });
 });
