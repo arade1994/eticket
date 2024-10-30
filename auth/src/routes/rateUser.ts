@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import { body } from "express-validator";
-import { requireAuth, validateRequest } from "@radetickets/shared";
+import { currentUser, requireAuth, validateRequest } from "@radetickets/shared";
 
 import { Rating } from "../models/Rating";
 
@@ -18,6 +18,7 @@ router.post(
       .exists()
       .withMessage("User which is rated must be provided!"),
   ],
+  currentUser,
   requireAuth,
   validateRequest,
   async (req: Request, res: Response) => {
