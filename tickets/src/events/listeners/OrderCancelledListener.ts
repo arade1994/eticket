@@ -1,5 +1,6 @@
-import { Listener, OrderCancelledEvent, Subjects } from "@radetickets/shared";
 import { Message } from "node-nats-streaming";
+import { Listener, OrderCancelledEvent, Subjects } from "@radetickets/shared";
+
 import { Ticket } from "../../models/Ticket";
 import { TicketUpdatedPublisher } from "../publishers/TicketUpdatedPublisher";
 import { queueGroupName } from "./QueueGroupName";

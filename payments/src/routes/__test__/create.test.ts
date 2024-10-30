@@ -1,8 +1,9 @@
 import request from "supertest";
 import mongoose from "mongoose";
+import { OrderStatus } from "@radetickets/shared";
+
 import { app } from "../../app";
 import { Order } from "../../models/Order";
-import { OrderStatus } from "@radetickets/shared";
 import { stripe } from "../../stripe";
 import { Payment } from "../../models/Payment";
 

@@ -1,4 +1,5 @@
 import express, { Request, Response } from "express";
+import mongoose from "mongoose";
 import {
   BadRequestError,
   NotAuthorizedError,
@@ -7,7 +8,6 @@ import {
   requireAuth,
   validateRequest,
 } from "@radetickets/shared";
-import mongoose from "mongoose";
 
 import { Order } from "../models/Order";
 import { OrderCancelledPublisher } from "../events/publishers/OrderCancelledPublisher";

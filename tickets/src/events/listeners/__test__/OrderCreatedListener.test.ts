@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
+import { Message } from "node-nats-streaming";
 import { OrderCreatedEvent, OrderStatus } from "@radetickets/shared";
+
 import { Ticket } from "../../../models/Ticket";
 import { natsWrapper } from "../../../natsWrapper";
 import { OrderCreatedListener } from "../OrderCreatedListener";
-import { Message } from "node-nats-streaming";
 
 const setup = async () => {
   const listener = new OrderCreatedListener(natsWrapper.client);

@@ -1,5 +1,6 @@
-import { TicketUpdatedEvent } from "@radetickets/shared";
 import mongoose from "mongoose";
+import { TicketUpdatedEvent } from "@radetickets/shared";
+
 import { Message } from "node-nats-streaming";
 import { Ticket } from "../../../models/Ticket";
 import { natsWrapper } from "../../../natsWrapper";

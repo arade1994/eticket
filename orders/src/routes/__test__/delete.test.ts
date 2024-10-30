@@ -1,6 +1,7 @@
-import { OrderStatus } from "@radetickets/shared";
 import request from "supertest";
 import mongoose from "mongoose";
+import { OrderStatus } from "@radetickets/shared";
+
 import { app } from "../../app";
 import { Order } from "../../models/Order";
 import { Ticket } from "../../models/Ticket";

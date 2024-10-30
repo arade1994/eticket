@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import { OrderStatus } from "@radetickets/shared";
 import { updateIfCurrentPlugin } from "mongoose-update-if-current";
+import { OrderStatus } from "@radetickets/shared";
 
 interface OrderAttributes {
   id: string;
