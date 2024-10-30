@@ -1,10 +1,10 @@
 import request from "supertest";
 import mongoose from "mongoose";
+import { OrderStatus } from "@radetickets/shared";
 
 import { app } from "../../app";
 import { Ticket } from "../../models/Ticket";
 import { Order } from "../../models/Order";
-import { OrderStatus } from "@radetickets/shared";
 import { natsWrapper } from "../../natsWrapper";
 
 describe("Api which creates a new order for a ticket", () => {

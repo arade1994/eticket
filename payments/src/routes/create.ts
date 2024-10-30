@@ -1,3 +1,5 @@
+import express, { Request, Response } from "express";
+import { body } from "express-validator";
 import {
   BadRequestError,
   currentUser,
@@ -7,8 +9,7 @@ import {
   requireAuth,
   validateRequest,
 } from "@radetickets/shared";
-import express, { Request, Response } from "express";
-import { body } from "express-validator";
+
 import { PaymentCreatedPublisher } from "../events/publishers/PaymentCreatedPublisher";
 import { Order } from "../models/Order";
 import { Payment } from "../models/Payment";

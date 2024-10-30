@@ -1,4 +1,5 @@
 import Queue from "bull";
+
 import { ExpirationCompletePublisher } from "../events/publishers/ExpirationCompletePublisher";
 import { natsWrapper } from "../natsWrapper";
 

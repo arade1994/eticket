@@ -1,10 +1,11 @@
+import { Message } from "node-nats-streaming";
 import {
   Listener,
   OrderStatus,
   PaymentCreatedEvent,
   Subjects,
 } from "@radetickets/shared";
-import { Message } from "node-nats-streaming";
+
 import { Order } from "../../models/Order";
 import { queueGroupName } from "./QueueGroupName";
 

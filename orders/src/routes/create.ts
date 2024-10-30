@@ -1,4 +1,6 @@
 import express, { Request, Response } from "express";
+import { body } from "express-validator";
+import { Types } from "mongoose";
 import {
   BadRequestError,
   NotFoundError,
@@ -6,8 +8,6 @@ import {
   requireAuth,
   validateRequest,
 } from "@radetickets/shared";
-import { body } from "express-validator";
-import { Types } from "mongoose";
 
 import { Ticket } from "../models/Ticket";
 import { Order } from "../models/Order";
