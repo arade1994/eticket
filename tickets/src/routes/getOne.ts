@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import {
+  currentUser,
   NotFoundError,
   requireAuth,
   validateRequest,
@@ -11,6 +12,7 @@ const router = express.Router();
 
 router.get(
   "/api/tickets/:id",
+  currentUser,
   requireAuth,
   validateRequest,
   async (req: Request, res: Response) => {

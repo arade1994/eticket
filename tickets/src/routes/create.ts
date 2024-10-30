@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import { body } from "express-validator";
-import { requireAuth, validateRequest } from "@radetickets/shared";
+import { currentUser, requireAuth, validateRequest } from "@radetickets/shared";
 
 import { TicketCreatedPublisher } from "../events/publishers/TicketCreatedPublisher";
 import { natsWrapper } from "../natsWrapper";
@@ -10,6 +10,7 @@ const router = express.Router();
 
 router.post(
   "/api/tickets",
+  currentUser,
   requireAuth,
   [
     body("title").not().isEmpty().withMessage("Title is required!!!"),
