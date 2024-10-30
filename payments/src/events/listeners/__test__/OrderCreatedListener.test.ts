@@ -9,7 +9,7 @@ const setup = async () => {
   const listener = new OrderCreatedListener(natsWrapper.client);
 
   const data: OrderCreatedEvent["data"] = {
-    id: mongoose.Types.ObjectId().toHexString(),
+    id: new mongoose.Types.ObjectId().toHexString(),
     status: OrderStatus.Created,
     version: 0,
     expiresAt: "sg3qgyg",
@@ -28,20 +28,22 @@ const setup = async () => {
   return { listener, data, msg };
 };
 
-it("Saves an created order from event data", async () => {
-  const { listener, data, msg } = await setup();
+describe("OrderCreatedListener", () => {
+  test("Saves an created order from event data", async () => {
+    const { listener, data, msg } = await setup();
 
-  await listener.onMessage(data, msg);
+    await listener.onMessage(data, msg);
 
-  const order = await Order.findById(data.id);
+    const order = await Order.findById(data.id);
 
-  expect(order!.price).toEqual(data.ticket.price);
-});
+    expect(order!.price).toEqual(data.ticket.price);
+  });
 
-it("Acks the message", async () => {
-  const { listener, data, msg } = await setup();
+  test("Acks the message", async () => {
+    const { listener, data, msg } = await setup();
 
-  await listener.onMessage(data, msg);
+    await listener.onMessage(data, msg);
 
-  expect(msg.ack).toHaveBeenCalled();
+    expect(msg.ack).toHaveBeenCalled();
+  });
 });
