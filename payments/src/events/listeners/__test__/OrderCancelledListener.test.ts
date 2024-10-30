@@ -9,7 +9,7 @@ const setup = async () => {
   const listener = new OrderCancelledListener(natsWrapper.client);
 
   const order = Order.createNew({
-    id: mongoose.Types.ObjectId().toHexString(),
+    id: new mongoose.Types.ObjectId().toHexString(),
     price: 10,
     status: OrderStatus.Created,
     userId: "argsrg",
@@ -38,20 +38,22 @@ const setup = async () => {
   };
 };
 
-it("Updates the status of order to cancelled", async () => {
-  const { listener, data, msg } = await setup();
+describe("OrderCancelledListener", () => {
+  test("Updates the status of order to cancelled", async () => {
+    const { listener, data, msg } = await setup();
 
-  await listener.onMessage(data, msg);
+    await listener.onMessage(data, msg);
 
-  const updatedOrder = await Order.findById(data.id);
+    const updatedOrder = await Order.findById(data.id);
 
-  expect(updatedOrder!.status).toEqual(OrderStatus.Cancelled);
-});
+    expect(updatedOrder!.status).toEqual(OrderStatus.Cancelled);
+  });
 
-it("Acks the message", async () => {
-  const { listener, data, msg } = await setup();
+  test("Acks the message", async () => {
+    const { listener, data, msg } = await setup();
 
-  await listener.onMessage(data, msg);
+    await listener.onMessage(data, msg);
 
-  expect(msg.ack).toHaveBeenCalled();
+    expect(msg.ack).toHaveBeenCalled();
+  });
 });

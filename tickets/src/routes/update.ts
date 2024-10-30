@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import { body } from "express-validator";
 import {
   BadRequestError,
+  currentUser,
   NotAuthorizedError,
   NotFoundError,
   requireAuth,
@@ -16,6 +17,7 @@ const router = express.Router();
 
 router.put(
   "/api/tickets/:id",
+  currentUser,
   requireAuth,
   [
     body("title").not().isEmpty().withMessage("Title is required!!!"),

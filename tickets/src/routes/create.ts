@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import { body } from "express-validator";
-import { requireAuth, validateRequest } from "@radetickets/shared";
+import { currentUser, requireAuth, validateRequest } from "@radetickets/shared";
 
 import { TicketCreatedPublisher } from "../events/publishers/TicketCreatedPublisher";
 import { natsWrapper } from "../natsWrapper";
@@ -10,20 +10,23 @@ const router = express.Router();
 
 router.post(
   "/api/tickets",
+  currentUser,
   requireAuth,
   [
     body("title").not().isEmpty().withMessage("Title is required!!!"),
     body("price")
       .isFloat({ gt: 0 })
       .withMessage("Price must be greater than 0!!!"),
+    body("category").exists().withMessage("Category must be selected!!!"),
   ],
   validateRequest,
   async (req: Request, res: Response) => {
-    const { title, price } = req.body;
+    const { title, price, category } = req.body;
 
     const ticket = Ticket.createNew({
       title,
       price,
+      category,
       userId: req.currentUser!.id,
     });
 

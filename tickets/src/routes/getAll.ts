@@ -1,12 +1,20 @@
 import express, { Request, Response } from "express";
+import { currentUser, requireAuth, validateRequest } from "@radetickets/shared";
+
 import { Ticket } from "../models/Ticket";
 
 const router = express.Router();
 
-router.get("/api/tickets", async (req: Request, res: Response) => {
-  const tickets = await Ticket.find({ orderId: undefined });
+router.get(
+  "/api/tickets",
+  currentUser,
+  requireAuth,
+  validateRequest,
+  async (req: Request, res: Response) => {
+    const tickets = await Ticket.find({ orderId: undefined });
 
-  res.send(tickets);
-});
+    res.send(tickets);
+  }
+);
 
 export { router as getTicketsRouter };

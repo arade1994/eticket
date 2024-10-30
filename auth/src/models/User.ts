@@ -3,11 +3,17 @@ import mongoose from "mongoose";
 import { PasswordService } from "../utils/Password";
 
 interface UserAttributes {
+  firstName: string;
+  lastName: string;
+  age: number;
   email: string;
   password: string;
 }
 
 interface UserDocument extends mongoose.Document {
+  firstName: string;
+  lastName: string;
+  age: number;
   email: string;
   password: string;
 }
@@ -18,6 +24,18 @@ interface UserModel extends mongoose.Model<UserDocument> {
 
 const userSchema = new mongoose.Schema(
   {
+    firstName: {
+      type: String,
+      required: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+    },
+    age: {
+      type: Number,
+      required: true,
+    },
     email: {
       type: String,
       required: true,
@@ -25,6 +43,10 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
+    },
+    ratings: {
+      type: Array,
+      required: false,
     },
   },
   {

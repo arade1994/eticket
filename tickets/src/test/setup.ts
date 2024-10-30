@@ -1,14 +1,6 @@
 import { MongoMemoryServer } from "mongodb-memory-server";
 import mongoose from "mongoose";
-import jwt from "jsonwebtoken";
-
-declare global {
-  namespace NodeJS {
-    interface Global {
-      signin(): string[];
-    }
-  }
-}
+import { signin } from "./utils";
 
 jest.mock("../natsWrapper.ts");
 
@@ -16,13 +8,10 @@ let mongo: any;
 beforeAll(async () => {
   process.env.JWT_KEY = "asafssgdg";
 
-  mongo = new MongoMemoryServer();
+  mongo = await MongoMemoryServer.create();
   const mongoURI = await mongo.getUri();
 
-  await mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  await mongoose.connect(mongoURI);
 });
 
 beforeEach(async () => {
@@ -39,14 +28,4 @@ afterAll(async () => {
   await mongoose.connection.close();
 });
 
-global.signin = () => {
-  const payload = {
-    id: new mongoose.Types.ObjectId().toHexString(),
-    email: "test@test.com",
-  };
-  const base64 = Buffer.from(
-    JSON.stringify({ jwt: jwt.sign(payload, process.env.JWT_KEY!) })
-  ).toString("base64");
-
-  return [`express:sess=${base64}`];
-};
+global.signin = signin;

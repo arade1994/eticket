@@ -1,5 +1,6 @@
 import {
   BadRequestError,
+  currentUser,
   NotAuthorizedError,
   NotFoundError,
   OrderStatus,
@@ -18,6 +19,7 @@ const router = express.Router();
 
 router.post(
   "/api/payments",
+  currentUser,
   requireAuth,
   [body("token").not().isEmpty(), body("orderId").not().isEmpty()],
   validateRequest,

@@ -1,19 +1,23 @@
-import { useState } from "react";
+import { type FormEvent, useState } from "react";
 import Router from "next/router";
 
 import { useRequest } from "../../hooks/useRequest";
+import { toast } from "react-toastify";
 
-const SignUp = () => {
+const SignUp: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { sendRequest, errors } = useRequest({
-    url: "/api/users/signup",
+    url: "/api/users/signin",
     method: "post",
     body: { email, password },
-    onSuccess: () => Router.push("/"),
+    onSuccess: () => {
+      toast.success("User successfully signed in");
+      Router.push("/");
+    },
   });
 
-  const submit = async (event) => {
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     await sendRequest();
@@ -21,7 +25,7 @@ const SignUp = () => {
 
   return (
     <form onSubmit={submit}>
-      <h1>Sign Up</h1>
+      <h1>Sign In</h1>
       <div className="form-group">
         <label>Email Address:</label>
         <input
@@ -40,7 +44,7 @@ const SignUp = () => {
         />
       </div>
       {errors}
-      <button className="btn btn-primary">Sign Up</button>
+      <button className="btn btn-primary">Sign In</button>
     </form>
   );
 };

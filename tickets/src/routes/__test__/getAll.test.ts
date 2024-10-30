@@ -1,20 +1,20 @@
 import request from "supertest";
+
 import { app } from "../../app";
+import { createTicket } from "../../test/utils";
 
-const createTicket = () => {
-  return request(app)
-    .post("/api/tickets")
-    .set("Cookie", global.signin())
-    .send({ title: "test", price: 100 })
-    .expect(201);
-};
+describe("Api to fetch all created tickets", () => {
+  test("returns all tickets", async () => {
+    await createTicket("Monthly Bus Ticket", 220, "Public Transport");
+    await createTicket("Bethoveen Concert", 140, "Theatre Event");
+    await createTicket("Carmina Burana", 80, "Opera Ticket");
 
-it("returns all tickets", async () => {
-  await createTicket();
-  await createTicket();
-  await createTicket();
+    const response = await request(app)
+      .get("/api/tickets")
+      .set("Cookie", global.signin())
+      .send()
+      .expect(200);
 
-  const response = await request(app).get("/api/tickets").send().expect(200);
-
-  expect(response.body.length).toEqual(3);
+    expect(response.body.length).toEqual(3);
+  });
 });

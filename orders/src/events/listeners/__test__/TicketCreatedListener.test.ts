@@ -1,5 +1,6 @@
-import { TicketCreatedEvent } from "@radetickets/shared";
 import mongoose from "mongoose";
+import { TicketCreatedEvent } from "@radetickets/shared";
+
 import { Message } from "node-nats-streaming";
 import { Ticket } from "../../../models/Ticket";
 import { natsWrapper } from "../../../natsWrapper";
@@ -11,8 +12,8 @@ const setup = () => {
   const data: TicketCreatedEvent["data"] = {
     id: new mongoose.Types.ObjectId().toHexString(),
     version: 0,
-    title: "concert",
-    price: 50,
+    title: "Buss Monthly Pass",
+    price: 150,
     userId: new mongoose.Types.ObjectId().toHexString(),
   };
 
@@ -24,22 +25,24 @@ const setup = () => {
   return { listener, data, msg };
 };
 
-it("Creates and saves a ticket", async () => {
-  const { listener, data, msg } = setup();
+describe("TicketCreatedListener", () => {
+  test("Creates and saves a ticket", async () => {
+    const { listener, data, msg } = setup();
 
-  await listener.onMessage(data, msg);
+    await listener.onMessage(data, msg);
 
-  const ticket = await Ticket.findById(data.id);
+    const ticket = await Ticket.findById(data.id);
 
-  expect(ticket).toBeDefined();
-  expect(ticket!.title).toEqual(data.title);
-  expect(ticket!.price).toEqual(data.price);
-});
+    expect(ticket).toBeDefined();
+    expect(ticket!.title).toEqual(data.title);
+    expect(ticket!.price).toEqual(data.price);
+  });
 
-it("Acks the message", async () => {
-  const { listener, data, msg } = setup();
+  test("Acks the message", async () => {
+    const { listener, data, msg } = setup();
 
-  await listener.onMessage(data, msg);
+    await listener.onMessage(data, msg);
 
-  expect(msg.ack).toBeCalled();
+    expect(msg.ack).toBeCalled();
+  });
 });

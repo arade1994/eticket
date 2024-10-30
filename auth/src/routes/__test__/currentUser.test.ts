@@ -1,23 +1,29 @@
 import request from "supertest";
+
 import { app } from "../../app";
 
-it("Returns some data about authenticated user", async () => {
-  const cookie = await global.signin();
+describe("Api which gives us information about currently loged in user", () => {
+  test("Returns some data about authenticated user", async () => {
+    const cookie = await global.signup();
 
-  const response = await request(app)
-    .get("/api/users/currentuser")
-    .set("Cookie", cookie)
-    .send()
-    .expect(200);
+    const response = await request(app)
+      .get("/api/users/currentuser")
+      .set("Cookie", cookie)
+      .send()
+      .expect(200);
 
-  expect(response.body.currentUser.email).toEqual("test@test.com");
-});
+    expect(response.body.currentUser.firstName).toEqual("Test");
+    expect(response.body.currentUser.lastName).toEqual("Test");
+    expect(response.body.currentUser.age).toEqual(25);
+    expect(response.body.currentUser.email).toEqual("test@test.com");
+  });
 
-it("Responds with null on non-authenticated user", async () => {
-  const response = await request(app)
-    .get("/api/users/currentuser")
-    .send()
-    .expect(200);
+  test("Responds with null on non-authenticated user", async () => {
+    const response = await request(app)
+      .get("/api/users/currentuser")
+      .send()
+      .expect(401);
 
-  expect(response.body.currentUser).toEqual(null);
+    expect(response.body.currentUser).toBeUndefined();
+  });
 });

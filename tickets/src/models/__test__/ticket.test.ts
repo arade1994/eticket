@@ -1,42 +1,48 @@
 import { Ticket } from "../Ticket";
 
-it("Implements a optimistic concurrency control", async (done) => {
-  const ticket = Ticket.createNew({
-    title: "concert",
-    price: 5,
-    userId: "224",
+describe("Ticket model", () => {
+  test("Implements a optimistic concurrency control", async () => {
+    const ticket = Ticket.createNew({
+      title: "Basketball Game",
+      price: 320,
+      userId: "userId",
+      category: "Sport Event",
+    });
+
+    await ticket.save();
+
+    const firstInstance = await Ticket.findById(ticket.id);
+    const secondInstance = await Ticket.findById(ticket.id);
+
+    firstInstance?.set({ price: 320 });
+    secondInstance?.set({ price: 350 });
+
+    await firstInstance?.save();
+
+    let error;
+
+    try {
+      await secondInstance?.save();
+    } catch (err) {
+      error = err;
+    }
+
+    expect(error).toBeDefined();
   });
 
-  await ticket.save();
+  test("Increments the version of ticket on every update", async () => {
+    const ticket = Ticket.createNew({
+      title: "Yankees Game",
+      price: 300,
+      userId: "userId",
+      category: "Sport Game",
+    });
 
-  const firstInstance = await Ticket.findById(ticket.id);
-  const secondInstance = await Ticket.findById(ticket.id);
-
-  firstInstance?.set({ price: 10 });
-  secondInstance?.set({ price: 15 });
-
-  await firstInstance?.save();
-
-  try {
-    await secondInstance?.save();
-  } catch (err) {
-    return done();
-  }
-
-  throw new Error("Error occured when saving second instance!");
-});
-
-it("Increments the version of ticket on every update", async () => {
-  const ticket = Ticket.createNew({
-    title: "concert",
-    price: 20,
-    userId: "111",
+    await ticket.save();
+    expect(ticket.version).toEqual(0);
+    await ticket.save();
+    expect(ticket.version).toEqual(1);
+    await ticket.save();
+    expect(ticket.version).toEqual(2);
   });
-
-  await ticket.save();
-  expect(ticket.version).toEqual(0);
-  await ticket.save();
-  expect(ticket.version).toEqual(1);
-  await ticket.save();
-  expect(ticket.version).toEqual(2);
 });
