@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import { OrderCancelledEvent } from "@radetickets/shared";
 import { Message } from "node-nats-streaming";
+
 import { Ticket } from "../../../models/Ticket";
 import { natsWrapper } from "../../../natsWrapper";
 import { OrderCancelledListener } from "../OrderCancelledListener";
@@ -9,11 +10,12 @@ const setup = async () => {
   const listener = new OrderCancelledListener(natsWrapper.client);
 
   const ticket = Ticket.createNew({
-    title: "concert",
-    price: 30,
-    userId: "eagsrg",
+    title: "Bon Jovi Concert",
+    price: 130,
+    userId: "userId",
+    category: "music Event",
   });
-  const orderId = mongoose.Types.ObjectId().toHexString();
+  const orderId = new mongoose.Types.ObjectId().toHexString();
   ticket.set({ orderId });
   await ticket.save();
 
@@ -33,28 +35,30 @@ const setup = async () => {
   return { listener, ticket, orderId, data, msg };
 };
 
-it("Updates the ticket", async () => {
-  const { listener, ticket, data, msg } = await setup();
+describe("OrderCancelledListener", () => {
+  test("Updates the ticket", async () => {
+    const { listener, ticket, data, msg } = await setup();
 
-  await listener.onMessage(data, msg);
+    await listener.onMessage(data, msg);
 
-  const updatedTicket = await Ticket.findById(ticket.id);
+    const updatedTicket = await Ticket.findById(ticket.id);
 
-  expect(updatedTicket!.orderId).not.toBeDefined();
-});
+    expect(updatedTicket?.orderId).not.toBeDefined();
+  });
 
-it("Acks the message", async () => {
-  const { listener, data, msg } = await setup();
+  test("Acks the message", async () => {
+    const { listener, data, msg } = await setup();
 
-  await listener.onMessage(data, msg);
+    await listener.onMessage(data, msg);
 
-  expect(msg.ack).toHaveBeenCalled();
-});
+    expect(msg.ack).toHaveBeenCalled();
+  });
 
-it("Publishes and ticket updated event", async () => {
-  const { listener, data, msg } = await setup();
+  test("Publishes and ticket updated event", async () => {
+    const { listener, data, msg } = await setup();
 
-  await listener.onMessage(data, msg);
+    await listener.onMessage(data, msg);
 
-  expect(natsWrapper.client.publish).toHaveBeenCalled();
+    expect(natsWrapper.client.publish).toHaveBeenCalled();
+  });
 });

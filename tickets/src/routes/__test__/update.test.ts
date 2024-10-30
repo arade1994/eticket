@@ -1,127 +1,138 @@
 import request from "supertest";
 import mongoose from "mongoose";
+
 import { app } from "../../app";
 import { natsWrapper } from "../../natsWrapper";
 import { Ticket } from "../../models/Ticket";
 
-it("returns a 404 if provided ticket id does not exist", async () => {
-  const id = new mongoose.Types.ObjectId().toHexString();
-  await request(app)
-    .put(`/api/tickets/${id}`)
-    .set("Cookie", global.signin())
-    .send({ title: "test", price: 20 })
-    .expect(404);
-});
+describe("Api which updates one specific ticket", () => {
+  test("return a 401 if user is not authenticated", async () => {
+    const id = new mongoose.Types.ObjectId().toHexString();
+    await request(app)
+      .put(`/api/tickets/${id}`)
+      .send({ title: "test", price: 20 })
+      .expect(401);
+  });
 
-it("return a 401 if user is not authenticated", async () => {
-  const id = new mongoose.Types.ObjectId().toHexString();
-  await request(app)
-    .put(`/api/tickets/${id}`)
-    .send({ title: "test", price: 20 })
-    .expect(401);
-});
+  test("returns a 404 if provided ticket id does not exist", async () => {
+    const id = new mongoose.Types.ObjectId().toHexString();
+    await request(app)
+      .put(`/api/tickets/${id}`)
+      .set("Cookie", global.signin())
+      .send({ title: "Bus Ticket", price: 20, category: "Public Transport" })
+      .expect(404);
+  });
 
-it("returns a 401 if user does not own the ticket", async () => {
-  const response = await request(app)
-    .post("/api/tickets")
-    .set("Cookie", global.signin())
-    .send({ title: "test", price: 20 })
-    .expect(201);
+  test("returns a 401 if user does not own the ticket", async () => {
+    const response = await request(app)
+      .post("/api/tickets")
+      .set("Cookie", global.signin())
+      .send({ title: "Bus Ticket", price: 20, category: "Public Transport" })
+      .expect(201);
 
-  await request(app)
-    .put(`/api/tickets/${response.body.id}`)
-    .set("Cookie", global.signin())
-    .send({ title: "test2", price: 100 })
-    .expect(401);
-});
+    await request(app)
+      .put(`/api/tickets/${response.body.id}`)
+      .set("Cookie", global.signin())
+      .send({
+        title: "Monthly Bus Pass",
+        price: 100,
+        category: "Public Transport",
+      })
+      .expect(401);
+  });
 
-it("return a 400 if provided bad title and price", async () => {
-  const cookie = global.signin();
+  test("return a 400 if provided bad data", async () => {
+    const cookie = global.signin();
 
-  const response = await request(app)
-    .post("/api/tickets")
-    .set("Cookie", cookie)
-    .send({ title: "test", price: 20 })
-    .expect(201);
+    const response = await request(app)
+      .post("/api/tickets")
+      .set("Cookie", cookie)
+      .send({ title: "Music Concert", price: 20, category: "Musical Event" })
+      .expect(201);
 
-  await request(app)
-    .put(`/api/tickets/${response.body.id}`)
-    .set("Cookie", cookie)
-    .send({ title: "", price: 100 })
-    .expect(400);
+    await request(app)
+      .put(`/api/tickets/${response.body.id}`)
+      .set("Cookie", cookie)
+      .send({ title: "", price: 100 })
+      .expect(400);
 
-  await request(app)
-    .put(`/api/tickets/${response.body.id}`)
-    .set("Cookie", cookie)
-    .send({ title: "test2", price: -10 })
-    .expect(400);
+    await request(app)
+      .put(`/api/tickets/${response.body.id}`)
+      .set("Cookie", cookie)
+      .send({ title: "Concert", price: -10 })
+      .expect(400);
 
-  await request(app)
-    .put(`/api/tickets/${response.body.id}`)
-    .set("Cookie", cookie)
-    .send({ price: 100 })
-    .expect(400);
+    await request(app)
+      .put(`/api/tickets/${response.body.id}`)
+      .set("Cookie", cookie)
+      .send({ price: 100 })
+      .expect(400);
 
-  await request(app)
-    .put(`/api/tickets/${response.body.id}`)
-    .set("Cookie", cookie)
-    .send({ title: "test2" })
-    .expect(400);
-});
+    await request(app)
+      .put(`/api/tickets/${response.body.id}`)
+      .set("Cookie", cookie)
+      .send({ title: "Concert" })
+      .expect(400);
+  });
 
-it("returns a 200 when user successfully updates a ticket", async () => {
-  const cookie = global.signin();
+  test("returns a 200 when user successfully updates a ticket", async () => {
+    const cookie = global.signin();
 
-  const response = await request(app)
-    .post("/api/tickets")
-    .set("Cookie", cookie)
-    .send({ title: "test", price: 20 })
-    .expect(201);
+    const response = await request(app)
+      .post("/api/tickets")
+      .set("Cookie", cookie)
+      .send({ title: "Bus Ticket", price: 20, category: "Public Transport" })
+      .expect(201);
 
-  const updatedTicketResponse = await request(app)
-    .put(`/api/tickets/${response.body.id}`)
-    .set("Cookie", cookie)
-    .send({ title: "test2", price: 100 })
-    .expect(200);
+    const updatedTicketResponse = await request(app)
+      .put(`/api/tickets/${response.body.id}`)
+      .set("Cookie", cookie)
+      .send({
+        title: "Monthly Bus Pass",
+        price: 100,
+        category: "Public Transport",
+      })
+      .expect(200);
 
-  expect(updatedTicketResponse.body.title).toEqual("test2");
-  expect(updatedTicketResponse.body.price).toEqual(100);
-});
+    expect(updatedTicketResponse.body.title).toEqual("Monthly Bus Pass");
+    expect(updatedTicketResponse.body.price).toEqual(100);
+  });
 
-it("publishes an ticket update event", async () => {
-  const cookie = global.signin();
+  test("publishes an ticket update event", async () => {
+    const cookie = global.signin();
 
-  const response = await request(app)
-    .post("/api/tickets")
-    .set("Cookie", cookie)
-    .send({ title: "test", price: 20 })
-    .expect(201);
+    const response = await request(app)
+      .post("/api/tickets")
+      .set("Cookie", cookie)
+      .send({ title: "Concert", price: 100, category: "Music Event" })
+      .expect(201);
 
-  await request(app)
-    .put(`/api/tickets/${response.body.id}`)
-    .set("Cookie", cookie)
-    .send({ title: "test2", price: 100 })
-    .expect(200);
+    await request(app)
+      .put(`/api/tickets/${response.body.id}`)
+      .set("Cookie", cookie)
+      .send({ title: "U2 Concert", price: 100 })
+      .expect(200);
 
-  expect(natsWrapper.client.publish).toHaveBeenCalled();
-});
+    expect(natsWrapper.client.publish).toHaveBeenCalled();
+  });
 
-it("Rejects the update if ticket is already reserved", async () => {
-  const cookie = global.signin();
+  test("Rejects the update if ticket is already reserved", async () => {
+    const cookie = global.signin();
 
-  const response = await request(app)
-    .post("/api/tickets")
-    .set("Cookie", cookie)
-    .send({ title: "test", price: 20 })
-    .expect(201);
+    const response = await request(app)
+      .post("/api/tickets")
+      .set("Cookie", cookie)
+      .send({ title: "LaLiga Match", price: 245, category: "Sport Event" })
+      .expect(201);
 
-  const ticket = await Ticket.findById(response.body.id);
-  ticket!.set({ orderId: mongoose.Types.ObjectId().toHexString() });
-  await ticket!.save();
+    const ticket = await Ticket.findById(response.body.id);
+    ticket!.set({ orderId: new mongoose.Types.ObjectId().toHexString() });
+    await ticket!.save();
 
-  await request(app)
-    .put(`/api/tickets/${response.body.id}`)
-    .set("Cookie", cookie)
-    .send({ title: "test2", price: 100 })
-    .expect(400);
+    await request(app)
+      .put(`/api/tickets/${response.body.id}`)
+      .set("Cookie", cookie)
+      .send({ title: "El Classico", price: 350 })
+      .expect(400);
+  });
 });

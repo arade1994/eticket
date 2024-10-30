@@ -1,5 +1,5 @@
 import express from "express";
-import { currentUser, requireAuth, validateRequest } from "@radetickets/shared";
+import { requireAuth, validateRequest } from "@radetickets/shared";
 
 import { User } from "../models/User";
 
@@ -7,7 +7,6 @@ const router = express.Router();
 
 router.get(
   "/api/users/currentuser",
-  currentUser,
   requireAuth,
   validateRequest,
   async (req, res) => {
