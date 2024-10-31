@@ -1,7 +1,7 @@
 {
-  "name": "@radetickets/shared",
+  "name": "@radetickets/utils",
   "version": "1.1.14",
-  "description": "",
+  "description": "NPM Package that provides utilities for eTicket app, such as classes for errors, events and middlewares",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "files": [
