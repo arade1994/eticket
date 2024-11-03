@@ -7,7 +7,7 @@ import {
   NotFoundError,
   requireAuth,
   validateRequest,
-} from "@radetickets/shared";
+} from "@radetickets/factory";
 
 import { Ticket } from "../models/Ticket";
 import { TicketUpdatedPublisher } from "../events/publishers/TicketUpdatedPublisher";

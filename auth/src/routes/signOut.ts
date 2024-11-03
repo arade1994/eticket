@@ -1,5 +1,9 @@
-import express from "express";
-import { currentUser, requireAuth, validateRequest } from "@radetickets/shared";
+import express, { type Request, type Response } from "express";
+import {
+  currentUser,
+  requireAuth,
+  validateRequest,
+} from "@radetickets/factory";
 
 const router = express.Router();
 
@@ -8,7 +12,7 @@ router.post(
   currentUser,
   requireAuth,
   validateRequest,
-  (req, res) => {
+  (req: Request, res: Response) => {
     req.session = null;
 
     res.send({});

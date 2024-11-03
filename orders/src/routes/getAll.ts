@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { requireAuth, validateRequest } from "@radetickets/shared";
+import { requireAuth, validateRequest } from "@radetickets/factory";
 
 import { Order } from "../models/Order";
 

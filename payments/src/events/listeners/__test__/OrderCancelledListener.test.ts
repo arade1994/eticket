@@ -1,6 +1,6 @@
 import { Message } from "node-nats-streaming";
 import mongoose from "mongoose";
-import { OrderCancelledEvent, OrderStatus } from "@radetickets/shared";
+import { OrderCancelledEvent, OrderStatus } from "@radetickets/factory";
 
 import { Order } from "../../../models/Order";
 import { natsWrapper } from "../../../natsWrapper";

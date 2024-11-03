@@ -4,7 +4,7 @@ import {
   OrderCancelledEvent,
   OrderStatus,
   Subjects,
-} from "@radetickets/shared";
+} from "@radetickets/factory";
 
 import { Order } from "../../models/Order";
 import { queueGroupName } from "./QueueGroupName";

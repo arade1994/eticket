@@ -2,7 +2,7 @@ import {
   ExpirationCompleteEvent,
   Publisher,
   Subjects,
-} from "@radetickets/shared";
+} from "@radetickets/factory";
 
 export class ExpirationCompletePublisher extends Publisher<ExpirationCompleteEvent> {
   readonly subject = Subjects.ExpirationComplete;

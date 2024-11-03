@@ -7,7 +7,7 @@ import {
   OrderStatus,
   requireAuth,
   validateRequest,
-} from "@radetickets/shared";
+} from "@radetickets/factory";
 
 import { Ticket } from "../models/Ticket";
 import { Order } from "../models/Order";

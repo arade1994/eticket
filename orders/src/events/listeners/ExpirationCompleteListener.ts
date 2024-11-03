@@ -4,7 +4,7 @@ import {
   Listener,
   OrderStatus,
   Subjects,
-} from "@radetickets/shared";
+} from "@radetickets/factory";
 
 import { Order } from "../../models/Order";
 import { OrderCancelledPublisher } from "../publishers/OrderCancelledPublisher";
