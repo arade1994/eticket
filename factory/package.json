@@ -1,6 +1,6 @@
 {
   "name": "@radetickets/factory",
-  "version": "1.1.16",
+  "version": "1.2.0",
   "description": "NPM Package that provides utilities for eTicket app, such as classes for errors, events and middlewares",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
@@ -9,7 +9,11 @@
   ],
   "scripts": {
     "clean": "del ./build*",
-    "build": "npm run clean && tsc"
+    "build": "npm run clean && tsc",
+    "version:patch": "npm version patch",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major",
+    "publish": "npm publish"
   },
   "keywords": [],
   "author": "",
