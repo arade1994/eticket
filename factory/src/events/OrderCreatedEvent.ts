@@ -1,4 +1,5 @@
 import { Subjects } from "./Subjects";
+
 import { OrderStatus } from "./types/OrderStatus";
 
 export interface OrderCreatedEvent {
