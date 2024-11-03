@@ -1,11 +1,11 @@
-import "bootstrap/dist/css/bootstrap.css";
-import "../style/style.scss";
+import { ToastContainer } from "react-toastify";
 
 import buildClient from "../api/buildClient";
 import Header from "../components/Header";
-import { ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
+import "bootstrap/dist/css/bootstrap.css";
+import "../style/style.scss";
 
 const AppComponent = ({ Component, pageProps, currentUser }) => {
   return (

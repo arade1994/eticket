@@ -1,7 +1,8 @@
 import { useCallback, useState } from "react";
 import Modal from "react-modal";
-import { useRequest } from "../hooks/useRequest";
 import { toast } from "react-toastify";
+
+import { useRequest } from "../hooks/useRequest";
 import RateInput from "./RateInput";
 
 interface Props {

@@ -1,0 +1,148 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<RatingModal /> > It should render rating modal as expected with all fields 1`] = `
+<body
+  class="ReactModal__Body--open"
+>
+  <div
+    data-react-modal-body-trap=""
+    style="position: absolute; opacity: 0;"
+    tabindex="0"
+  />
+  <div />
+  <div
+    data-react-modal-body-trap=""
+    style="position: absolute; opacity: 0;"
+    tabindex="0"
+  />
+  <div
+    class="ReactModalPortal"
+  >
+    <div
+      class="ReactModal__Overlay"
+      style="position: fixed; top: 0px; left: 0px; right: 0px; bottom: 0px; background-color: rgba(255, 255, 255, 0.75);"
+    >
+      <div
+        aria-modal="true"
+        class="ReactModal__Content"
+        role="dialog"
+        style="position: absolute; top: 40px; left: 40px; right: 40px; bottom: 40px; border: 1px solid #ccc; background: rgb(255, 255, 255); overflow: auto; border-radius: 4px; outline: none; padding: 20px; width: 400px; height: 400px; margin: auto; display: flex; flex-direction: column; gap: 20px;"
+        tabindex="-1"
+      >
+        <div
+          style="display: flex; flex-direction: row; justify-content: space-between;"
+        >
+          <div>
+            <h3>
+              Edit user rating
+            </h3>
+          </div>
+          <div
+            style="font-size: 28px; cursor: pointer;"
+          >
+            <p>
+              ×
+            </p>
+          </div>
+        </div>
+        <div
+          style="width: 100%; display: flex; flex-direction: column; justify-content: space-evenly; text-align: center;"
+        >
+          <div
+            class="rating"
+          >
+            <input
+              id="star4"
+              name="rating"
+              type="radio"
+              value="4"
+            />
+            <label
+              class="star"
+              for="star4"
+            >
+              ★
+            </label>
+            <input
+              id="star3"
+              name="rating"
+              type="radio"
+              value="3"
+            />
+            <label
+              class="star"
+              for="star3"
+            >
+              ★
+            </label>
+            <input
+              id="star2"
+              name="rating"
+              type="radio"
+              value="2"
+            />
+            <label
+              class="star"
+              for="star2"
+            >
+              ★
+            </label>
+            <input
+              id="star1"
+              name="rating"
+              type="radio"
+              value="1"
+            />
+            <label
+              class="star"
+              for="star1"
+            >
+              ★
+            </label>
+            <input
+              id="star0"
+              name="rating"
+              type="radio"
+              value="0"
+            />
+            <label
+              class="star"
+              for="star0"
+            >
+              ★
+            </label>
+          </div>
+          <div
+            class="comment"
+          >
+            <label
+              for="comment"
+            >
+              Tell us more:
+            </label>
+            <br />
+            <textarea
+              id="comment"
+              name="comment"
+            />
+          </div>
+        </div>
+        <div
+          style="display: flex; flex-direction: row; justify-content: space-around;"
+        >
+          <button
+            style="border-radius: 5px; background: rgb(7, 64, 82); color: white; font-size: 20px;"
+          >
+            Save rating
+          </button>
+          <button
+            style="border-radius: 5px; font-size: 20px; background: white;"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
