@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { updateIfCurrentPlugin } from "mongoose-update-if-current";
-import { OrderStatus } from "@radetickets/shared";
+import { OrderStatus } from "@radetickets/factory";
 
 import { TicketDocument } from "./Ticket";
 

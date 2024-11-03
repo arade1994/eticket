@@ -1,5 +1,9 @@
 import express, { Request, Response } from "express";
-import { currentUser, requireAuth, validateRequest } from "@radetickets/shared";
+import {
+  currentUser,
+  requireAuth,
+  validateRequest,
+} from "@radetickets/factory";
 
 import { Ticket } from "../models/Ticket";
 

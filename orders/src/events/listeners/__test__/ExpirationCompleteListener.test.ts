@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { ExpirationCompleteEvent, OrderStatus } from "@radetickets/shared";
+import { ExpirationCompleteEvent, OrderStatus } from "@radetickets/factory";
 
 import { Order } from "../../../models/Order";
 import { Ticket } from "../../../models/Ticket";

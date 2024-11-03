@@ -5,7 +5,7 @@ import {
   NotAuthorizedError,
   NotFoundError,
   requireAuth,
-} from "@radetickets/shared";
+} from "@radetickets/factory";
 
 import { Order } from "../models/Order";
 

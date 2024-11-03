@@ -1,8 +1,12 @@
-import express from "express";
+import express, {
+  type NextFunction,
+  type Request,
+  type Response,
+} from "express";
 import "express-async-errors";
 import cookieSession from "cookie-session";
 import { json } from "body-parser";
-import { currentUser, errorHandler, NotFoundError } from "@radetickets/shared";
+import { currentUser, errorHandler, NotFoundError } from "@radetickets/factory";
 
 import { getOrdersRouter } from "./routes/getAll";
 import { getOrderRouter } from "./routes/getOne";
@@ -30,6 +34,8 @@ app.all("*", async () => {
   throw new NotFoundError();
 });
 
-app.use(errorHandler);
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  errorHandler(err, req, res, next);
+});
 
 export { app };

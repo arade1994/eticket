@@ -1,5 +1,9 @@
-import express from "express";
-import { currentUser, requireAuth, validateRequest } from "@radetickets/shared";
+import express, { type Request, type Response } from "express";
+import {
+  currentUser,
+  requireAuth,
+  validateRequest,
+} from "@radetickets/factory";
 
 import { User } from "../models/User";
 
@@ -10,7 +14,7 @@ router.get(
   currentUser,
   requireAuth,
   validateRequest,
-  async (req, res) => {
+  async (req: Request, res: Response) => {
     const users = await User.find();
 
     res.status(200).send(users);

@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import { body } from "express-validator";
-import { BadRequestError, validateRequest } from "@radetickets/shared";
+import { BadRequestError, validateRequest } from "@radetickets/factory";
 
 import { User } from "../models/User";
 

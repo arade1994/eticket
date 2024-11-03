@@ -1,6 +1,10 @@
 import express, { Request, Response } from "express";
 import { body } from "express-validator";
-import { currentUser, requireAuth, validateRequest } from "@radetickets/shared";
+import {
+  currentUser,
+  requireAuth,
+  validateRequest,
+} from "@radetickets/factory";
 
 import { Rating } from "../models/Rating";
 

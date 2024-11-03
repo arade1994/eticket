@@ -7,7 +7,7 @@ import {
   OrderStatus,
   requireAuth,
   validateRequest,
-} from "@radetickets/shared";
+} from "@radetickets/factory";
 
 import { Order } from "../models/Order";
 import { OrderCancelledPublisher } from "../events/publishers/OrderCancelledPublisher";
