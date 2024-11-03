@@ -1,9 +1,10 @@
 import Link from "next/link";
+
 import { type User } from "../types/user";
 import ProfileIcon from "./ProfileIcon";
 
 interface Props {
-  currentUser: User;
+  currentUser?: User;
 }
 
 interface LinkMap {

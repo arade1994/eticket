@@ -72,7 +72,7 @@
     "components/Header.tsx",
     "api/buildClient.ts",
     "pages/_app.js",
-    "hooks/useRequest.js"
+    "hooks/useRequest.jsx"
   ],
   "exclude": ["node_modules"]
 }

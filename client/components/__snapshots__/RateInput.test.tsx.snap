@@ -1,0 +1,88 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<RateInput /> > It should render rate input component as expected 1`] = `
+<body>
+  <div>
+    <div
+      class="rating"
+    >
+      <input
+        id="star4"
+        name="rating"
+        type="radio"
+        value="4"
+      />
+      <label
+        class="star"
+        for="star4"
+      >
+        ★
+      </label>
+      <input
+        id="star3"
+        name="rating"
+        type="radio"
+        value="3"
+      />
+      <label
+        class="star"
+        for="star3"
+      >
+        ★
+      </label>
+      <input
+        id="star2"
+        name="rating"
+        type="radio"
+        value="2"
+      />
+      <label
+        class="star"
+        for="star2"
+      >
+        ★
+      </label>
+      <input
+        id="star1"
+        name="rating"
+        type="radio"
+        value="1"
+      />
+      <label
+        class="star"
+        for="star1"
+      >
+        ★
+      </label>
+      <input
+        id="star0"
+        name="rating"
+        type="radio"
+        value="0"
+      />
+      <label
+        class="star"
+        for="star0"
+      >
+        ★
+      </label>
+    </div>
+    <div
+      class="comment"
+    >
+      <label
+        for="comment"
+      >
+        Tell us more:
+      </label>
+      <br />
+      <textarea
+        id="comment"
+        name="comment"
+      >
+        Test comment
+      </textarea>
+    </div>
+  </div>
+</body>
+`;
