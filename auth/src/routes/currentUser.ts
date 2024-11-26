@@ -1,5 +1,5 @@
 import express, { type Request, type Response } from "express";
-import { validateRequest } from "@radetickets/factory";
+import { currentUser, validateRequest } from "@radetickets/factory";
 
 import { User } from "../models/User";
 
@@ -7,6 +7,7 @@ const router = express.Router();
 
 router.get(
   "/api/users/currentuser",
+  currentUser,
   validateRequest,
   async (req: Request, res: Response) => {
     let currentUser;
