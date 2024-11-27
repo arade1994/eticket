@@ -137,11 +137,19 @@ HomePage.getInitialProps = async (
   context: NextPageContext,
   client: AxiosInstance
 ) => {
-  const { data: tickets } = await client.get("/api/tickets");
+  const isDemoMode = !!process.env.NEXT_PUBLIC_DEMO_MODE;
 
-  const { data: users } = await client.get("/api/users");
+  const { data: tickets } = await client.get(
+    !isDemoMode ? "/api/tickets" : "/tickets"
+  );
 
-  const { data: ratings } = await client.get("/api/users/ratings");
+  const { data: users } = await client.get(
+    !isDemoMode ? "/api/users" : "/users"
+  );
+
+  const { data: ratings } = await client.get(
+    !isDemoMode ? "/api/users/ratings" : "/ratings"
+  );
 
   return { tickets, users, ratings };
 };

@@ -18,7 +18,9 @@ interface Props {
 
 const TicketView = ({ ticket, users, ratings, currentUser }: Props) => {
   const { sendRequest, errors } = useRequest({
-    url: "/api/orders",
+    url: !process.env.NEXT_PUBLIC_DEMO_MODE
+      ? "/api/orders"
+      : "http://localhost:3000/orders",
     method: "post",
     body: {
       ticketId: ticket.id,
@@ -64,13 +66,21 @@ TicketView.getInitialProps = async (
   context: NextPageContext,
   client: AxiosInstance
 ) => {
+  const isDemoMode = !!process.env.NEXT_PUBLIC_DEMO_MODE;
+
   const { ticketId } = context.query;
 
-  const { data } = await client.get(`/api/tickets/${ticketId}`);
+  const { data } = await client.get(
+    !isDemoMode ? `/api/tickets/${ticketId}` : `/tickets/${ticketId}`
+  );
 
-  const { data: users } = await client.get("/api/users");
+  const { data: users } = await client.get(
+    !isDemoMode ? "/api/users" : "/users"
+  );
 
-  const { data: ratings } = await client.get("/api/users/ratings");
+  const { data: ratings } = await client.get(
+    !isDemoMode ? "/api/users/ratings" : "/ratings"
+  );
 
   return { ticket: data, users, ratings };
 };

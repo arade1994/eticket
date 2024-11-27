@@ -7,6 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "../style/style.scss";
 
+require("dotenv").config();
+
 const AppComponent = ({ Component, pageProps, currentUser }) => {
   return (
     <div className="page">
@@ -31,8 +33,11 @@ const AppComponent = ({ Component, pageProps, currentUser }) => {
 };
 
 AppComponent.getInitialProps = async (appContext) => {
+  const isDemoMode = !!process.env.NEXT_PUBLIC_DEMO_MODE;
   const client = buildClient(appContext.ctx);
-  const { data } = await client.get("/api/users/currentuser");
+  const { data } = await client.get(
+    !isDemoMode ? "/api/users/currentuser" : "/currentUser"
+  );
 
   let pageProps = {};
   if (appContext.Component.getInitialProps) {

@@ -26,7 +26,9 @@ const UserList = ({ users, tickets, currentUser }: Props) => {
   const [selectedUserId, setSelectedUserId] = useState("");
   const [searchText, setSearchText] = useState("");
   const { sendRequest } = useRequest({
-    url: "/api/users/ratings",
+    url: !process.env.NEXT_PUBLIC_DEMO_MODE
+      ? "/api/users/ratings"
+      : "http://localhost:3000/ratings",
     method: "get",
     body: {},
     onSuccess: (data: Rating[]) => {
@@ -192,9 +194,15 @@ UserList.getInitialProps = async (
   context: NextPageContext,
   client: AxiosInstance
 ) => {
-  const { data: tickets } = await client.get("/api/tickets");
+  const isDemoMode = !!process.env.NEXT_PUBLIC_DEMO_MODE;
 
-  const { data: users } = await client.get("/api/users");
+  const { data: tickets } = await client.get(
+    !isDemoMode ? "/api/tickets" : "/tickets"
+  );
+
+  const { data: users } = await client.get(
+    !isDemoMode ? "/api/users" : "/users"
+  );
 
   return { tickets, users };
 };

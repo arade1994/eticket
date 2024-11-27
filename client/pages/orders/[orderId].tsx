@@ -14,7 +14,9 @@ interface Props {
 const OrderView = ({ order, currentUser }: Props) => {
   const [time, setTime] = useState(0);
   const { sendRequest, errors } = useRequest({
-    url: "/api/payments",
+    url: !process.env.NEXT_PUBLIC_DEMO_MODE
+      ? "/api/payments"
+      : "http://localhost:3000/payments",
     method: "post",
     body: {
       orderId: order.id,
@@ -57,9 +59,13 @@ OrderView.getInitialProps = async (
   context: NextPageContext,
   client: AxiosInstance
 ) => {
+  const isDemoMode = process.env.NEXT_PUBLIC_DEMO_MODE;
+
   const { orderId } = context.query;
 
-  const { data } = await client.get(`/api/orders/${orderId}`);
+  const { data } = await client.get(
+    !isDemoMode ? `/api/orders/${orderId}` : `/orders/${orderId}`
+  );
 
   return { order: data };
 };

@@ -10,6 +10,7 @@ export const useRequest = ({ url, method, body, onSuccess }) => {
     try {
       setIsLoading(true);
       setErrors(null);
+
       const response = await axios[method](url, { ...body, ...props });
 
       if (onSuccess) onSuccess(response.data);
