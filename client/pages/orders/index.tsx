@@ -154,9 +154,15 @@ OrderList.getInitialProps = async (
   context: NextPageContext,
   client: AxiosInstance
 ) => {
-  const { data: orders } = await client.get("/api/orders");
+  const isDemoMode = !!process.env.NEXT_PUBLIC_DEMO_MODE;
 
-  const { data: users } = await client.get("/api/users");
+  const { data: orders } = await client.get(
+    !isDemoMode ? "/api/orders" : "/orders"
+  );
+
+  const { data: users } = await client.get(
+    !isDemoMode ? "/api/users" : "/users"
+  );
 
   return { orders, users };
 };
