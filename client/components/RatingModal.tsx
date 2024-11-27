@@ -23,7 +23,9 @@ const RatingModal = ({
   const [rate, setRate] = useState(5);
   const [comment, setComment] = useState("");
   const { sendRequest } = useRequest({
-    url: "/api/users/rate",
+    url: !process.env.NEXT_PUBLIC_DEMO_MODE
+      ? "/api/users/rate"
+      : "http://localhost:3000/ratings",
     method: "post",
     body: { rate, comment, userId: currentUserId, ratedUserId: selectedUserId },
     onSuccess: () => {},

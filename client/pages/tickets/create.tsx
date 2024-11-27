@@ -16,7 +16,9 @@ const CreateTicket: React.FC = () => {
   const [category, setCategory] = useState(categories[0]);
 
   const { sendRequest, errors } = useRequest({
-    url: "/api/tickets",
+    url: !process.env.NEXT_PUBLIC_DEMO_MODE
+      ? "/api/tickets"
+      : "http://localhost:3000/tickets",
     method: "post",
     body: { title, price, category: category.value },
     onSuccess: () => {

@@ -1,0 +1,74 @@
+{
+  "currentUser": {
+    "currentUser": {
+      "id": "sfg4gwg5stgsggw4",
+      "firstName": "Ante",
+      "lastName": "Rade",
+      "age": 30,
+      "email": "anterade99@gmail.com",
+      "password": "anterade1994"
+    }
+  },
+  "users": [
+    {
+      "id": "huw9ufsh9q0fhr0g",
+      "firstName": "Marcus",
+      "lastName": "Millford",
+      "age": 23,
+      "email": "marcusmill@gmail.com",
+      "password": "marcus123"
+    },
+    {
+      "id": "hhrgrs9g04hsghhr",
+      "firstName": "Matt",
+      "lastName": "Fitzgerald",
+      "age": 43,
+      "email": "fitz89@gmail.com",
+      "password": "fitzy123"
+    },
+    {
+      "id": "eaegsgsg4sghds5g",
+      "firstName": "Marin",
+      "lastName": "Miletić",
+      "age": 45,
+      "email": "mili45@gmail.com",
+      "password": "mili123"
+    },
+    {
+      "id": "ydgsrgww422g4wgr",
+      "firstName": "John",
+      "lastName": "Washington",
+      "age": 64,
+      "email": "wash@gmail.com",
+      "password": "wash123"
+    },
+    {
+      "id": "sfg4gwg5stgsggw4",
+      "firstName": "Ante",
+      "lastName": "Rade",
+      "age": 30,
+      "email": "anterade99@gmail.com",
+      "password": "anterade1994"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "2f3b",
+      "title": "Basketball Game",
+      "userId": "sfg4gwg5stgsggw4",
+      "price": "430.00",
+      "category": "sport game"
+    }
+  ],
+  "ratings": [
+    {
+      "id": "2a37",
+      "rate": 5,
+      "comment": "Proven user, everything on time and very precise",
+      "userId": "sfg4gwg5stgsggw4",
+      "ratedUserId": "huw9ufsh9q0fhr0g"
+    }
+  ],
+  "payments": [],
+  "orders": []
+}
