@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import FormErrors from "../components/FormErrors/FormErrors";
 
 export const useRequest = ({ url, method, body, onSuccess }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState(null);
 
-  const sendRequest = async (props) => {
+  const sendRequest = useCallback(async (props) => {
     try {
       setIsLoading(true);
       setErrors(null);
@@ -18,18 +19,9 @@ export const useRequest = ({ url, method, body, onSuccess }) => {
       return response.data;
     } catch (error) {
       toast.error(error.message);
-      setErrors(
-        <div className="alert alert-danger">
-          <h4>Form validation error!</h4>
-          <ul className="my-0">
-            {error.response.data.errors?.map((error) => (
-              <li key={error.message}>{error.message}</li>
-            ))}
-          </ul>
-        </div>
-      );
+      setErrors(<FormErrors errors={error.response.data.errors} />);
     }
-  };
+  }, []);
 
   return { sendRequest, errors, isLoading };
 };

@@ -1,0 +1,80 @@
+.createTicketModal {
+  width: 400px;
+  margin: auto;
+  background: whitesmoke;
+  margin-top: 150px;
+  box-shadow: 1px 1px 8px gray;
+
+  & .createTicketContainer {
+    padding: 30px;
+
+    & .createTicketFormHeader {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: flex-end;
+      margin-bottom: 30px;
+      opacity: 0.7;
+
+      & h2 {
+        margin: 0;
+        align-self: flex-start;
+      }
+
+      & .exitButton {
+        font-size: 28px;
+        cursor: pointer;
+
+        & p {
+          margin: 0;
+        }
+      }
+    }
+
+    & .createTicketForm {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    & .formGroup {
+      display: flex;
+      flex-direction: column;
+
+      & .formLabel {
+        color: gray;
+      }
+
+      & .formControl {
+        height: 25px;
+        font-size: 14px;
+        border: none;
+        box-shadow: 0px 0px 3px gray;
+      }
+    }
+
+    & .formActions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+
+      & .cancelBtn {
+        width: 120px;
+        height: 35px;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      & .submitBtn {
+        width: 120px;
+        height: 35px;
+        border-radius: 5px;
+        background-color: #036481;
+        color: #fff;
+        font-weight: bold;
+        font-size: 14px;
+        cursor: pointer;
+      }
+    }
+  }
+}

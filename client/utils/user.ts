@@ -25,3 +25,27 @@ export const getIsUserRated = (
   ratings.filter(
     (rating) => rating.ratedUserId === userId && rating.userId === currentUserId
   )?.length;
+
+export const isRatingDisabled = (
+  userId: string,
+  currentUserId: string,
+  ratings: Rating[]
+) =>
+  userId === currentUserId ||
+  getIsUserRated(userId, ratings, currentUserId) !== 0;
+
+export const getUserByUserId = (userId: string, users: User[]) =>
+  users.find((user) => user.id === userId);
+
+export const filterUsers = (users: User[], searchText: string) => {
+  let filteredUsers = [...users];
+
+  if (searchText.trim() !== "")
+    filteredUsers = filteredUsers.filter(
+      (user) =>
+        user.firstName.toLowerCase().includes(searchText) ||
+        user.lastName.toLowerCase().includes(searchText)
+    );
+
+  return filteredUsers;
+};

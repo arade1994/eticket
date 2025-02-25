@@ -1,0 +1,15 @@
+.ticketFilters {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+
+  & .resetFilters {
+    cursor: pointer;
+    align-self: center;
+    color: rgb(172, 14, 14);
+
+    &:hover {
+      color: rgb(107, 11, 11);
+    }
+  }
+}

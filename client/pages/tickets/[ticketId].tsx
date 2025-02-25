@@ -1,13 +1,14 @@
 import Router from "next/router";
 import { useRequest } from "../../hooks/useRequest";
 import { type Ticket } from "../../types/ticket";
-import { type Order } from "../../types/order";
 import { type NextPageContext } from "next";
 import { type AxiosInstance } from "axios";
 import { toast } from "react-toastify";
 import { type Rating, type User } from "../../types/user";
 import { useMemo } from "react";
 import { getUserRating } from "../../utils/user";
+import { calculateExpirationDate } from "../../utils/date";
+import { Order } from "../../types/order";
 
 interface Props {
   ticket: Ticket;
@@ -24,6 +25,12 @@ const TicketView = ({ ticket, users, ratings, currentUser }: Props) => {
     method: "post",
     body: {
       ticketId: ticket.id,
+      ...(process.env.NEXT_PUBLIC_DEMO_MODE && {
+        userId: currentUser.id,
+        expiresAt: calculateExpirationDate(),
+        status: "created",
+        ticket,
+      }),
     },
     onSuccess: (order: Order) => {
       toast.success("Order created!");

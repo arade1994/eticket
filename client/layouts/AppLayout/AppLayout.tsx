@@ -9,6 +9,7 @@ import { Ticket } from "../../types/ticket";
 import classes from "./AppLayout.module.scss";
 import "react-toastify/dist/ReactToastify.css";
 import Navigation from "../../components/Navigation/Navigation";
+import NotificationCenter from "../../components/NotificationCenter/NotificationCenter";
 
 interface Props {
   Component: ElementType;
@@ -26,23 +27,11 @@ const AppLayout: React.FC<React.PropsWithChildren<Props>> = ({
   currentUser,
 }) => {
   return (
-    // <div className="app">
-    //   <div className="container">
-    //     <Component currentUser={currentUser} {...pageProps} />
-    //   </div>
-    //
-    // </div>
     <div className={classes.app}>
-      <header className={classes.headerContainer}>
-        <Header currentUser={currentUser} />
-      </header>
-      <aside className={classes.navigationContainer}>
-        <Navigation />
-      </aside>
-      <main className={classes.contentContainer}>
-        <Component currentUser={currentUser} {...pageProps} />
-      </main>
-      <aside className={classes.notificationsContainer}></aside>
+      <Header currentUser={currentUser} />
+      {currentUser && <Navigation />}
+      <Component currentUser={currentUser} {...pageProps} />
+      {currentUser && <NotificationCenter />}
       <ToastContainer
         position="bottom-right"
         autoClose={5000}

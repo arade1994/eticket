@@ -1,46 +1,45 @@
-.header {
-  padding: 5px 25px;
-  background: linear-gradient(
-    90deg,
-    rgba(107, 148, 161, 1) 0%,
-    rgba(7, 64, 82, 1) 100%
-  );
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.headerContainer {
+  grid-column: 1/-1;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
 
-  & .logo {
-    font-size: 26px;
-    color: white;
-    text-decoration: none;
-  }
-
-  & .linksContainer {
+  & .navigation {
+    padding: 5px 25px;
+    background: linear-gradient(
+      90deg,
+      rgba(107, 148, 161, 1) 0%,
+      rgba(7, 64, 82, 1) 100%
+    );
     display: flex;
-    gap: 20px;
-    padding: 0 10px 0 10px;
+    justify-content: space-between;
+    align-items: center;
 
-    & a {
+    & .logo {
+      font-size: 26px;
       color: white;
       text-decoration: none;
-      border-radius: 5px;
-      font-size: 20px;
-
-      &:hover {
-        background: linear-gradient(
-          90deg,
-          rgba(11, 111, 184, 1) 0%,
-          rgba(11, 111, 184, 1) 100%
-        );
-      }
     }
 
-    & .activeLink {
-      background: linear-gradient(
-        90deg,
-        rgb(7, 72, 129) 0%,
-        rgba(30, 82, 128, 0.95) 100%
-      );
+    & .linksContainer {
+      display: flex;
+      gap: 20px;
+      padding: 0 10px 0 10px;
+
+      & a {
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 20px;
+
+        &:hover {
+          color: rgb(215, 218, 217);
+        }
+      }
+
+      & .activeLink {
+        color: rgb(123, 206, 226);
+      }
     }
   }
 }

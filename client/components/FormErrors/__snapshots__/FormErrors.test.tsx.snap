@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<FormErrors /> > it should display box with errors enlisted 1`] = `
+<body>
+  <div>
+    <div
+      class="_formErrors_b88b92"
+    >
+      <h4>
+        Form validation error!
+      </h4>
+      <ul>
+        <li>
+          First name should be at least two characters long
+        </li>
+        <li>
+          Age must be a positive number
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+`;

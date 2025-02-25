@@ -1,0 +1,54 @@
+.ratingsModalPreview {
+  width: 400px;
+  height: fit-content;
+  margin: auto;
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: rgb(239, 241, 243);
+  padding: 20px;
+  box-shadow: 1px 1px 8px gray;
+
+  & .ratingsModalPreviewHeader {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    margin-bottom: 30px;
+    opacity: 0.7;
+
+    & h2 {
+      margin: 0;
+      align-self: flex-start;
+    }
+
+    & .exitButton {
+      font-size: 28px;
+      cursor: pointer;
+
+      & p {
+        margin: 0;
+      }
+    }
+  }
+
+  & .ratingsList {
+    & .rating {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+      background-color: white;
+      padding: 10px;
+
+      & h5 {
+        color: #036481;
+        margin: 0;
+      }
+
+      & .rateContainer {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

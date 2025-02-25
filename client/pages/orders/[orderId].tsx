@@ -48,7 +48,7 @@ const OrderView = ({ order, currentUser }: Props) => {
       <StripeCheckout
         token={({ id }) => sendRequest({ token: id })}
         stripeKey="pk_test_51JrojjLiD4aXIcPwSJBm4pkotUCjfyCVlsnJdc6uIBNLopH8k0nCDSVs5ISglERjFCsnbEM5yzhatKpxfS48Olxa00aBjCpYRt"
-        amount={order.ticket.price * 100}
+        amount={order?.ticket?.price * 100}
         email={currentUser.email}
       />
     </div>

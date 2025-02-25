@@ -1,0 +1,23 @@
+.starsContainer {
+  display: flex;
+  margin-left: 7px;
+
+  & .rate {
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+
+    & input {
+      display: none;
+    }
+
+    & .star {
+      cursor: pointer;
+    }
+
+    & .checked {
+      color: orange;
+    }
+  }
+}
