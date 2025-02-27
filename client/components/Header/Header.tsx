@@ -13,8 +13,6 @@ interface Props {
 export default ({ currentUser }: Props) => {
   const pathname = usePathname();
 
-  console.log(currentUser);
-
   return (
     <header className={classes.headerContainer}>
       <nav className={classes.navigation}>

@@ -36,6 +36,8 @@ const SignUpForm: React.FC = () => {
       <div className={classes.formGroup}>
         <label className={classes.formLabel}>First Name:</label>
         <input
+          id="firstName"
+          type="text"
           className={classes.formControl}
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
@@ -44,6 +46,8 @@ const SignUpForm: React.FC = () => {
       <div className={classes.formGroup}>
         <label className={classes.formLabel}>Last Name:</label>
         <input
+          id="lastName"
+          type="text"
           className={classes.formControl}
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
@@ -52,6 +56,7 @@ const SignUpForm: React.FC = () => {
       <div className={classes.formGroup}>
         <label className={classes.formLabel}>Age:</label>
         <input
+          id="age"
           className={classes.formControl}
           type="number"
           value={age}
@@ -61,6 +66,8 @@ const SignUpForm: React.FC = () => {
       <div className={classes.formGroup}>
         <label className={classes.formLabel}>Email Address:</label>
         <input
+          id="email"
+          type="email"
           className={classes.formControl}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -69,6 +76,7 @@ const SignUpForm: React.FC = () => {
       <div className={classes.formGroup}>
         <label className={classes.formLabel}>Password:</label>
         <input
+          id="password"
           className={classes.formControl}
           type="password"
           value={password}

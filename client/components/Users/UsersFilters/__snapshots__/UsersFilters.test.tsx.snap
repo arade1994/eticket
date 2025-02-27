@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<UsersFilters /> > it should match a snapshot when rendered by default 1`] = `
+<body>
+  <div>
+    <div
+      class="_usersFilters_9c49f3"
+    >
+      <input
+        class="_searchInput_9c49f3"
+        id="search"
+        placeholder="Insert first name or last"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</body>
+`;

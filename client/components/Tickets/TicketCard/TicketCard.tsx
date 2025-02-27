@@ -23,6 +23,7 @@ const TicketCard: React.FC<React.PropsWithChildren<Props>> = ({
         className={classes.coverPhoto}
         src={coverImage}
         alt="Ticket cover photo"
+        width={200}
         height={200}
       />
       <h4 className={classes.ticketTitle}>{ticket.title}</h4>

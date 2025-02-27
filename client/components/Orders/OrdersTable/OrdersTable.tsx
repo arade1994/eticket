@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { Order } from "../../../types/order";
-import { getExpiresTimeFormat } from "../../../utils/date";
+import { formatDateToHHMM } from "../../../utils/date";
 import { User } from "../../../types/user";
 import classes from "./OrdersTable.module.scss";
 import Link from "next/link";
@@ -51,7 +51,7 @@ const OrdersTable: React.FC<React.PropsWithChildren<Props>> = ({
             </td>
             <td className={classes.tableItem}>{order?.status}</td>
             <td className={classes.tableItem}>
-              {getExpiresTimeFormat(order?.expiresAt)}
+              {formatDateToHHMM(order?.expiresAt)}
             </td>
             <td className={classes.tableItem}>
               <Link

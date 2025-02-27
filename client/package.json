@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "test": "vitest --watch",
-    "test:ci": "vitest",
+    "test:ci": "vitest run",
     "db-server": "npx json-server --watch ./mock/db.json"
   },
   "dependencies": {

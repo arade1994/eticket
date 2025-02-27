@@ -1,0 +1,50 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<SignInForm /> > it should render sign in form as expected 1`] = `
+<body>
+  <div>
+    <form
+      class="_signInForm_070d36"
+    >
+      <h1>
+        Sign In
+      </h1>
+      <div
+        class="_formGroup_070d36"
+      >
+        <label
+          class="_formLabel_070d36"
+        >
+          Email Address:
+        </label>
+        <input
+          class="_formControl_070d36"
+          id="email"
+          type="email"
+          value=""
+        />
+      </div>
+      <div
+        class="_formGroup_070d36"
+      >
+        <label
+          class="_formLabel_070d36"
+        >
+          Password:
+        </label>
+        <input
+          class="_formControl_070d36"
+          id="password"
+          type="password"
+          value=""
+        />
+      </div>
+      <button
+        class="_submitBtn_070d36"
+      >
+        Sign In
+      </button>
+    </form>
+  </div>
+</body>
+`;

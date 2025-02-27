@@ -16,7 +16,7 @@ interface Props {
   users: User[];
 }
 
-const TicketsContent = ({ ratings, tickets, users }: Props) => {
+const TicketsLayout = ({ ratings, tickets, users }: Props) => {
   const [searchText, setSearchText] = useState("");
   const [category, setCategory] = useState<{ value: string; label: string }>({
     value: "-",
@@ -126,4 +126,4 @@ const TicketsContent = ({ ratings, tickets, users }: Props) => {
   );
 };
 
-export default TicketsContent;
+export default TicketsLayout;

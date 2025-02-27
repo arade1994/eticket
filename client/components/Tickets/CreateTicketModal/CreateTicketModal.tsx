@@ -58,7 +58,7 @@ const CreateTicketModal: React.FC<React.PropsWithChildren<Props>> = ({
       <div className={classes.createTicketContainer}>
         <div className={classes.createTicketFormHeader}>
           <h2>Create a new ticket</h2>
-          <div className={classes.exitButton} onClick={onClose}>
+          <div id="exitBtn" className={classes.exitButton} onClick={onClose}>
             <p>&times;</p>
           </div>
         </div>
@@ -92,7 +92,7 @@ const CreateTicketModal: React.FC<React.PropsWithChildren<Props>> = ({
               Category
             </label>
             <Select
-              id="category"
+              id="categorySelect"
               value={category}
               onChange={(option) =>
                 setCategory({

@@ -62,12 +62,14 @@ const TicketFilters = ({
   return (
     <div className={classes.ticketFilters}>
       <input
+        id="title"
         type="text"
         placeholder="Insert title"
         value={searchText}
         onChange={onChangeSearchText}
       />
       <Select
+        id="categorySelect"
         value={category}
         onChange={onChangeCategory}
         options={[
@@ -76,6 +78,7 @@ const TicketFilters = ({
         ]}
       />
       <Select
+        id="userSelect"
         value={selectedUser}
         onChange={onSelectUser}
         options={[{ value: "-", label: "Any user" }, ...userOptions]}

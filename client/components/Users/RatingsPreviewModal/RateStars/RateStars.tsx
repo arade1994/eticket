@@ -13,7 +13,6 @@ const RateStars = ({ rate }: Props) => {
           <label
             aria-label="star"
             htmlFor={`star${index}`}
-            // className={`star ${index + 1 <= rate ? "checked" : ""}`}
             className={cx(
               classes.star,
               index + 1 <= rate ? classes.checked : ""

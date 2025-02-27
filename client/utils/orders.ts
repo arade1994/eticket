@@ -1,5 +1,13 @@
 import { Order } from "../types/order";
 
+/**
+ * Filters orders by ticket title, user and status
+ * @param orders - list of orders
+ * @param searchText - ticket title
+ * @param userId - selected user id
+ * @param status - selected order status
+ * @returns filtered list of orders
+ */
 export const filterOrders = (
   orders: Order[],
   searchText: string,
@@ -10,7 +18,7 @@ export const filterOrders = (
 
   if (searchText.trim() !== "")
     filteredOrders = filteredOrders.filter((order) =>
-      order.ticket.title.toLowerCase().includes(searchText)
+      order.ticket.title.toLowerCase().includes(searchText.toLowerCase())
     );
 
   if (userId !== "-")

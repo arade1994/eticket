@@ -1,0 +1,126 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<OrdersTable /> > it should render selected orders inside a table 1`] = `
+<body>
+  <div>
+    <table
+      class="_ordersTable_eb8f56"
+    >
+      <thead
+        class="_ordersTableHeader_eb8f56"
+      >
+        <th
+          class="_headerData_eb8f56"
+        >
+          Ticket title
+        </th>
+        <th
+          class="_headerData_eb8f56"
+        >
+          Price($)
+        </th>
+        <th
+          class="_headerData_eb8f56"
+        >
+          User
+        </th>
+        <th
+          class="_headerData_eb8f56"
+        >
+          Status
+        </th>
+        <th
+          class="_headerData_eb8f56"
+        >
+          Expires at
+        </th>
+        <th
+          class="_headerData_eb8f56"
+        >
+          Actions
+        </th>
+      </thead>
+      <tbody>
+        <tr
+          class="_ordersTableRow_eb8f56"
+        >
+          <td
+            class="_tableItem_eb8f56"
+          >
+            Football Match
+          </td>
+          <td
+            class="_tableItem_eb8f56"
+          >
+            230.00
+          </td>
+          <td
+            class="_tableItem_eb8f56"
+          >
+            Ante Rade
+          </td>
+          <td
+            class="_tableItem_eb8f56"
+          >
+            created
+          </td>
+          <td
+            class="_tableItem_eb8f56"
+          >
+            19:37
+          </td>
+          <td
+            class="_tableItem_eb8f56"
+          >
+            <a
+              class="_openOrderLink_eb8f56"
+              href="/orders/5ccb"
+            >
+              Open
+            </a>
+          </td>
+        </tr>
+        <tr
+          class="_ordersTableRow_eb8f56"
+        >
+          <td
+            class="_tableItem_eb8f56"
+          >
+            Bethoveen Concerto
+          </td>
+          <td
+            class="_tableItem_eb8f56"
+          >
+            540.00
+          </td>
+          <td
+            class="_tableItem_eb8f56"
+          >
+            Ante Rade
+          </td>
+          <td
+            class="_tableItem_eb8f56"
+          >
+            created
+          </td>
+          <td
+            class="_tableItem_eb8f56"
+          >
+            19:37
+          </td>
+          <td
+            class="_tableItem_eb8f56"
+          >
+            <a
+              class="_openOrderLink_eb8f56"
+              href="/orders/6253"
+            >
+              Open
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+`;

@@ -64,8 +64,6 @@ const UsersLayout: React.FC<React.PropsWithChildren<Props>> = ({
     [users, searchText]
   );
 
-  const isFiltersApplied = searchText.trim() !== "";
-
   useEffect(() => {
     sendRequest();
   }, []);
@@ -73,7 +71,6 @@ const UsersLayout: React.FC<React.PropsWithChildren<Props>> = ({
   return (
     <div className={classes.usersLayout}>
       <UsersFilters
-        isFiltersApplied={isFiltersApplied}
         searchText={searchText}
         onChangeSearchText={handleChangeSearchText}
         onResetFilters={handleResetFilters}
@@ -98,7 +95,7 @@ const UsersLayout: React.FC<React.PropsWithChildren<Props>> = ({
       )}
       {showRatingsModalList && (
         <RatingModalList
-          open={showRatingsModalList}
+          isOpen={showRatingsModalList}
           ratings={ratings}
           users={users}
           userId={selectedUserId}

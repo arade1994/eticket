@@ -1,0 +1,95 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<SignUpForm /> > it should render sign up form as expected 1`] = `
+<body>
+  <div>
+    <form
+      class="_signUpForm_99664b"
+    >
+      <h1>
+        Sign Up
+      </h1>
+      <div
+        class="_formGroup_99664b"
+      >
+        <label
+          class="_formLabel_99664b"
+        >
+          First Name:
+        </label>
+        <input
+          class="_formControl_99664b"
+          id="firstName"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="_formGroup_99664b"
+      >
+        <label
+          class="_formLabel_99664b"
+        >
+          Last Name:
+        </label>
+        <input
+          class="_formControl_99664b"
+          id="lastName"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="_formGroup_99664b"
+      >
+        <label
+          class="_formLabel_99664b"
+        >
+          Age:
+        </label>
+        <input
+          class="_formControl_99664b"
+          id="age"
+          type="number"
+          value="0"
+        />
+      </div>
+      <div
+        class="_formGroup_99664b"
+      >
+        <label
+          class="_formLabel_99664b"
+        >
+          Email Address:
+        </label>
+        <input
+          class="_formControl_99664b"
+          id="email"
+          type="email"
+          value=""
+        />
+      </div>
+      <div
+        class="_formGroup_99664b"
+      >
+        <label
+          class="_formLabel_99664b"
+        >
+          Password:
+        </label>
+        <input
+          class="_formControl_99664b"
+          id="password"
+          type="password"
+          value=""
+        />
+      </div>
+      <button
+        class="_submitBtn_99664b"
+      >
+        Sign Up
+      </button>
+    </form>
+  </div>
+</body>
+`;

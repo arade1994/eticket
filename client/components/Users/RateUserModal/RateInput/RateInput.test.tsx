@@ -1,8 +1,7 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, test, vi } from "vitest";
 import { userEvent } from "@testing-library/user-event";
-
-import RateInput from "./Users/RatingModal/RateInput/RateInput";
+import RateInput from "./RateInput";
 
 const setCommentMock = vi.fn();
 const setRateMock = vi.fn();
@@ -14,8 +13,8 @@ describe("<RateInput />", () => {
     const { baseElement } = render(
       <RateInput
         comment="Test comment"
-        setComment={setCommentMock}
-        setRate={setRateMock}
+        onChangeComment={setCommentMock}
+        onChangeRate={setRateMock}
       />
     );
 
@@ -30,8 +29,8 @@ describe("<RateInput />", () => {
     render(
       <RateInput
         comment="Test comment"
-        setComment={setCommentMock}
-        setRate={setRateMock}
+        onChangeComment={setCommentMock}
+        onChangeRate={setRateMock}
       />
     );
 
@@ -47,8 +46,8 @@ describe("<RateInput />", () => {
     const { container } = render(
       <RateInput
         comment="Test comment"
-        setComment={setCommentMock}
-        setRate={setRateMock}
+        onChangeComment={setCommentMock}
+        onChangeRate={setRateMock}
       />
     );
 

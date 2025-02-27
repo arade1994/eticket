@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import Router from "next/router";
 import classes from "./SIgnInForm.module.scss";
 
-const SignIn: React.FC = () => {
+const SignInForm: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -33,6 +33,8 @@ const SignIn: React.FC = () => {
       <div className={classes.formGroup}>
         <label className={classes.formLabel}>Email Address:</label>
         <input
+          id="email"
+          type="email"
           className={classes.formControl}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -41,6 +43,7 @@ const SignIn: React.FC = () => {
       <div className={classes.formGroup}>
         <label className={classes.formLabel}>Password:</label>
         <input
+          id="password"
           className={classes.formControl}
           type="password"
           value={password}
@@ -53,4 +56,4 @@ const SignIn: React.FC = () => {
   );
 };
 
-export default SignIn;
+export default SignInForm;

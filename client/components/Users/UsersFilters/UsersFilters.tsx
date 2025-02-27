@@ -2,21 +2,22 @@ import { ChangeEvent } from "react";
 import classes from "./UsersFilters.module.scss";
 
 interface Props {
-  isFiltersApplied: boolean;
   searchText: string;
   onChangeSearchText: (event: ChangeEvent<HTMLInputElement>) => void;
   onResetFilters: () => void;
 }
 
 const UsersFilters: React.FC<React.PropsWithChildren<Props>> = ({
-  isFiltersApplied,
   searchText,
   onChangeSearchText,
   onResetFilters,
 }) => {
+  const isFiltersApplied = searchText.trim() !== "";
+
   return (
     <div className={classes.usersFilters}>
       <input
+        id="search"
         className={classes.searchInput}
         type="text"
         placeholder="Insert first name or last"

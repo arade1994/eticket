@@ -5,14 +5,20 @@ import RateStars from "./RateStars/RateStars";
 import classes from "./RatingsModalPreview.module.scss";
 
 interface Props {
-  open: boolean;
+  isOpen: boolean;
   ratings: Rating[];
   users: User[];
   userId: string;
   onClose: () => void;
 }
 
-const RatingModalList = ({ open, ratings, users, userId, onClose }: Props) => {
+const RatingsPreviewModal = ({
+  isOpen,
+  ratings,
+  users,
+  userId,
+  onClose,
+}: Props) => {
   const userRatings = useMemo(() => {
     return ratings
       .filter((rating) => rating.ratedUserId === userId)
@@ -30,13 +36,13 @@ const RatingModalList = ({ open, ratings, users, userId, onClose }: Props) => {
 
   return (
     <Modal
-      isOpen={open}
+      isOpen={isOpen}
       appElement={document.createElement("div")}
       className={classes.ratingsModalPreview}
     >
       <div className={classes.ratingsModalPreviewHeader}>
         <h2>Ratings</h2>
-        <div className={classes.exitButton} onClick={onClose}>
+        <div id="exitBtn" className={classes.exitButton} onClick={onClose}>
           <p>&times;</p>
         </div>
       </div>
@@ -58,4 +64,4 @@ const RatingModalList = ({ open, ratings, users, userId, onClose }: Props) => {
   );
 };
 
-export default RatingModalList;
+export default RatingsPreviewModal;
