@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<ProfileIcon /> > it should render profile icon component as expected 1`] = `
+<body>
+  <div>
+    <div
+      class="_profileIcon_a7b94c"
+    >
+      <p
+        style="margin: auto;"
+      >
+        MJ
+      </p>
+    </div>
+  </div>
+</body>
+`;

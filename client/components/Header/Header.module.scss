@@ -1,0 +1,45 @@
+.headerContainer {
+  grid-column: 1/-1;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+
+  & .navigation {
+    padding: 5px 25px;
+    background: linear-gradient(
+      90deg,
+      rgba(107, 148, 161, 1) 0%,
+      rgba(7, 64, 82, 1) 100%
+    );
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & .logo {
+      font-size: 26px;
+      color: white;
+      text-decoration: none;
+    }
+
+    & .linksContainer {
+      display: flex;
+      gap: 20px;
+      padding: 0 10px 0 10px;
+
+      & a {
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 20px;
+
+        &:hover {
+          color: rgb(215, 218, 217);
+        }
+      }
+
+      & .activeLink {
+        color: rgb(123, 206, 226);
+      }
+    }
+  }
+}

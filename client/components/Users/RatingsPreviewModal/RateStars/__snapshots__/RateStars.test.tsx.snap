@@ -1,0 +1,56 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<RateStars /> > It should display rate stars component as expected 1`] = `
+<body>
+  <div>
+    <div
+      class="_starsContainer_21043f"
+    >
+      <div
+        class="_rate_21043f"
+      >
+        <label
+          aria-label="star"
+          class="_star_21043f _checked_21043f"
+          for="star0"
+        >
+          ★
+        </label>
+      </div>
+      <div
+        class="_rate_21043f"
+      >
+        <label
+          aria-label="star"
+          class="_star_21043f _checked_21043f"
+          for="star1"
+        >
+          ★
+        </label>
+      </div>
+      <div
+        class="_rate_21043f"
+      >
+        <label
+          aria-label="star"
+          class="_star_21043f _checked_21043f"
+          for="star2"
+        >
+          ★
+        </label>
+      </div>
+      <div
+        class="_rate_21043f"
+      >
+        <label
+          aria-label="star"
+          class="_star_21043f _checked_21043f"
+          for="star3"
+        >
+          ★
+        </label>
+      </div>
+    </div>
+  </div>
+</body>
+`;

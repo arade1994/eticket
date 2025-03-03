@@ -1,0 +1,204 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<TicketsGrid /> > it should render tickets as expected 1`] = `
+<body>
+  <div>
+    <div
+      class="_ticketsGrid_f2584c"
+    >
+      <a
+        class="_ticketCard_e6793d"
+        href="/tickets/2f3b"
+      >
+        <img
+          alt="Ticket cover photo"
+          class="_coverPhoto_e6793d"
+          data-nimg="1"
+          decoding="async"
+          height="200"
+          loading="lazy"
+          src="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75"
+          srcset="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=256&q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75 2x"
+          style="color: transparent;"
+          width="200"
+        />
+        <h4
+          class="_ticketTitle_e6793d"
+        >
+          Basketball Game
+        </h4>
+        <div
+          class="_ticketPrice_e6793d"
+        >
+          <p>
+            Price:
+          </p>
+          <p>
+            430.00
+            $
+          </p>
+        </div>
+        <div
+          class="_ticketSeller_e6793d"
+        >
+          <p>
+             Sells:
+          </p>
+          <p>
+             Ante Rade (-)
+          </p>
+        </div>
+        <p
+          class="_ticketCategory_e6793d"
+        >
+          sport game
+        </p>
+      </a>
+      <a
+        class="_ticketCard_e6793d"
+        href="/tickets/1c8a"
+      >
+        <img
+          alt="Ticket cover photo"
+          class="_coverPhoto_e6793d"
+          data-nimg="1"
+          decoding="async"
+          height="200"
+          loading="lazy"
+          src="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75"
+          srcset="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=256&q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75 2x"
+          style="color: transparent;"
+          width="200"
+        />
+        <h4
+          class="_ticketTitle_e6793d"
+        >
+          Football Match
+        </h4>
+        <div
+          class="_ticketPrice_e6793d"
+        >
+          <p>
+            Price:
+          </p>
+          <p>
+            230.00
+            $
+          </p>
+        </div>
+        <div
+          class="_ticketSeller_e6793d"
+        >
+          <p>
+             Sells:
+          </p>
+          <p>
+             Marcus Millford (4.7)
+          </p>
+        </div>
+        <p
+          class="_ticketCategory_e6793d"
+        >
+          sport game
+        </p>
+      </a>
+      <a
+        class="_ticketCard_e6793d"
+        href="/tickets/3a4f"
+      >
+        <img
+          alt="Ticket cover photo"
+          class="_coverPhoto_e6793d"
+          data-nimg="1"
+          decoding="async"
+          height="200"
+          loading="lazy"
+          src="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75"
+          srcset="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=256&q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75 2x"
+          style="color: transparent;"
+          width="200"
+        />
+        <h4
+          class="_ticketTitle_e6793d"
+        >
+          Concert
+        </h4>
+        <div
+          class="_ticketPrice_e6793d"
+        >
+          <p>
+            Price:
+          </p>
+          <p>
+            120.00
+            $
+          </p>
+        </div>
+        <div
+          class="_ticketSeller_e6793d"
+        >
+          <p>
+             Sells:
+          </p>
+          <p>
+             Marin Miletić (-)
+          </p>
+        </div>
+        <p
+          class="_ticketCategory_e6793d"
+        >
+          music event
+        </p>
+      </a>
+      <a
+        class="_ticketCard_e6793d"
+        href="/tickets/0bb2"
+      >
+        <img
+          alt="Ticket cover photo"
+          class="_coverPhoto_e6793d"
+          data-nimg="1"
+          decoding="async"
+          height="200"
+          loading="lazy"
+          src="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75"
+          srcset="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=256&q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75 2x"
+          style="color: transparent;"
+          width="200"
+        />
+        <h4
+          class="_ticketTitle_e6793d"
+        >
+          Bethoveen Concerto
+        </h4>
+        <div
+          class="_ticketPrice_e6793d"
+        >
+          <p>
+            Price:
+          </p>
+          <p>
+            540.00
+            $
+          </p>
+        </div>
+        <div
+          class="_ticketSeller_e6793d"
+        >
+          <p>
+             Sells:
+          </p>
+          <p>
+             John Washington (-)
+          </p>
+        </div>
+        <p
+          class="_ticketCategory_e6793d"
+        >
+          theatre play
+        </p>
+      </a>
+    </div>
+  </div>
+</body>
+`;

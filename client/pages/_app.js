@@ -1,35 +1,10 @@
-import { ToastContainer } from "react-toastify";
-
 import buildClient from "../api/buildClient";
-import Header from "../components/Header";
+import AppLayout from "../layouts/AppLayout/AppLayout";
 
-import "react-toastify/dist/ReactToastify.css";
-import "bootstrap/dist/css/bootstrap.css";
 import "../style/style.scss";
 
-require("dotenv").config();
-
-const AppComponent = ({ Component, pageProps, currentUser }) => {
-  return (
-    <div className="page">
-      <Header currentUser={currentUser} />
-      <div className="container">
-        <Component currentUser={currentUser} {...pageProps} />
-      </div>
-      <ToastContainer
-        position="bottom-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
-    </div>
-  );
+const AppComponent = (props) => {
+  return <AppLayout {...props} />;
 };
 
 AppComponent.getInitialProps = async (appContext) => {

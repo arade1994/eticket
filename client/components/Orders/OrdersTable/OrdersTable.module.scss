@@ -1,0 +1,42 @@
+.ordersTable {
+  width: 100%;
+  border: 1px solid #eeeeee;
+
+  & .ordersTableHeader {
+    display: flex;
+    width: 100%;
+    background: #036077;
+    padding: (12px * 1.5) 0;
+    color: white;
+    text-transform: uppercase;
+
+    & .headerData {
+      flex: 1 1 20%;
+      text-align: center;
+    }
+  }
+
+  & .ordersTableRow {
+    display: flex;
+    width: 100%;
+    padding: (12px * 1.5) 0;
+
+    &:nth-of-type(odd) {
+      background: #eeeeee;
+    }
+
+    & .tableItem {
+      flex: 1 1 20%;
+      text-align: center;
+    }
+
+    & .openOrderLink {
+      text-decoration: none;
+      color: #036077;
+
+      &:hover {
+        color: #098aaa;
+      }
+    }
+  }
+}

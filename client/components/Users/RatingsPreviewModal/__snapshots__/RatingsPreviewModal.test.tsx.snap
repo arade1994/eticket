@@ -1,0 +1,277 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<RatingsPreviewModal /> > it should match a snapshot when rendered by default 1`] = `
+<body
+  class="ReactModal__Body--open"
+>
+  <div
+    data-react-modal-body-trap=""
+    style="position: absolute; opacity: 0;"
+    tabindex="0"
+  />
+  <div />
+  <div
+    data-react-modal-body-trap=""
+    style="position: absolute; opacity: 0;"
+    tabindex="0"
+  />
+  <div
+    class="ReactModalPortal"
+  >
+    <div
+      class="ReactModal__Overlay"
+      style="position: fixed; top: 0px; left: 0px; right: 0px; bottom: 0px; background-color: rgba(255, 255, 255, 0.75);"
+    >
+      <div
+        aria-modal="true"
+        class="ReactModal__Content _ratingsModalPreview_50257f"
+        role="dialog"
+        tabindex="-1"
+      >
+        <div
+          class="_ratingsModalPreviewHeader_50257f"
+        >
+          <h2>
+            Ratings
+          </h2>
+          <div
+            class="_exitButton_50257f"
+            id="exitBtn"
+          >
+            <p>
+              ×
+            </p>
+          </div>
+        </div>
+        <div
+          class="_ratingsList_50257f"
+        >
+          <div
+            class="_rating_50257f"
+          >
+            <h5>
+              Ante
+               
+              Rade
+            </h5>
+            <div
+              class="_rateContainer_50257f"
+            >
+              <div>
+                5.0
+              </div>
+              <div
+                class="_starsContainer_21043f"
+              >
+                <div
+                  class="_rate_21043f"
+                >
+                  <label
+                    aria-label="star"
+                    class="_star_21043f _checked_21043f"
+                    for="star0"
+                  >
+                    ★
+                  </label>
+                </div>
+                <div
+                  class="_rate_21043f"
+                >
+                  <label
+                    aria-label="star"
+                    class="_star_21043f _checked_21043f"
+                    for="star1"
+                  >
+                    ★
+                  </label>
+                </div>
+                <div
+                  class="_rate_21043f"
+                >
+                  <label
+                    aria-label="star"
+                    class="_star_21043f _checked_21043f"
+                    for="star2"
+                  >
+                    ★
+                  </label>
+                </div>
+                <div
+                  class="_rate_21043f"
+                >
+                  <label
+                    aria-label="star"
+                    class="_star_21043f _checked_21043f"
+                    for="star3"
+                  >
+                    ★
+                  </label>
+                </div>
+                <div
+                  class="_rate_21043f"
+                >
+                  <label
+                    aria-label="star"
+                    class="_star_21043f _checked_21043f"
+                    for="star4"
+                  >
+                    ★
+                  </label>
+                </div>
+              </div>
+            </div>
+            <p>
+              Proven user, everything on time and very precise
+            </p>
+          </div>
+          <div
+            class="_rating_50257f"
+          >
+            <h5>
+              John
+               
+              Washington
+            </h5>
+            <div
+              class="_rateContainer_50257f"
+            >
+              <div>
+                5.0
+              </div>
+              <div
+                class="_starsContainer_21043f"
+              >
+                <div
+                  class="_rate_21043f"
+                >
+                  <label
+                    aria-label="star"
+                    class="_star_21043f _checked_21043f"
+                    for="star0"
+                  >
+                    ★
+                  </label>
+                </div>
+                <div
+                  class="_rate_21043f"
+                >
+                  <label
+                    aria-label="star"
+                    class="_star_21043f _checked_21043f"
+                    for="star1"
+                  >
+                    ★
+                  </label>
+                </div>
+                <div
+                  class="_rate_21043f"
+                >
+                  <label
+                    aria-label="star"
+                    class="_star_21043f _checked_21043f"
+                    for="star2"
+                  >
+                    ★
+                  </label>
+                </div>
+                <div
+                  class="_rate_21043f"
+                >
+                  <label
+                    aria-label="star"
+                    class="_star_21043f _checked_21043f"
+                    for="star3"
+                  >
+                    ★
+                  </label>
+                </div>
+                <div
+                  class="_rate_21043f"
+                >
+                  <label
+                    aria-label="star"
+                    class="_star_21043f _checked_21043f"
+                    for="star4"
+                  >
+                    ★
+                  </label>
+                </div>
+              </div>
+            </div>
+            <p>
+              Always provides tickets for interesting events, with a acceptable cost. Must recommend
+            </p>
+          </div>
+          <div
+            class="_rating_50257f"
+          >
+            <h5>
+              Matt
+               
+              Fitzgerald
+            </h5>
+            <div
+              class="_rateContainer_50257f"
+            >
+              <div>
+                4.0
+              </div>
+              <div
+                class="_starsContainer_21043f"
+              >
+                <div
+                  class="_rate_21043f"
+                >
+                  <label
+                    aria-label="star"
+                    class="_star_21043f _checked_21043f"
+                    for="star0"
+                  >
+                    ★
+                  </label>
+                </div>
+                <div
+                  class="_rate_21043f"
+                >
+                  <label
+                    aria-label="star"
+                    class="_star_21043f _checked_21043f"
+                    for="star1"
+                  >
+                    ★
+                  </label>
+                </div>
+                <div
+                  class="_rate_21043f"
+                >
+                  <label
+                    aria-label="star"
+                    class="_star_21043f _checked_21043f"
+                    for="star2"
+                  >
+                    ★
+                  </label>
+                </div>
+                <div
+                  class="_rate_21043f"
+                >
+                  <label
+                    aria-label="star"
+                    class="_star_21043f _checked_21043f"
+                    for="star3"
+                  >
+                    ★
+                  </label>
+                </div>
+              </div>
+            </div>
+            <p>
+              Good and with a great tickets always, but, very busy and hard to reach. In general, still would recommend😀
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

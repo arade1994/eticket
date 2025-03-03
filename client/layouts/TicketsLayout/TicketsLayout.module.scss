@@ -1,0 +1,27 @@
+.ticketsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 50px;
+  height: 100%;
+  overflow-y: auto;
+
+  & .ticketsControls {
+    display: flex;
+    justify-content: space-between;
+
+    & .sellTicketBtn {
+      width: 120px;
+      border-radius: 5px;
+      background-color: #036481;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  }
+
+  & .emptyListHeading {
+    margin-top: 50px;
+  }
+}

@@ -58,6 +58,27 @@
       "userId": "sfg4gwg5stgsggw4",
       "price": "430.00",
       "category": "sport game"
+    },
+    {
+      "id": "1c8a",
+      "title": "Football Match",
+      "price": "230.00",
+      "userId": "huw9ufsh9q0fhr0g",
+      "category": "sport game"
+    },
+    {
+      "id": "3a4f",
+      "title": "Concert",
+      "userId": "eaegsgsg4sghds5g",
+      "price": "120.00",
+      "category": "music event"
+    },
+    {
+      "id": "0bb2",
+      "title": "Bethoveen Concerto",
+      "price": "540.00",
+      "userId": "ydgsrgww422g4wgr",
+      "category": "theatre play"
     }
   ],
   "ratings": [
@@ -67,8 +88,65 @@
       "comment": "Proven user, everything on time and very precise",
       "userId": "sfg4gwg5stgsggw4",
       "ratedUserId": "huw9ufsh9q0fhr0g"
+    },
+    {
+      "id": "2341",
+      "rate": 5,
+      "comment": "Always provides tickets for interesting events, with a acceptable cost. Must recommend",
+      "userId": "ydgsrgww422g4wgr",
+      "ratedUserId": "huw9ufsh9q0fhr0g"
+    },
+    {
+      "id": "5g3d",
+      "rate": 4,
+      "comment": "Good and with a great tickets always, but, very busy and hard to reach. In general, still would recommend😀",
+      "userId": "hhrgrs9g04hsghhr",
+      "ratedUserId": "huw9ufsh9q0fhr0g"
     }
   ],
   "payments": [],
-  "orders": []
+  "orders": [
+    {
+      "id": "5ccb",
+      "ticketId": "1c8a",
+      "userId": "sfg4gwg5stgsggw4",
+      "expiresAt": 1740163067109,
+      "status": "created",
+      "ticket": {
+        "id": "1c8a",
+        "title": "Football Match",
+        "price": "230.00",
+        "userId": "huw9ufsh9q0fhr0g",
+        "category": "sport game"
+      }
+    },
+    {
+      "id": "6253",
+      "ticketId": "0bb2",
+      "userId": "sfg4gwg5stgsggw4",
+      "expiresAt": 1740163070001,
+      "status": "created",
+      "ticket": {
+        "id": "0bb2",
+        "title": "Bethoveen Concerto",
+        "price": "540.00",
+        "userId": "ydgsrgww422g4wgr",
+        "category": "theatre play"
+      }
+    },
+    {
+      "id": "5c7c",
+      "ticketId": "3a4f",
+      "userId": "sfg4gwg5stgsggw4",
+      "expiresAt": 1740163072553,
+      "status": "created",
+      "ticket": {
+        "id": "3a4f",
+        "title": "Concert",
+        "userId": "eaegsgsg4sghds5g",
+        "price": "120.00",
+        "category": "music event"
+      }
+    }
+  ]
 }

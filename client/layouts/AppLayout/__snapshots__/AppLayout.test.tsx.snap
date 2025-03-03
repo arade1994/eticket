@@ -1,0 +1,82 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<AppLayout /> > it should match a snapshot when rendered by default 1`] = `
+<body>
+  <div>
+    <div
+      class="_app_fb33d5"
+    >
+      <header
+        class="_headerContainer_0a265d"
+      >
+        <nav
+          class="_navigation_0a265d"
+        >
+          <a
+            class="_logo_0a265d"
+            href="/"
+          >
+            eTicket
+          </a>
+          <div
+            class="_profileIcon_a7b94c"
+          >
+            <p
+              style="margin: auto;"
+            >
+              MF
+            </p>
+          </div>
+        </nav>
+      </header>
+      <aside
+        class="_navigationContainer_1558d5"
+      >
+        <nav
+          class="_navigation_1558d5"
+        >
+          <a
+            class=""
+            href="/"
+          >
+            Tickets
+          </a>
+          <a
+            class=""
+            href="/orders"
+          >
+            Orders
+          </a>
+          <a
+            class=""
+            href="/users"
+          >
+            Users
+          </a>
+          <a
+            class="_marginTopAuto_1558d5"
+            href="/auth/signout"
+          >
+            Sign out
+          </a>
+        </nav>
+      </aside>
+      <div>
+        Component
+      </div>
+      <aside
+        class="_notificationsContainer_2cd674"
+      >
+        <h1
+          style="margin: auto;"
+        >
+          Notification Center
+        </h1>
+      </aside>
+      <div
+        class="Toastify"
+      />
+    </div>
+  </div>
+</body>
+`;
