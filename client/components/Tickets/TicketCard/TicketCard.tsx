@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Ticket } from "../../../types/ticket";
 import { Rating, User } from "../../../types/user";
-import { getUserRating } from "../../../utils/user";
+import { getUserRating } from "../../../utils/users";
 import coverImage from "../../../assets/images/cover.png";
 import classes from "./TicketCard.module.scss";
 import Link from "next/link";

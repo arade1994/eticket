@@ -2,7 +2,7 @@ import { ChangeEvent, useCallback, useEffect, useMemo, useState } from "react";
 import { useRequest } from "../../hooks/useRequest";
 import { type Rating, type User } from "../../types/user";
 import { type Ticket } from "../../types/ticket";
-import { filterUsers } from "../../utils/user";
+import { filterUsers } from "../../utils/users";
 import RatingModalList from "../../components/Users/RatingsPreviewModal/RatingsPreviewModal";
 import classes from "./UsersLayout.module.scss";
 import UsersFilters from "../../components/Users/UsersFilters/UsersFilters";

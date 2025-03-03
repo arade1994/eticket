@@ -6,7 +6,7 @@ import { type AxiosInstance } from "axios";
 import { toast } from "react-toastify";
 import { type Rating, type User } from "../../types/user";
 import { useMemo } from "react";
-import { getUserRating } from "../../utils/user";
+import { getUserRating } from "../../utils/users";
 import { calculateExpirationDate } from "../../utils/date";
 import { Order } from "../../types/order";
 

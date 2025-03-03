@@ -1,5 +1,13 @@
 import { Ticket } from "../types/ticket";
 
+/**
+ * Filters tickets by title, category and user that created the ticket
+ * @param tickets - list of tickets
+ * @param searchText - ticket title
+ * @param category - ticket predefined category
+ * @param userId - id of user that created the ticket
+ * @returns - filtered list of tickets
+ */
 export const filterTickets = (
   tickets: Ticket[],
   searchText: string,

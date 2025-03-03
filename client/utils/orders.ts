@@ -1,10 +1,10 @@
 import { Order } from "../types/order";
 
 /**
- * Filters orders by ticket title, user and status
+ * Filters orders by ticket title, status and user that created the order
  * @param orders - list of orders
  * @param searchText - ticket title
- * @param userId - selected user id
+ * @param userId - id of user that created the order
  * @param status - selected order status
  * @returns filtered list of orders
  */

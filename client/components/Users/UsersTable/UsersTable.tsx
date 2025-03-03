@@ -4,11 +4,11 @@ import { Rating, User } from "../../../types/user";
 import {
   getIsUserRated,
   getNumOfCreatedTickets,
-  getUserRaters,
+  getUserRatings,
   getUserRating,
-  isRatingDisabled,
-} from "../../../utils/user";
+} from "../../../utils/users";
 import classes from "./UsersTable.module.scss";
+import { useCallback } from "react";
 
 const headerLabels = [
   "First Name",
@@ -39,6 +39,13 @@ const UsersTable: React.FC<React.PropsWithChildren<Props>> = ({
   onOpenRatingModal,
   onOpenRatingsModalList,
 }) => {
+  const isRatingDisabled = useCallback(
+    (userId: string, currentUserId: string, ratings: Rating[]) =>
+      userId === currentUserId ||
+      getIsUserRated(userId, ratings, currentUserId),
+    []
+  );
+
   return (
     <table className={classes.usersTable}>
       <thead className={classes.usersTableHeader}>
@@ -56,13 +63,13 @@ const UsersTable: React.FC<React.PropsWithChildren<Props>> = ({
             <td className={classes.tableItem}>{user.age}</td>
             <td className={classes.tableItem}> {user.email}</td>
             <td className={classes.tableItem}>
-              {getNumOfCreatedTickets(user, tickets)}
+              {getNumOfCreatedTickets(user.id, tickets)}
             </td>
             <td className={classes.tableItem}>
               <div className={classes.ratingItem}>
                 {getUserRating(user.id, ratings)}
-                {getUserRaters(user.id, ratings)?.length
-                  ? ` (${getUserRaters(user.id, ratings)?.length})`
+                {getUserRatings(user.id, ratings)?.length
+                  ? ` (${getUserRatings(user.id, ratings)?.length})`
                   : ""}
                 {getIsUserRated(user.id, ratings, currentUser.id) ? (
                   <div
