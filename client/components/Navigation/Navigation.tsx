@@ -1,8 +1,9 @@
 import Link from "next/link";
 import cx from "classnames";
 
-import classes from "./Navigation.module.scss";
 import { NAVIGATION_LINKS } from "../../utils/constants";
+
+import classes from "./Navigation.module.scss";
 
 const Navigation = () => {
   return (

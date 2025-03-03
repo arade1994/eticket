@@ -1,4 +1,4 @@
-import { Ticket } from "../types/ticket";
+import { type Ticket } from "../types/ticket";
 
 /**
  * Filters tickets by title, category and user that created the ticket

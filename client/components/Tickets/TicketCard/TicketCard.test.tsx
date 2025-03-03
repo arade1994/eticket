@@ -1,9 +1,12 @@
-import { render } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
-import TicketCard from "./TicketCard";
+
+import { render } from "@testing-library/react";
+
 import mockDb from "../../../mock/db.json";
-import { Ticket } from "../../../types/ticket";
-import { Rating, User } from "../../../types/user";
+import { type Ticket } from "../../../types/ticket";
+import { type Rating, type User } from "../../../types/user";
+
+import TicketCard from "./TicketCard";
 
 const mockTicket = mockDb.tickets[0] as unknown as Ticket;
 const mockUser = mockDb.users.find(
@@ -14,7 +17,7 @@ const mockRatings = mockDb.ratings as unknown as Rating[];
 describe("<TicketCard />", () => {
   test("it should match snapshot when rendered by default", () => {
     const { baseElement } = render(
-      <TicketCard ticket={mockTicket} user={mockUser} ratings={mockRatings} />
+      <TicketCard ratings={mockRatings} ticket={mockTicket} user={mockUser} />
     );
 
     expect(baseElement).toMatchSnapshot();

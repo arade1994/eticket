@@ -53,3 +53,9 @@ Thumbs.db
 
 # Env files
 *.env
+
+# Eslint reports
+*eslint-report.json
+
+# TS Build
+*tsconfig.tsbuildinfo

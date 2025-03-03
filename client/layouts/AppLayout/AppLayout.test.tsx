@@ -1,9 +1,12 @@
-import { render } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
-import AppLayout from "./AppLayout";
+
+import { render } from "@testing-library/react";
+
 import mockDb from "../../mock/db.json";
-import { Rating, User } from "../../types/user";
-import { Ticket } from "../../types/ticket";
+import { type Ticket } from "../../types/ticket";
+import { type Rating, type User } from "../../types/user";
+
+import AppLayout from "./AppLayout";
 
 const mockRatings = mockDb.ratings as unknown as Rating[];
 const mockUsers = mockDb.users as unknown as User[];
@@ -15,12 +18,12 @@ describe("<AppLayout />", () => {
     const { baseElement } = render(
       <AppLayout
         Component={MockComponent}
+        currentUser={mockUsers[1]}
         pageProps={{
           tickets: mockTickets,
           users: mockUsers,
           ratings: mockRatings,
         }}
-        currentUser={mockUsers[1]}
       />
     );
 

@@ -1,9 +1,12 @@
-import { render, screen } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
-import RatingsPreviewModal from "./RatingsPreviewModal";
-import mockDb from "../../../mock/db.json";
-import { Rating, User } from "../../../types/user";
+
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+
+import mockDb from "../../../mock/db.json";
+import { type Rating, type User } from "../../../types/user";
+
+import RatingsPreviewModal from "./RatingsPreviewModal";
 
 const mockRatings = mockDb.ratings as unknown as Rating[];
 const mockUsers = mockDb.users as unknown as User[];
@@ -16,8 +19,8 @@ describe("<RatingsPreviewModal />", () => {
       <RatingsPreviewModal
         isOpen={true}
         ratings={mockRatings}
-        users={mockUsers}
         userId={mockUsers[0].id}
+        users={mockUsers}
         onClose={mockOnClose}
       />
     );
@@ -30,8 +33,8 @@ describe("<RatingsPreviewModal />", () => {
       <RatingsPreviewModal
         isOpen={true}
         ratings={mockRatings}
-        users={mockUsers}
         userId={mockUsers[0].id}
+        users={mockUsers}
         onClose={mockOnClose}
       />
     );

@@ -1,9 +1,12 @@
-import { render } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
-import OrdersLayout from "./OrdersLayout";
+
+import { render } from "@testing-library/react";
+
 import mockDb from "../../mock/db.json";
-import { Order } from "../../types/order";
-import { User } from "../../types/user";
+import { type Order } from "../../types/order";
+import { type User } from "../../types/user";
+
+import OrdersLayout from "./OrdersLayout";
 
 const mockOrders = mockDb.orders as unknown as Order[];
 const mockUsers = mockDb.users as unknown as User[];

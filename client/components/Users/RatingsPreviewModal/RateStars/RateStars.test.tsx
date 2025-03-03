@@ -1,5 +1,7 @@
-import { render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
+
+import { render, screen } from "@testing-library/react";
+
 import RateStars from "./RateStars";
 
 describe("<RateStars />", () => {

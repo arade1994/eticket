@@ -18,6 +18,7 @@ exports[`<RateInput /> > It should render rate input component as expected 1`] =
         <label
           class="_star_c17dbd"
           for="star4"
+          id="label-star-4"
         >
           ★
         </label>
@@ -30,6 +31,7 @@ exports[`<RateInput /> > It should render rate input component as expected 1`] =
         <label
           class="_star_c17dbd"
           for="star3"
+          id="label-star-3"
         >
           ★
         </label>
@@ -42,6 +44,7 @@ exports[`<RateInput /> > It should render rate input component as expected 1`] =
         <label
           class="_star_c17dbd"
           for="star2"
+          id="label-star-2"
         >
           ★
         </label>
@@ -54,6 +57,7 @@ exports[`<RateInput /> > It should render rate input component as expected 1`] =
         <label
           class="_star_c17dbd"
           for="star1"
+          id="label-star-1"
         >
           ★
         </label>
@@ -66,6 +70,7 @@ exports[`<RateInput /> > It should render rate input component as expected 1`] =
         <label
           class="_star_c17dbd"
           for="star0"
+          id="label-star-0"
         >
           ★
         </label>

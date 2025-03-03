@@ -1,10 +1,13 @@
-import { render, screen } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
-import UsersTable from "./UsersTable";
-import mockDb from "../../../mock/db.json";
-import { Rating, User } from "../../../types/user";
-import { Ticket } from "../../../types/ticket";
+
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+
+import mockDb from "../../../mock/db.json";
+import { type Ticket } from "../../../types/ticket";
+import { type Rating, type User } from "../../../types/user";
+
+import UsersTable from "./UsersTable";
 
 const mockUsers = mockDb.users as unknown as User[];
 const mockRatings = mockDb.ratings as unknown as Rating[];
@@ -21,10 +24,10 @@ const mockOnSelectUser = vi.fn();
 const renderUsersTable = () =>
   render(
     <UsersTable
-      users={mockUsers}
+      currentUser={mockCurrentUser}
       ratings={mockRatings}
       tickets={mockTickets}
-      currentUser={mockCurrentUser}
+      users={mockUsers}
       onOpenRatingModal={mockOnOpenRatingModal}
       onOpenRatingsModalList={mockOnOpenRatingsModalList}
       onSelectUser={mockOnSelectUser}

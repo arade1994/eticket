@@ -1,7 +1,9 @@
-import { FormEvent, useCallback, useState } from "react";
-import { useRequest } from "../../hooks/useRequest";
-import { toast } from "react-toastify";
+import { type FormEvent, useCallback, useState } from "react";
 import Router from "next/router";
+import { toast } from "react-toastify";
+
+import { useRequest } from "../../hooks/useRequest";
+
 import classes from "./SIgnInForm.module.scss";
 
 const SignInForm: React.FC = () => {
@@ -33,9 +35,9 @@ const SignInForm: React.FC = () => {
       <div className={classes.formGroup}>
         <label className={classes.formLabel}>Email Address:</label>
         <input
+          className={classes.formControl}
           id="email"
           type="email"
-          className={classes.formControl}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -43,8 +45,8 @@ const SignInForm: React.FC = () => {
       <div className={classes.formGroup}>
         <label className={classes.formLabel}>Password:</label>
         <input
-          id="password"
           className={classes.formControl}
+          id="password"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}

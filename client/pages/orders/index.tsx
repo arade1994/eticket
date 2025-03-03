@@ -1,8 +1,9 @@
 import { type NextPageContext } from "next";
-import { type Order } from "../../types/order";
 import { type AxiosInstance } from "axios";
-import { type User } from "../../types/user";
+
 import OrdersLayout from "../../layouts/OrdersLayout/OrdersLayout";
+import { type Order } from "../../types/order";
+import { type User } from "../../types/user";
 
 interface Props {
   orders: Order[];

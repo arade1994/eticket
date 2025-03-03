@@ -1,7 +1,10 @@
-import Modal from "react-modal";
-import { Rating, User } from "../../../types/user";
 import { useMemo } from "react";
+import Modal from "react-modal";
+
+import { type Rating, type User } from "../../../types/user";
+
 import RateStars from "./RateStars/RateStars";
+
 import classes from "./RatingsModalPreview.module.scss";
 
 interface Props {
@@ -32,17 +35,17 @@ const RatingsPreviewModal = ({
           lastName: user?.lastName,
         };
       });
-  }, [ratings, users]);
+  }, [ratings, userId, users]);
 
   return (
     <Modal
-      isOpen={isOpen}
       appElement={document.createElement("div")}
       className={classes.ratingsModalPreview}
+      isOpen={isOpen}
     >
       <div className={classes.ratingsModalPreviewHeader}>
         <h2>Ratings</h2>
-        <div id="exitBtn" className={classes.exitButton} onClick={onClose}>
+        <div className={classes.exitButton} id="exitBtn" onClick={onClose}>
           <p>&times;</p>
         </div>
       </div>

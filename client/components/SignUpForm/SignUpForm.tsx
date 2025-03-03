@@ -1,7 +1,9 @@
-import { FormEvent, useCallback, useState } from "react";
-import { useRequest } from "../../hooks/useRequest";
-import { toast } from "react-toastify";
+import { type FormEvent, useCallback, useState } from "react";
 import Router from "next/router";
+import { toast } from "react-toastify";
+
+import { useRequest } from "../../hooks/useRequest";
+
 import classes from "./SignUpForm.module.scss";
 
 const SignUpForm: React.FC = () => {
@@ -36,9 +38,9 @@ const SignUpForm: React.FC = () => {
       <div className={classes.formGroup}>
         <label className={classes.formLabel}>First Name:</label>
         <input
+          className={classes.formControl}
           id="firstName"
           type="text"
-          className={classes.formControl}
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
         />
@@ -46,9 +48,9 @@ const SignUpForm: React.FC = () => {
       <div className={classes.formGroup}>
         <label className={classes.formLabel}>Last Name:</label>
         <input
+          className={classes.formControl}
           id="lastName"
           type="text"
-          className={classes.formControl}
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
         />
@@ -56,8 +58,8 @@ const SignUpForm: React.FC = () => {
       <div className={classes.formGroup}>
         <label className={classes.formLabel}>Age:</label>
         <input
-          id="age"
           className={classes.formControl}
+          id="age"
           type="number"
           value={age}
           onChange={(e) => setAge(parseInt(e.target.value))}
@@ -66,9 +68,9 @@ const SignUpForm: React.FC = () => {
       <div className={classes.formGroup}>
         <label className={classes.formLabel}>Email Address:</label>
         <input
+          className={classes.formControl}
           id="email"
           type="email"
-          className={classes.formControl}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -76,8 +78,8 @@ const SignUpForm: React.FC = () => {
       <div className={classes.formGroup}>
         <label className={classes.formLabel}>Password:</label>
         <input
-          id="password"
           className={classes.formControl}
+          id="password"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}

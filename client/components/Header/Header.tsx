@@ -10,7 +10,9 @@ interface Props {
   currentUser?: User;
 }
 
-export default ({ currentUser }: Props) => {
+const Header: React.FC<React.PropsWithChildren<Props>> = ({
+  currentUser,
+}: Props) => {
   const pathname = usePathname();
 
   return (
@@ -44,3 +46,5 @@ export default ({ currentUser }: Props) => {
     </header>
   );
 };
+
+export default Header;
