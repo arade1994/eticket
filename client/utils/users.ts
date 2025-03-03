@@ -1,5 +1,5 @@
-import { Ticket } from "../types/ticket";
-import { Rating, User } from "../types/user";
+import { type Ticket } from "../types/ticket";
+import { type Rating, type User } from "../types/user";
 
 /**
  * Returns number of created tickets per user

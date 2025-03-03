@@ -1,8 +1,9 @@
-import Select, { SingleValue } from "react-select";
+import { type ChangeEvent } from "react";
+import Select, { type SingleValue } from "react-select";
+
+import { statusOptions } from "../../../utils/constants";
 
 import classes from "./OrdersFilters.module.scss";
-import { ChangeEvent } from "react";
-import { statusOptions } from "../../../utils/constants";
 
 interface Props {
   searchText: string;
@@ -44,22 +45,22 @@ const OrdersFilters: React.FC<React.PropsWithChildren<Props>> = ({
     <div className={classes.ordersFilters}>
       <input
         id="searchInput"
-        type="text"
         placeholder="Insert title"
+        type="text"
         value={searchText}
         onChange={onChangeSearchText}
       />
       <Select
         id="userSelect"
+        options={[{ value: "-", label: "Any user" }, ...userOptions]}
         value={selectedUser}
         onChange={onSelectUser}
-        options={[{ value: "-", label: "Any user" }, ...userOptions]}
       />
       <Select
         id="statusSelect"
+        options={statusOptions}
         value={selectedStatus}
         onChange={onSelectStatus}
-        options={statusOptions}
       />
       {areFiltersApplied && (
         <div className={classes.resetFiltersBtn} onClick={onResetFilters}>

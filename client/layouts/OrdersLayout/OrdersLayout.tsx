@@ -1,11 +1,13 @@
-import { ChangeEvent, useCallback, useMemo, useState } from "react";
+import { type ChangeEvent, useCallback, useMemo, useState } from "react";
+import { type SingleValue } from "react-select";
+
 import OrdersFilters from "../../components/Orders/OrdersFilters/OrdersFilters";
-import { SingleValue } from "react-select";
-import { filterOrders } from "../../utils/orders";
-import { Order } from "../../types/order";
-import { User } from "../../types/user";
-import classes from "./OrdersLayout.module.scss";
 import OrdersTable from "../../components/Orders/OrdersTable/OrdersTable";
+import { type Order } from "../../types/order";
+import { type User } from "../../types/user";
+import { filterOrders } from "../../utils/orders";
+
+import classes from "./OrdersLayout.module.scss";
 
 interface Props {
   orders: Order[];
@@ -89,16 +91,16 @@ const OrdersLayout: React.FC<React.PropsWithChildren<Props>> = ({
     <div className={classes.ordersContent}>
       <OrdersFilters
         searchText={searchText}
-        selectedUser={selectedUser}
         selectedStatus={selectedStatus}
+        selectedUser={selectedUser}
         userOptions={userOptions}
         onChangeSearchText={handleChangeSearchText}
-        onSelectUser={handleSelectUser}
-        onSelectStatus={handleSelectStatus}
         onResetFilters={handleResetFilters}
+        onSelectStatus={handleSelectStatus}
+        onSelectUser={handleSelectUser}
       />
       {filteredOrders.length ? (
-        <OrdersTable users={users} orders={orders} />
+        <OrdersTable orders={orders} users={users} />
       ) : (
         <h1>No orders yet! Please go to tickets page and order one.</h1>
       )}

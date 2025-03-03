@@ -1,12 +1,12 @@
-import { cleanup, render, screen } from "@testing-library/react";
-import { afterEach, describe, expect, test, vi } from "vitest";
+import { describe, expect, test, vi } from "vitest";
+
+import { render, screen } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
+
 import RateInput from "./RateInput";
 
 const setCommentMock = vi.fn();
 const setRateMock = vi.fn();
-
-afterEach(() => cleanup());
 
 describe("<RateInput />", () => {
   test("It should render rate input component as expected", async () => {
@@ -37,13 +37,13 @@ describe("<RateInput />", () => {
     const commentTxtArea = (await screen.findByRole(
       "textbox"
     )) as HTMLTextAreaElement;
-    userEvent.clear(commentTxtArea);
+    await userEvent.clear(commentTxtArea);
     await userEvent.type(commentTxtArea, "Updated comment");
     expect(setCommentMock).toHaveBeenCalled();
   });
 
   test("It should call setRate() method when rate is selected", async () => {
-    const { container } = render(
+    render(
       <RateInput
         comment="Test comment"
         onChangeComment={setCommentMock}
@@ -51,7 +51,7 @@ describe("<RateInput />", () => {
       />
     );
 
-    const star3 = container.querySelector("[for='star3']") as Element;
+    const star3 = screen.getByTestId("label-star-3") as Element;
     await userEvent.click(star3);
     expect(setRateMock).toHaveBeenCalled();
   });

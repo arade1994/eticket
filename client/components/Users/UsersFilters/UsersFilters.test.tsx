@@ -1,7 +1,9 @@
-import { render, screen } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
-import UsersFilters from "./UsersFilters";
+
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+
+import UsersFilters from "./UsersFilters";
 
 const mockOnChangeSearchText = vi.fn();
 const mockOnResetFilters = vi.fn();

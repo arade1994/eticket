@@ -1,10 +1,12 @@
-import { FormEvent, useCallback, useState } from "react";
-import { ticketCategoriesOptions } from "../../../utils/constants";
-import { useRequest } from "../../../hooks/useRequest";
-import { toast } from "react-toastify";
+import { type FormEvent, useCallback, useState } from "react";
 import Router from "next/router";
 import Modal from "react-modal";
 import Select from "react-select";
+import { toast } from "react-toastify";
+
+import { useRequest } from "../../../hooks/useRequest";
+import { ticketCategoriesOptions } from "../../../utils/constants";
+
 import classes from "./CreateTicketModal.module.scss";
 
 interface Props {
@@ -51,48 +53,49 @@ const CreateTicketModal: React.FC<React.PropsWithChildren<Props>> = ({
 
   return (
     <Modal
-      isOpen={isOpen}
       appElement={document.createElement("div")}
       className={classes.createTicketModal}
+      isOpen={isOpen}
     >
       <div className={classes.createTicketContainer}>
         <div className={classes.createTicketFormHeader}>
           <h2>Create a new ticket</h2>
-          <div id="exitBtn" className={classes.exitButton} onClick={onClose}>
+          <div className={classes.exitButton} id="exitBtn" onClick={onClose}>
             <p>&times;</p>
           </div>
         </div>
         <form className={classes.createTicketForm} onSubmit={onSubmitHandler}>
           <div className={classes.formGroup}>
-            <label htmlFor="title" className={classes.formLabel}>
+            <label className={classes.formLabel} htmlFor="title">
               Title
             </label>
             <input
-              id="title"
               className={classes.formControl}
+              id="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
           <div className={classes.formGroup}>
-            <label htmlFor="price" className={classes.formLabel}>
+            <label className={classes.formLabel} htmlFor="price">
               Price
             </label>
             <input
+              className={classes.formControl}
               id="price"
               type="number"
-              onBlur={onBlurHandler}
-              className={classes.formControl}
               value={price}
+              onBlur={onBlurHandler}
               onChange={(e) => setPrice(e.target.value)}
             />
           </div>
           <div className={classes.formGroup}>
-            <label htmlFor="category" className={classes.formLabel}>
+            <label className={classes.formLabel} htmlFor="category">
               Category
             </label>
             <Select
               id="categorySelect"
+              options={ticketCategoriesOptions}
               value={category}
               onChange={(option) =>
                 setCategory({
@@ -100,19 +103,18 @@ const CreateTicketModal: React.FC<React.PropsWithChildren<Props>> = ({
                   label: option?.label ?? "",
                 })
               }
-              options={ticketCategoriesOptions}
             />
           </div>
           {errors}
           <div className={classes.formActions}>
             <button
-              type="button"
               className={classes.cancelBtn}
+              type="button"
               onClick={onClose}
             >
               Cancel
             </button>
-            <button type="submit" className={classes.submitBtn}>
+            <button className={classes.submitBtn} type="submit">
               Submit
             </button>
           </div>

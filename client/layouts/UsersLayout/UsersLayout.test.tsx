@@ -1,9 +1,12 @@
-import { render } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
-import UsersLayout from "./UsersLayout";
+
+import { render } from "@testing-library/react";
+
 import mockDb from "../../mock/db.json";
-import { User } from "../../types/user";
-import { Ticket } from "../../types/ticket";
+import { type Ticket } from "../../types/ticket";
+import { type User } from "../../types/user";
+
+import UsersLayout from "./UsersLayout";
 
 const mockUsers = mockDb.users as unknown as User[];
 const mockTickets = mockDb.tickets as unknown as Ticket[];
@@ -25,9 +28,9 @@ describe("<UsersLayout />", () => {
   test("it should match a snapshot when rendered by default", () => {
     const { baseElement } = render(
       <UsersLayout
-        users={mockUsers}
-        tickets={mockTickets}
         currentUser={mockCurrentUser}
+        tickets={mockTickets}
+        users={mockUsers}
       />
     );
 

@@ -1,4 +1,4 @@
-import { Order } from "../types/order";
+import { type Order } from "../types/order";
 
 /**
  * Filters orders by ticket title, status and user that created the order

@@ -1,14 +1,16 @@
+import { useCallback } from "react";
 import cx from "classnames";
-import { Ticket } from "../../../types/ticket";
-import { Rating, User } from "../../../types/user";
+
+import { type Ticket } from "../../../types/ticket";
+import { type Rating, type User } from "../../../types/user";
 import {
   getIsUserRated,
   getNumOfCreatedTickets,
-  getUserRatings,
   getUserRating,
+  getUserRatings,
 } from "../../../utils/users";
+
 import classes from "./UsersTable.module.scss";
-import { useCallback } from "react";
 
 const headerLabels = [
   "First Name",

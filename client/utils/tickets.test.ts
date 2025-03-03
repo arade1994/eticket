@@ -1,6 +1,8 @@
 import { describe, expect, test } from "vitest";
+
 import mockDb from "../mock/db.json";
-import { Ticket } from "../types/ticket";
+import { type Ticket } from "../types/ticket";
+
 import { filterTickets } from "./tickets";
 
 const mockTickets = mockDb.tickets as unknown as Ticket[];

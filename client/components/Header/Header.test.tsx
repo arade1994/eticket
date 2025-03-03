@@ -1,8 +1,10 @@
-import { afterEach, describe, expect, test } from "vitest";
-import { cleanup, render, screen } from "@testing-library/react";
+import { describe, expect, test } from "vitest";
+
+import { render, screen } from "@testing-library/react";
+
+import { type User } from "../../types/user";
 
 import Header from "./Header";
-import { User } from "../../types/user";
 
 const mockCurrentUser = {
   id: "userId",
@@ -14,8 +16,6 @@ const mockCurrentUser = {
 } as User;
 
 describe("<Header />", () => {
-  afterEach(() => cleanup());
-
   test("It should match a snapshot when user is logged out", () => {
     const { baseElement } = render(<Header />);
 

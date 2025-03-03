@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import StripeCheckout from "react-stripe-checkout";
-import { useRequest } from "../../hooks/useRequest";
-import Router from "next/router";
 import { type NextPageContext } from "next";
+import Router from "next/router";
 import { type AxiosInstance } from "axios";
+import StripeCheckout from "react-stripe-checkout";
+
+import { useRequest } from "../../hooks/useRequest";
 import { type Order } from "../../types/order";
 
 interface Props {
@@ -46,10 +47,10 @@ const OrderView = ({ order, currentUser }: Props) => {
     <div>
       Time left to pay: {time} seconds {errors}
       <StripeCheckout
-        token={({ id }) => sendRequest({ token: id })}
-        stripeKey="pk_test_51JrojjLiD4aXIcPwSJBm4pkotUCjfyCVlsnJdc6uIBNLopH8k0nCDSVs5ISglERjFCsnbEM5yzhatKpxfS48Olxa00aBjCpYRt"
         amount={order?.ticket?.price * 100}
         email={currentUser.email}
+        stripeKey="pk_test_51JrojjLiD4aXIcPwSJBm4pkotUCjfyCVlsnJdc6uIBNLopH8k0nCDSVs5ISglERjFCsnbEM5yzhatKpxfS48Olxa00aBjCpYRt"
+        token={({ id }) => sendRequest({ token: id })}
       />
     </div>
   );

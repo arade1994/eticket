@@ -1,4 +1,5 @@
 import cx from "classnames";
+
 import classes from "./RateStars.module.scss";
 
 interface Props {
@@ -12,11 +13,11 @@ const RateStars = ({ rate }: Props) => {
         <div key={index} className={classes.rate}>
           <label
             aria-label="star"
-            htmlFor={`star${index}`}
             className={cx(
               classes.star,
               index + 1 <= rate ? classes.checked : ""
             )}
+            htmlFor={`star${index}`}
           >
             &#9733;
           </label>

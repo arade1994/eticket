@@ -1,4 +1,5 @@
-import { ChangeEvent } from "react";
+import { type ChangeEvent } from "react";
+
 import classes from "./RateInput.module.scss";
 
 interface Props {
@@ -16,14 +17,15 @@ const RateInput = ({ comment, onChangeComment, onChangeRate }: Props) => {
           .map((index) => (
             <>
               <input
-                type="radio"
                 id={`star${index}`}
                 name="rating"
+                type="radio"
                 value={index}
               />
               <label
-                htmlFor={`star${index}`}
                 className={classes.star}
+                htmlFor={`star${index}`}
+                id={`label-star-${index}`}
                 onClick={() => onChangeRate(index + 1)}
               >
                 &#9733;

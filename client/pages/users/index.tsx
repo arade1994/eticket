@@ -1,8 +1,9 @@
-import { type AxiosInstance } from "axios";
 import { type NextPageContext } from "next";
-import { type User } from "../../types/user";
-import { type Ticket } from "../../types/ticket";
+import { type AxiosInstance } from "axios";
+
 import UsersLayout from "../../layouts/UsersLayout/UsersLayout";
+import { type Ticket } from "../../types/ticket";
+import { type User } from "../../types/user";
 
 interface Props {
   users: User[];
@@ -12,7 +13,7 @@ interface Props {
 
 const UserList = ({ users, tickets, currentUser }: Props) => {
   return (
-    <UsersLayout users={users} tickets={tickets} currentUser={currentUser} />
+    <UsersLayout currentUser={currentUser} tickets={tickets} users={users} />
   );
 };
 

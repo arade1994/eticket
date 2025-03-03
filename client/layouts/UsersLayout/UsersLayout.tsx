@@ -1,13 +1,21 @@
-import { ChangeEvent, useCallback, useEffect, useMemo, useState } from "react";
-import { useRequest } from "../../hooks/useRequest";
-import { type Rating, type User } from "../../types/user";
-import { type Ticket } from "../../types/ticket";
-import { filterUsers } from "../../utils/users";
+import {
+  type ChangeEvent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+
+import RatingModal from "../../components/Users/RateUserModal/RateUserModal";
 import RatingModalList from "../../components/Users/RatingsPreviewModal/RatingsPreviewModal";
-import classes from "./UsersLayout.module.scss";
 import UsersFilters from "../../components/Users/UsersFilters/UsersFilters";
 import UsersTable from "../../components/Users/UsersTable/UsersTable";
-import RatingModal from "../../components/Users/RateUserModal/RateUserModal";
+import { useRequest } from "../../hooks/useRequest";
+import { type Ticket } from "../../types/ticket";
+import { type Rating, type User } from "../../types/user";
+import { filterUsers } from "../../utils/users";
+
+import classes from "./UsersLayout.module.scss";
 
 interface Props {
   users: User[];
@@ -66,7 +74,7 @@ const UsersLayout: React.FC<React.PropsWithChildren<Props>> = ({
 
   useEffect(() => {
     sendRequest();
-  }, []);
+  }, [sendRequest]);
 
   return (
     <div className={classes.usersLayout}>
@@ -76,18 +84,18 @@ const UsersLayout: React.FC<React.PropsWithChildren<Props>> = ({
         onResetFilters={handleResetFilters}
       />
       <UsersTable
-        users={filteredUsers}
+        currentUser={currentUser}
         ratings={ratings}
         tickets={tickets}
-        currentUser={currentUser}
-        onSelectUser={handleSelectUser}
+        users={filteredUsers}
         onOpenRatingModal={handleToggleRatingModal}
         onOpenRatingsModalList={handleToggleRatingsModalList}
+        onSelectUser={handleSelectUser}
       />
       {showRatingModal && (
         <RatingModal
-          open={showRatingModal}
           currentUserId={currentUser.id}
+          open={showRatingModal}
           selectedUserId={selectedUserId}
           onClose={handleToggleRatingModal}
           onFetchRatings={sendRequest}
@@ -97,8 +105,8 @@ const UsersLayout: React.FC<React.PropsWithChildren<Props>> = ({
         <RatingModalList
           isOpen={showRatingsModalList}
           ratings={ratings}
-          users={users}
           userId={selectedUserId}
+          users={users}
           onClose={handleToggleRatingsModalList}
         />
       )}

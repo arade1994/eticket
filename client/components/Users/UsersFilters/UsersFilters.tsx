@@ -1,4 +1,5 @@
-import { ChangeEvent } from "react";
+import { type ChangeEvent } from "react";
+
 import classes from "./UsersFilters.module.scss";
 
 interface Props {
@@ -17,10 +18,10 @@ const UsersFilters: React.FC<React.PropsWithChildren<Props>> = ({
   return (
     <div className={classes.usersFilters}>
       <input
-        id="search"
         className={classes.searchInput}
-        type="text"
+        id="search"
         placeholder="Insert first name or last"
+        type="text"
         value={searchText}
         onChange={onChangeSearchText}
       />

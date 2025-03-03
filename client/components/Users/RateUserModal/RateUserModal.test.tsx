@@ -1,8 +1,9 @@
-import { render, screen } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 
-import RatingModal from "./RateUserModal";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+
+import RatingModal from "./RateUserModal";
 
 const mockCurrentUserId = "currentUserId";
 const mockSelectedUserId = "selectedUserId";
@@ -27,8 +28,8 @@ describe("<RatingModal />", () => {
   test("It should render rating modal as expected with all fields", () => {
     const { baseElement } = render(
       <RatingModal
-        open={true}
         currentUserId={mockCurrentUserId}
+        open={true}
         selectedUserId={mockSelectedUserId}
         onClose={mockOnClose}
         onFetchRatings={mockFetchRatings}
@@ -41,8 +42,8 @@ describe("<RatingModal />", () => {
   test("it should close the modal when clicked on cancel", async () => {
     render(
       <RatingModal
-        open={true}
         currentUserId={mockCurrentUserId}
+        open={true}
         selectedUserId={mockSelectedUserId}
         onClose={mockOnClose}
         onFetchRatings={mockFetchRatings}
@@ -58,8 +59,8 @@ describe("<RatingModal />", () => {
   test("it should call save method and method for fetch ratings when clicked on save rating button", async () => {
     render(
       <RatingModal
-        open={true}
         currentUserId={mockCurrentUserId}
+        open={true}
         selectedUserId={mockSelectedUserId}
         onClose={mockOnClose}
         onFetchRatings={mockFetchRatings}

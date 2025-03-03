@@ -1,8 +1,11 @@
-import { ChangeEvent, useCallback, useState } from "react";
+import { type ChangeEvent, useCallback, useState } from "react";
 import Modal from "react-modal";
 import { toast } from "react-toastify";
+
 import { useRequest } from "../../../hooks/useRequest";
+
 import RateInput from "./RateInput/RateInput";
+
 import classes from "./RateUserModal.module.scss";
 
 interface Props {
@@ -29,7 +32,9 @@ const RatingModal = ({
       : "http://localhost:3000/ratings",
     method: "post",
     body: { rate, comment, userId: currentUserId, ratedUserId: selectedUserId },
-    onSuccess: () => {},
+    onSuccess: () => {
+      console.log("Successfully rated user");
+    },
   });
 
   const handleChangeRate = useCallback((value: number) => setRate(value), []);
@@ -48,11 +53,11 @@ const RatingModal = ({
 
   return (
     <Modal
-      isOpen={open}
-      shouldCloseOnOverlayClick
       shouldCloseOnEsc
-      className={classes.rateUserModal}
+      shouldCloseOnOverlayClick
       appElement={document.createElement("div")}
+      className={classes.rateUserModal}
+      isOpen={open}
     >
       <div className={classes.rateUserModalHeader}>
         <h2>Edit user rating</h2>

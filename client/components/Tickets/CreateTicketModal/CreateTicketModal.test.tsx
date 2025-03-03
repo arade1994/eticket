@@ -1,7 +1,9 @@
-import { render, screen, waitFor, within } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
-import CreateTicketModal from "./CreateTicketModal";
+
+import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+
+import CreateTicketModal from "./CreateTicketModal";
 
 const mockOnClose = vi.fn();
 const mockSendRequest = vi.fn();
@@ -63,7 +65,7 @@ describe("<CreateTicketModal />", () => {
     expect(categorySelect).toBeDefined();
     expect(categorySelect.textContent).toEqual("Sport game");
     await userEvent.click(categorySelect);
-    await waitFor(() => screen.getByText("Theatre play"));
+    await screen.findByText("Theatre play");
     await userEvent.click(screen.getByText("Theatre play"));
     expect(categorySelect.textContent).toEqual("Theatre play");
   });
@@ -97,7 +99,7 @@ describe("<CreateTicketModal />", () => {
       screen.getByTestId("categorySelect")
     ).getByText("Sport game");
     await userEvent.click(categorySelect);
-    await waitFor(() => screen.getByText("Theatre play"));
+    await screen.findByText("Theatre play");
     await userEvent.click(screen.getByText("Theatre play"));
 
     const submitBtn = screen.getByText("Submit");

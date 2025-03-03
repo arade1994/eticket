@@ -1,9 +1,10 @@
 import React from "react";
 
-import classes from "./TicketsGrid.module.scss";
-import { Ticket } from "../../../types/ticket";
-import { Rating, User } from "../../../types/user";
+import { type Ticket } from "../../../types/ticket";
+import { type Rating, type User } from "../../../types/user";
 import TicketCard from "../TicketCard/TicketCard";
+
+import classes from "./TicketsGrid.module.scss";
 
 interface Props {
   ratings: Rating[];
@@ -20,9 +21,9 @@ const TicketsGrid = ({ ratings, tickets, users }: Props) => {
         return (
           <TicketCard
             key={ticket.id}
+            ratings={ratings}
             ticket={ticket}
             user={user}
-            ratings={ratings}
           />
         );
       })}

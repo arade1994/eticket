@@ -1,9 +1,9 @@
 import { type NextPageContext } from "next";
 import { type AxiosInstance } from "axios";
 
-import { type Ticket } from "../types/ticket";
-import { Rating, type User } from "../types/user";
 import TicketsLayout from "../layouts/TicketsLayout/TicketsLayout";
+import { type Ticket } from "../types/ticket";
+import { type Rating, type User } from "../types/user";
 
 interface Props {
   tickets: Ticket[];

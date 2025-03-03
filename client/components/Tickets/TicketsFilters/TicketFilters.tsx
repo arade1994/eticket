@@ -1,8 +1,9 @@
-import React, { ChangeEvent, useMemo } from "react";
-import Select, { SingleValue } from "react-select";
+import React, { type ChangeEvent, useMemo } from "react";
+import Select, { type SingleValue } from "react-select";
 
+import { type User } from "../../../types/user";
 import { ticketCategoriesOptions } from "../../../utils/constants";
-import { User } from "../../../types/user";
+
 import classes from "./TicketFilters.module.scss";
 
 interface Props {
@@ -63,25 +64,25 @@ const TicketFilters = ({
     <div className={classes.ticketFilters}>
       <input
         id="title"
-        type="text"
         placeholder="Insert title"
+        type="text"
         value={searchText}
         onChange={onChangeSearchText}
       />
       <Select
         id="categorySelect"
-        value={category}
-        onChange={onChangeCategory}
         options={[
           { value: "-", label: "Any category" },
           ...ticketCategoriesOptions,
         ]}
+        value={category}
+        onChange={onChangeCategory}
       />
       <Select
         id="userSelect"
+        options={[{ value: "-", label: "Any user" }, ...userOptions]}
         value={selectedUser}
         onChange={onSelectUser}
-        options={[{ value: "-", label: "Any user" }, ...userOptions]}
       />
       {isFiltersApplied && (
         <div className={classes.resetFilters} onClick={onResetFilters}>

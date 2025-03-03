@@ -1,14 +1,15 @@
-import Router from "next/router";
-import { useRequest } from "../../hooks/useRequest";
-import { type Ticket } from "../../types/ticket";
+import { useMemo } from "react";
 import { type NextPageContext } from "next";
+import Router from "next/router";
 import { type AxiosInstance } from "axios";
 import { toast } from "react-toastify";
+
+import { useRequest } from "../../hooks/useRequest";
+import { type Order } from "../../types/order";
+import { type Ticket } from "../../types/ticket";
 import { type Rating, type User } from "../../types/user";
-import { useMemo } from "react";
-import { getUserRating } from "../../utils/users";
 import { calculateExpirationDate } from "../../utils/date";
-import { Order } from "../../types/order";
+import { getUserRating } from "../../utils/users";
 
 interface Props {
   ticket: Ticket;

@@ -1,9 +1,12 @@
-import { render } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
-import TicketsGrid from "./TicketsGrid";
+
+import { render } from "@testing-library/react";
+
 import mockDb from "../../../mock/db.json";
-import { Ticket } from "../../../types/ticket";
-import { Rating, User } from "../../../types/user";
+import { type Ticket } from "../../../types/ticket";
+import { type Rating, type User } from "../../../types/user";
+
+import TicketsGrid from "./TicketsGrid";
 
 const mockTickets = mockDb.tickets as unknown as Ticket[];
 const mockRatings = mockDb.ratings as unknown as Rating[];
@@ -14,8 +17,8 @@ describe("<TicketsGrid />", () => {
     const { baseElement } = render(
       <TicketsGrid
         ratings={mockRatings}
-        users={mockUsers}
         tickets={mockTickets}
+        users={mockUsers}
       />
     );
 

@@ -1,14 +1,14 @@
-import React, { ChangeEvent, useCallback, useMemo, useState } from "react";
-import TicketFilters from "../../components/Tickets/TicketsFilters/TicketFilters";
+import React, { type ChangeEvent, useCallback, useMemo, useState } from "react";
+import { type SingleValue } from "react-select";
 
+import CreateTicketModal from "../../components/Tickets/CreateTicketModal/CreateTicketModal";
+import TicketFilters from "../../components/Tickets/TicketsFilters/TicketFilters";
+import TicketsGrid from "../../components/Tickets/TicketsGrid/TicketsGrid";
+import { type Ticket } from "../../types/ticket";
+import { type Rating, type User } from "../../types/user";
 import { filterTickets } from "../../utils/tickets";
-import { Ticket } from "../../types/ticket";
-import { Rating, User } from "../../types/user";
 
 import classes from "./TicketsLayout.module.scss";
-import TicketsGrid from "../../components/Tickets/TicketsGrid/TicketsGrid";
-import CreateTicketModal from "../../components/Tickets/CreateTicketModal/CreateTicketModal";
-import { SingleValue } from "react-select";
 
 interface Props {
   ratings: Rating[];

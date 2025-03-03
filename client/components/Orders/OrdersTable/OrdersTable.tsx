@@ -1,9 +1,11 @@
 import { useCallback } from "react";
-import { Order } from "../../../types/order";
-import { formatDateToHHMM } from "../../../utils/date";
-import { User } from "../../../types/user";
-import classes from "./OrdersTable.module.scss";
 import Link from "next/link";
+
+import { type Order } from "../../../types/order";
+import { type User } from "../../../types/user";
+import { formatDateToHHMM } from "../../../utils/date";
+
+import classes from "./OrdersTable.module.scss";
 
 const headerLabels = [
   "Ticket title",
@@ -55,8 +57,8 @@ const OrdersTable: React.FC<React.PropsWithChildren<Props>> = ({
             </td>
             <td className={classes.tableItem}>
               <Link
-                href={`/orders/${order.id}`}
                 className={classes.openOrderLink}
+                href={`/orders/${order.id}`}
               >
                 Open
               </Link>

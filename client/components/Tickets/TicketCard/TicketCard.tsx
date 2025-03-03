@@ -1,10 +1,12 @@
 import Image from "next/image";
-import { Ticket } from "../../../types/ticket";
-import { Rating, User } from "../../../types/user";
-import { getUserRating } from "../../../utils/users";
-import coverImage from "../../../assets/images/cover.png";
-import classes from "./TicketCard.module.scss";
 import Link from "next/link";
+
+import coverImage from "../../../assets/images/cover.png";
+import { type Ticket } from "../../../types/ticket";
+import { type Rating, type User } from "../../../types/user";
+import { getUserRating } from "../../../utils/users";
+
+import classes from "./TicketCard.module.scss";
 
 interface Props {
   ticket: Ticket;
@@ -20,11 +22,11 @@ const TicketCard: React.FC<React.PropsWithChildren<Props>> = ({
   return (
     <Link className={classes.ticketCard} href={`/tickets/${ticket.id}`}>
       <Image
-        className={classes.coverPhoto}
-        src={coverImage}
         alt="Ticket cover photo"
-        width={200}
+        className={classes.coverPhoto}
         height={200}
+        src={coverImage}
+        width={200}
       />
       <h4 className={classes.ticketTitle}>{ticket.title}</h4>
       <div className={classes.ticketPrice}>
