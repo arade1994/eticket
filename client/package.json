@@ -7,7 +7,7 @@
     "test:ci": "vitest run",
     "db-server": "npx json-server --watch ./mock/db.json",
     "lint:fix": "eslint --fix",
-    "lint:eslint": "eslint --cache --format json --output-file eslint-report.json",
+    "lint:eslint": "eslint --cache",
     "lint:tsc": "tsc --project tsconfig.json --noEmit",
     "lint:ts-coverage": "type-coverage"
   },
