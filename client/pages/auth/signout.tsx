@@ -19,7 +19,7 @@ const SignOut = () => {
     sendRequest();
   }, [sendRequest]);
 
-  return <div>You are signing out...</div>;
+  return <div>Signing out...</div>;
 };
 
 export default SignOut;
