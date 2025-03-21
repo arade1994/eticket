@@ -1,13 +1,13 @@
 import { useMemo } from "react";
-import { type NextPageContext } from "next";
+import { type GetServerSideProps } from "next";
 import Router from "next/router";
-import { type AxiosInstance } from "axios";
+import axios from "axios";
 import { toast } from "react-toastify";
 
 import { useRequest } from "../../hooks/useRequest";
 import { type Order } from "../../types/order";
 import { type Ticket } from "../../types/ticket";
-import { type Rating, type User } from "../../types/user";
+import { type Rating, type RequestWithUser, type User } from "../../types/user";
 import { calculateExpirationDate } from "../../utils/date";
 import { getUserRating } from "../../utils/users";
 
@@ -70,27 +70,32 @@ const TicketView = ({ ticket, users, ratings, currentUser }: Props) => {
   );
 };
 
-TicketView.getInitialProps = async (
-  context: NextPageContext,
-  client: AxiosInstance
-) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const isDemoMode = !!process.env.NEXT_PUBLIC_DEMO_MODE;
-
   const { ticketId } = context.query;
+  const req = context.req as RequestWithUser;
 
-  const { data } = await client.get(
-    !isDemoMode ? `/api/tickets/${ticketId}` : `/tickets/${ticketId}`
-  );
+  const baseURL = !isDemoMode
+    ? process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api"
+    : "http://localhost:3000";
 
-  const { data: users } = await client.get(
-    !isDemoMode ? "/api/users" : "/users"
-  );
+  const client = axios.create({
+    baseURL,
+    headers: context.req.headers,
+  });
 
-  const { data: ratings } = await client.get(
-    !isDemoMode ? "/api/users/ratings" : "/ratings"
-  );
+  const { data: ticket } = await client.get(`/tickets/${ticketId}`);
+  const { data: users } = await client.get("/users");
+  const { data: ratings } = await client.get("/ratings");
 
-  return { ticket: data, users, ratings };
+  return {
+    props: {
+      ticket,
+      users,
+      ratings,
+      currentUser: req.currentUser || { id: "", email: "" },
+    },
+  };
 };
 
 export default TicketView;
