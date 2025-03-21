@@ -1,3 +1,5 @@
+import { type IncomingMessage } from "http";
+
 export interface User {
   id: string;
   firstName: string;
@@ -13,4 +15,8 @@ export interface Rating {
   rate: number;
   userId: string;
   ratedUserId: string;
+}
+
+export interface RequestWithUser extends IncomingMessage {
+  currentUser?: { id: string; email: string };
 }

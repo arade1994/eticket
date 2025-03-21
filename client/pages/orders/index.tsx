@@ -1,5 +1,5 @@
-import { type NextPageContext } from "next";
-import { type AxiosInstance } from "axios";
+import { type GetServerSideProps } from "next";
+import axios from "axios";
 
 import OrdersLayout from "../../layouts/OrdersLayout/OrdersLayout";
 import { type Order } from "../../types/order";
@@ -14,21 +14,27 @@ const OrderList = ({ orders, users }: Props) => {
   return <OrdersLayout orders={orders} users={users} />;
 };
 
-OrderList.getInitialProps = async (
-  context: NextPageContext,
-  client: AxiosInstance
-) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const isDemoMode = !!process.env.NEXT_PUBLIC_DEMO_MODE;
 
-  const { data: orders } = await client.get(
-    !isDemoMode ? "/api/orders" : "/orders"
-  );
+  const baseURL = !isDemoMode
+    ? process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api"
+    : "http://localhost:3000";
 
-  const { data: users } = await client.get(
-    !isDemoMode ? "/api/users" : "/users"
-  );
+  const client = axios.create({
+    baseURL,
+    headers: context.req.headers,
+  });
 
-  return { orders, users };
+  const { data: orders } = await client.get("/orders");
+  const { data: users } = await client.get("/users");
+
+  return {
+    props: {
+      orders,
+      users,
+    },
+  };
 };
 
 export default OrderList;

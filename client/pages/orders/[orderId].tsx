@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { type NextPageContext } from "next";
+import { type GetServerSideProps } from "next";
 import Router from "next/router";
-import { type AxiosInstance } from "axios";
+import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
 
 import { useRequest } from "../../hooks/useRequest";
 import { type Order } from "../../types/order";
+import { type RequestWithUser } from "../../types/user";
 
 interface Props {
   order: Order;
@@ -56,19 +57,28 @@ const OrderView = ({ order, currentUser }: Props) => {
   );
 };
 
-OrderView.getInitialProps = async (
-  context: NextPageContext,
-  client: AxiosInstance
-) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const isDemoMode = process.env.NEXT_PUBLIC_DEMO_MODE;
-
   const { orderId } = context.query;
+  const req = context.req as RequestWithUser;
 
-  const { data } = await client.get(
-    !isDemoMode ? `/api/orders/${orderId}` : `/orders/${orderId}`
-  );
+  const baseURL = !isDemoMode
+    ? process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api"
+    : "http://localhost:3000";
 
-  return { order: data };
+  const client = axios.create({
+    baseURL,
+    headers: context.req.headers,
+  });
+
+  const { data: order } = await client.get(`/orders/${orderId}`);
+
+  return {
+    props: {
+      order,
+      currentUser: req.currentUser || { id: "", email: "" },
+    },
+  };
 };
 
 export default OrderView;

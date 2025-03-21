@@ -1,5 +1,5 @@
-import { type NextPageContext } from "next";
-import { type AxiosInstance } from "axios";
+import { type GetServerSideProps } from "next";
+import axios from "axios";
 
 import TicketsLayout from "../layouts/TicketsLayout/TicketsLayout";
 import { type Ticket } from "../types/ticket";
@@ -15,25 +15,29 @@ const HomePage = ({ tickets, users, ratings }: Props) => {
   return <TicketsLayout ratings={ratings} tickets={tickets} users={users} />;
 };
 
-HomePage.getInitialProps = async (
-  context: NextPageContext,
-  client: AxiosInstance
-) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const isDemoMode = !!process.env.NEXT_PUBLIC_DEMO_MODE;
 
-  const { data: tickets } = await client.get(
-    !isDemoMode ? "/api/tickets" : "/tickets"
-  );
+  const baseURL = !isDemoMode
+    ? process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api"
+    : "http://localhost:3000";
 
-  const { data: users } = await client.get(
-    !isDemoMode ? "/api/users" : "/users"
-  );
+  const client = axios.create({
+    baseURL,
+    headers: context.req.headers,
+  });
 
-  const { data: ratings } = await client.get(
-    !isDemoMode ? "/api/users/ratings" : "/ratings"
-  );
+  const { data: tickets } = await client.get("/tickets");
+  const { data: users } = await client.get("/users");
+  const { data: ratings } = await client.get("/ratings");
 
-  return { tickets, users, ratings };
+  return {
+    props: {
+      tickets,
+      users,
+      ratings,
+    },
+  };
 };
 
 export default HomePage;
