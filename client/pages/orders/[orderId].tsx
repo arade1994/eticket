@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
-import { type GetServerSideProps } from "next";
+import {
+  type GetServerSideProps,
+  type GetServerSidePropsContext,
+  type PreviewData,
+} from "next";
 import Router from "next/router";
 import axios from "axios";
+import { type ParsedUrlQuery } from "querystring";
 import StripeCheckout from "react-stripe-checkout";
 
 import { useRequest } from "../../hooks/useRequest";
@@ -57,7 +62,9 @@ const OrderView = ({ order, currentUser }: Props) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
+) => {
   const isDemoMode = process.env.NEXT_PUBLIC_DEMO_MODE;
   const { orderId } = context.query;
   const req = context.req as RequestWithUser;

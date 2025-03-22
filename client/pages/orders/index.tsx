@@ -1,5 +1,10 @@
-import { type GetServerSideProps } from "next";
+import {
+  type GetServerSideProps,
+  type GetServerSidePropsContext,
+  type PreviewData,
+} from "next";
 import axios from "axios";
+import { type ParsedUrlQuery } from "querystring";
 
 import OrdersLayout from "../../layouts/OrdersLayout/OrdersLayout";
 import { type Order } from "../../types/order";
@@ -14,7 +19,9 @@ const OrderList = ({ orders, users }: Props) => {
   return <OrdersLayout orders={orders} users={users} />;
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
+) => {
   const isDemoMode = !!process.env.NEXT_PUBLIC_DEMO_MODE;
 
   const baseURL = !isDemoMode

@@ -1,5 +1,10 @@
-import { type GetServerSideProps } from "next";
+import {
+  type GetServerSideProps,
+  type GetServerSidePropsContext,
+  type PreviewData,
+} from "next";
 import axios from "axios";
+import { type ParsedUrlQuery } from "querystring";
 
 import UsersLayout from "../../layouts/UsersLayout/UsersLayout";
 import { type Ticket } from "../../types/ticket";
@@ -17,7 +22,9 @@ const UserList = ({ users, tickets, currentUser }: Props) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
+) => {
   const isDemoMode = !!process.env.NEXT_PUBLIC_DEMO_MODE;
   const req = context.req as RequestWithUser;
 

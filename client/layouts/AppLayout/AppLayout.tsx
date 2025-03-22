@@ -1,13 +1,11 @@
 import { type ElementType } from "react";
 import { ToastContainer } from "react-toastify";
 
+import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
-import Navigation from "../../components/Navigation/Navigation";
-import NotificationCenter from "../../components/NotificationCenter/NotificationCenter";
 import { type Ticket } from "../../types/ticket";
 import { type Rating, type User } from "../../types/user";
 
-import "react-toastify/dist/ReactToastify.css";
 import classes from "./AppLayout.module.scss";
 
 interface Props {
@@ -28,20 +26,21 @@ const AppLayout: React.FC<React.PropsWithChildren<Props>> = ({
   return (
     <div className={classes.app}>
       <Header currentUser={currentUser} />
-      {currentUser && <Navigation />}
-      <Component currentUser={currentUser} {...pageProps} />
-      {currentUser && <NotificationCenter />}
+      <main className={classes.main}>
+        <Component {...pageProps} />
+      </main>
+      <Footer />
       <ToastContainer
         closeOnClick
         draggable
+        newestOnTop
         pauseOnFocusLoss
         pauseOnHover
         autoClose={5000}
         hideProgressBar={false}
-        newestOnTop={false}
-        position="bottom-right"
+        position="top-right"
         rtl={false}
-        theme="colored"
+        theme="light"
       />
     </div>
   );

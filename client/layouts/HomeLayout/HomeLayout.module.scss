@@ -1,0 +1,48 @@
+.homePage {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+
+  .heroContent {
+    gap: 1.5rem;
+  }
+
+  .heroText {
+    h1 {
+      font-size: 2rem;
+    }
+
+    .heroDescription {
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .heroFeatures {
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .ctaContainer {
+      gap: 0.5rem;
+    }
+  }
+
+  .heroImage {
+    .imageContainer {
+      height: 200px;
+    }
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
