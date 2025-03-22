@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FaTicketAlt } from "react-icons/fa";
 
 import { type User } from "../../types/user";
 
@@ -16,7 +17,8 @@ const Header: React.FC<React.PropsWithChildren<Props>> = ({ currentUser }) => {
     <header className={classes.header}>
       <div className={classes.headerContent}>
         <Link className={classes.logo} href="/">
-          eTicket
+          <FaTicketAlt className={classes.logoIcon} />
+          <span>eTicket</span>
         </Link>
 
         <HeaderNavigation currentUser={currentUser} />
