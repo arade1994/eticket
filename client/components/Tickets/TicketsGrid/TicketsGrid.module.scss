@@ -1,5 +1,11 @@
+.ticketsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .ticketsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
 }

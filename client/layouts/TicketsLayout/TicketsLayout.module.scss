@@ -1,27 +1,102 @@
 .ticketsContent {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  padding: 50px;
+  gap: 2rem;
+  padding: 2rem;
   height: 100%;
   overflow-y: auto;
+  background: #f8f9fa;
 
   & .ticketsControls {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+    & .controlsLeft {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    & .itemsPerPage {
+      min-width: 150px;
+
+      & .itemsPerPageSelect {
+        .select__control {
+          border: 1px solid #e0e0e0;
+          border-radius: 8px;
+          box-shadow: none;
+          background: #f8f9fa;
+          min-height: 40px;
+
+          &:hover {
+            border-color: #006064;
+          }
+
+          &--is-focused {
+            border-color: #006064;
+            box-shadow: 0 0 0 1px #006064;
+          }
+        }
+
+        .select__menu {
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .select__option {
+          padding: 0.5rem 1rem;
+          cursor: pointer;
+
+          &--is-focused {
+            background-color: #e8f5f5;
+          }
+
+          &--is-selected {
+            background-color: #006064;
+            color: white;
+
+            &:hover {
+              background-color: #00838f;
+            }
+          }
+        }
+      }
+    }
 
     & .sellTicketBtn {
-      width: 120px;
-      border-radius: 5px;
-      background-color: #036481;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #006064 0%, #00838f 100%);
       color: white;
-      font-weight: bold;
-      font-size: 14px;
+      font-weight: 600;
+      font-size: 0.95rem;
       cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
     }
   }
 
   & .emptyListHeading {
-    margin-top: 50px;
+    margin-top: 2rem;
+    text-align: center;
+    color: #666;
+    font-size: 1.2rem;
   }
 }

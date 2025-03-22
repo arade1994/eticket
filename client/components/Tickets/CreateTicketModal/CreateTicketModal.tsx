@@ -105,20 +105,16 @@ const CreateTicketModal: React.FC<React.PropsWithChildren<Props>> = ({
               }
             />
           </div>
-          {errors}
-          <div className={classes.formActions}>
-            <button
-              className={classes.cancelBtn}
-              type="button"
-              onClick={onClose}
-            >
-              Cancel
-            </button>
-            <button className={classes.submitBtn} type="submit">
-              Submit
-            </button>
-          </div>
         </form>
+        {errors}
+        <div className={classes.formActions}>
+          <button className={classes.cancelBtn} type="button" onClick={onClose}>
+            Cancel
+          </button>
+          <button className={classes.submitBtn} type="submit">
+            Submit
+          </button>
+        </div>
       </div>
     </Modal>
   );

@@ -1,5 +1,7 @@
+import { useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { FaStar } from "react-icons/fa";
 
 import coverImage from "../../../assets/images/cover.png";
 import { type Ticket } from "../../../types/ticket";
@@ -19,6 +21,11 @@ const TicketCard: React.FC<React.PropsWithChildren<Props>> = ({
   user,
   ratings,
 }) => {
+  const rating = useMemo(
+    () => getUserRating(ticket.userId, ratings),
+    [ratings, ticket.userId]
+  );
+
   return (
     <Link className={classes.ticketCard} href={`/tickets/${ticket.id}`}>
       <Image
@@ -26,25 +33,25 @@ const TicketCard: React.FC<React.PropsWithChildren<Props>> = ({
         className={classes.coverPhoto}
         height={200}
         src={coverImage}
-        width={200}
+        width={300}
       />
-      <h4 className={classes.ticketTitle}>{ticket.title}</h4>
-      <div className={classes.ticketPrice}>
-        <p>Price:</p>
-        <p>{ticket.price}$</p>
+      <div className={classes.ticketContent}>
+        <h4 className={classes.ticketTitle}>{ticket.title}</h4>
+        <div className={classes.ticketPrice}>
+          <p>${ticket.price}</p>
+        </div>
+        <div className={classes.ticketSeller}>
+          <p>
+            Seller: {user ? `${user.firstName} ${user.lastName}` : "Unknown"}
+          </p>
+          {rating !== "-" && (
+            <span className={classes.rating}>
+              <FaStar /> {rating}
+            </span>
+          )}
+        </div>
+        <span className={classes.ticketCategory}>{ticket.category}</span>
       </div>
-      <div className={classes.ticketSeller}>
-        <p> Sells:</p>
-        <p>
-          {user
-            ? ` ${user?.firstName} ${user?.lastName} (${getUserRating(
-                ticket.userId,
-                ratings
-              )})`
-            : ""}
-        </p>
-      </div>
-      <p className={classes.ticketCategory}>{ticket.category}</p>
     </Link>
   );
 };
