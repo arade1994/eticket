@@ -1,7 +1,7 @@
 import axios from "axios";
 import { type IncomingMessage } from "http";
 
-export default ({ req }: { req?: IncomingMessage }) => {
+const buildClient = ({ req }: { req?: IncomingMessage }) => {
   const isDemoMode = !!process.env.NEXT_PUBLIC_DEMO_MODE;
 
   if (isDemoMode) {
@@ -20,3 +20,5 @@ export default ({ req }: { req?: IncomingMessage }) => {
     return axios.create({ baseURL: "/" });
   }
 };
+
+export default buildClient;

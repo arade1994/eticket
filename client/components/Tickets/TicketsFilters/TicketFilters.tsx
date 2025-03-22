@@ -1,10 +1,18 @@
 import React, { type ChangeEvent, useMemo } from "react";
+import { FaTimes } from "react-icons/fa";
 import Select, { type SingleValue } from "react-select";
 
 import { type User } from "../../../types/user";
 import { ticketCategoriesOptions } from "../../../utils/constants";
 
 import classes from "./TicketFilters.module.scss";
+
+const ITEMS_PER_PAGE_OPTIONS = [
+  { value: 8, label: "8 per page" },
+  { value: 12, label: "12 per page" },
+  { value: 16, label: "16 per page" },
+  { value: 24, label: "24 per page" },
+];
 
 interface Props {
   category: {
@@ -17,6 +25,7 @@ interface Props {
     label: string;
   };
   users: User[];
+  itemsPerPage: { value: number; label: string };
   onChangeCategory: (
     option: SingleValue<{
       value: string;
@@ -31,6 +40,12 @@ interface Props {
       label: string;
     }>
   ) => void;
+  onItemsPerPageChange: (
+    option: SingleValue<{
+      value: number;
+      label: string;
+    }>
+  ) => void;
 }
 
 const TicketFilters = ({
@@ -38,10 +53,12 @@ const TicketFilters = ({
   searchText,
   selectedUser,
   users,
+  itemsPerPage,
   onChangeCategory,
   onChangeSearchText,
   onResetFilters,
   onSelectUser,
+  onItemsPerPageChange,
 }: Props) => {
   const userOptions = useMemo(
     () =>
@@ -84,10 +101,17 @@ const TicketFilters = ({
         value={selectedUser}
         onChange={onSelectUser}
       />
+      <Select
+        className={classes.itemsPerPageSelect}
+        options={ITEMS_PER_PAGE_OPTIONS}
+        value={itemsPerPage}
+        onChange={onItemsPerPageChange}
+      />
       {isFiltersApplied && (
-        <div className={classes.resetFilters} onClick={onResetFilters}>
+        <button className={classes.resetFilters} onClick={onResetFilters}>
+          <FaTimes className={classes.resetIcon} />
           Reset filters
-        </div>
+        </button>
       )}
     </div>
   );

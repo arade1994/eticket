@@ -1,7 +1,12 @@
 import { useMemo } from "react";
-import { type GetServerSideProps } from "next";
+import {
+  type GetServerSideProps,
+  type GetServerSidePropsContext,
+  type PreviewData,
+} from "next";
 import Router from "next/router";
 import axios from "axios";
+import { type ParsedUrlQuery } from "querystring";
 import { toast } from "react-toastify";
 
 import { useRequest } from "../../hooks/useRequest";
@@ -70,7 +75,9 @@ const TicketView = ({ ticket, users, ratings, currentUser }: Props) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
+) => {
   const isDemoMode = !!process.env.NEXT_PUBLIC_DEMO_MODE;
   const { ticketId } = context.query;
   const req = context.req as RequestWithUser;

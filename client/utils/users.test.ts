@@ -73,15 +73,11 @@ describe("getUserRating()", () => {
 
 describe("getIsUserRated()", () => {
   test("it should return false when user is not rated by the currently logged in user", () => {
-    expect(
-      getIsUserRated("hhrgrs9g04hsghhr", mockRatings, "sfg4gwg5stgsggw4")
-    ).toBeFalsy();
+    expect(getIsUserRated("hhrgrs9g04hsghhr", mockRatings)).toBeFalsy();
   });
 
   test("it should return true when user is rated by currently logged in user", () => {
-    expect(
-      getIsUserRated("huw9ufsh9q0fhr0g", mockRatings, "sfg4gwg5stgsggw4")
-    ).toBeTruthy();
+    expect(getIsUserRated("huw9ufsh9q0fhr0g", mockRatings)).toBeTruthy();
   });
 });
 

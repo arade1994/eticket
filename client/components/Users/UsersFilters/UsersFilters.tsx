@@ -1,4 +1,5 @@
 import { type ChangeEvent } from "react";
+import { FaSearch, FaTimes } from "react-icons/fa";
 
 import classes from "./UsersFilters.module.scss";
 
@@ -17,18 +18,22 @@ const UsersFilters: React.FC<React.PropsWithChildren<Props>> = ({
 
   return (
     <div className={classes.usersFilters}>
-      <input
-        className={classes.searchInput}
-        id="search"
-        placeholder="Insert first name or last"
-        type="text"
-        value={searchText}
-        onChange={onChangeSearchText}
-      />
+      <div className={classes.searchInput}>
+        <FaSearch className={classes.searchIcon} />
+        <input
+          className={classes.searchInputField}
+          id="search"
+          placeholder="Search users..."
+          type="text"
+          value={searchText}
+          onChange={onChangeSearchText}
+        />
+      </div>
       {isFiltersApplied && (
-        <div className={classes.resetFiltersBtn} onClick={onResetFilters}>
+        <button className={classes.resetFiltersBtn} onClick={onResetFilters}>
+          <FaTimes className={classes.resetIcon} />
           Reset filters
-        </div>
+        </button>
       )}
     </div>
   );

@@ -1,48 +1,29 @@
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { FaTicketAlt } from "react-icons/fa";
 
 import { type User } from "../../types/user";
-import ProfileIcon from "../ProfileIcon/ProfileIcon";
+
+import HeaderActions from "./HeaderActions/HeaderActions";
+import HeaderNavigation from "./HeaderNavigation/HeaderNavigation";
 
 import classes from "./Header.module.scss";
 
 interface Props {
-  currentUser?: User;
+  currentUser: User;
 }
 
-const Header: React.FC<React.PropsWithChildren<Props>> = ({
-  currentUser,
-}: Props) => {
-  const pathname = usePathname();
-
+const Header: React.FC<React.PropsWithChildren<Props>> = ({ currentUser }) => {
   return (
-    <header className={classes.headerContainer}>
-      <nav className={classes.navigation}>
+    <header className={classes.header}>
+      <div className={classes.headerContent}>
         <Link className={classes.logo} href="/">
-          eTicket
+          <FaTicketAlt className={classes.logoIcon} />
+          <span>eTicket</span>
         </Link>
-        {currentUser ? (
-          <ProfileIcon
-            firstName={currentUser.firstName}
-            lastName={currentUser.lastName}
-          />
-        ) : (
-          <div className={classes.linksContainer}>
-            <Link
-              className={pathname === "/auth/signin" ? classes.activeLink : ""}
-              href="/auth/signin"
-            >
-              Sign In
-            </Link>
-            <Link
-              className={pathname === "/auth/signup" ? classes.activeLink : ""}
-              href="/auth/signup"
-            >
-              Sign Up
-            </Link>
-          </div>
-        )}
-      </nav>
+
+        <HeaderNavigation currentUser={currentUser} />
+        <HeaderActions currentUser={currentUser} />
+      </div>
     </header>
   );
 };

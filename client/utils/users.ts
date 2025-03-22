@@ -36,20 +36,13 @@ export const getUserRating = (userId: string, ratings: Rating[]) => {
 };
 
 /**
- * Returns an information whether user is rated or not by the currently logged in user
+ * Returns an information whether user is rated
  * @param userId - specific user
  * @param ratings - list of ratings
- * @param currentUserId - logged in user
  * @returns - boolean value for rated status of a user
  */
-export const getIsUserRated = (
-  userId: string,
-  ratings: Rating[],
-  currentUserId: string
-) =>
-  !!ratings.filter(
-    (rating) => rating.ratedUserId === userId && rating.userId === currentUserId
-  )?.length;
+export const getIsUserRated = (userId: string, ratings: Rating[]) =>
+  !!ratings.filter((rating) => rating.ratedUserId === userId)?.length;
 
 /**
  * Filters users list by first and last name

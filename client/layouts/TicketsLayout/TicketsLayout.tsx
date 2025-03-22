@@ -27,10 +27,16 @@ const TicketsLayout = ({ ratings, tickets, users }: Props) => {
     label: "Any user",
   });
   const [showCreateTicketModal, setShowCreateTicketModal] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState({
+    value: 8,
+    label: "8 per page",
+  });
 
   const handleChangeSearchText = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       setSearchText(event.target.value);
+      setCurrentPage(1); // Reset to first page when search changes
     },
     []
   );
@@ -46,6 +52,7 @@ const TicketsLayout = ({ ratings, tickets, users }: Props) => {
         value: option?.value ?? "-",
         label: option?.label ?? "Any category",
       });
+      setCurrentPage(1);
     },
     []
   );
@@ -61,6 +68,7 @@ const TicketsLayout = ({ ratings, tickets, users }: Props) => {
         value: option?.value ?? "-",
         label: option?.label ?? "Any user",
       });
+      setCurrentPage(1);
     },
     []
   );
@@ -69,6 +77,7 @@ const TicketsLayout = ({ ratings, tickets, users }: Props) => {
     setSearchText("");
     setCategory({ value: "-", label: "Any Category" });
     setSelectedUser({ value: "-", label: "Any user" });
+    setCurrentPage(1);
   }, []);
 
   const handleOpenCreateTicketModal = useCallback(() => {
@@ -77,6 +86,20 @@ const TicketsLayout = ({ ratings, tickets, users }: Props) => {
 
   const handleCloseCreateTicketModal = useCallback(() => {
     setShowCreateTicketModal(false);
+  }, []);
+
+  const handleItemsPerPageChange = useCallback(
+    (option: SingleValue<{ value: number; label: string }>) => {
+      if (option) {
+        setItemsPerPage(option);
+        setCurrentPage(1);
+      }
+    },
+    []
+  );
+
+  const handlePageChange = useCallback((page: number) => {
+    setCurrentPage(page);
   }, []);
 
   const filteredTickets = useMemo(
@@ -88,16 +111,20 @@ const TicketsLayout = ({ ratings, tickets, users }: Props) => {
   return (
     <div className={classes.ticketsContent}>
       <div className={classes.ticketsControls}>
-        <TicketFilters
-          category={category}
-          searchText={searchText}
-          selectedUser={selectedUser}
-          users={users}
-          onChangeCategory={handleChangeCategory}
-          onChangeSearchText={handleChangeSearchText}
-          onResetFilters={handleResetFilters}
-          onSelectUser={handleSelectUser}
-        />
+        <div className={classes.controlsLeft}>
+          <TicketFilters
+            category={category}
+            itemsPerPage={itemsPerPage}
+            searchText={searchText}
+            selectedUser={selectedUser}
+            users={users}
+            onChangeCategory={handleChangeCategory}
+            onChangeSearchText={handleChangeSearchText}
+            onItemsPerPageChange={handleItemsPerPageChange}
+            onResetFilters={handleResetFilters}
+            onSelectUser={handleSelectUser}
+          />
+        </div>
         <button
           className={classes.sellTicketBtn}
           onClick={handleOpenCreateTicketModal}
@@ -107,9 +134,12 @@ const TicketsLayout = ({ ratings, tickets, users }: Props) => {
       </div>
       {filteredTickets.length ? (
         <TicketsGrid
+          currentPage={currentPage}
+          itemsPerPage={itemsPerPage}
           ratings={ratings}
           tickets={filteredTickets}
           users={users}
+          onPageChange={handlePageChange}
         />
       ) : (
         <h1 className={classes.emptyListHeading}>
