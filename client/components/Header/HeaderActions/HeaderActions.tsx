@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FaBell } from "react-icons/fa";
 
 import { useAuth } from "../../../hooks/useAuth";
 import { useNotification } from "../../../hooks/useNotification";
@@ -27,7 +28,7 @@ const HeaderActions: React.FC<React.PropsWithChildren<Props>> = ({
                 // Toggle notifications dropdown
               }}
             >
-              <span className={classes.notificationIcon}>🔔</span>
+              <FaBell />
               {notifications.some((n) => !n.read) && (
                 <span className={classes.notificationBadge} />
               )}
