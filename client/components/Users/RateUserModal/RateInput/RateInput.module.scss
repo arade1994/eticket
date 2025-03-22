@@ -1,51 +1,74 @@
 .rateInputContainer {
-  width: "100%";
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  text-align: center;
+  gap: 2rem;
+  box-sizing: border-box;
 
   & .rate {
-    margin-bottom: 20px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
+    gap: 0.5rem;
 
     & input {
       display: none;
     }
 
     & .star {
-      font-size: 24px;
+      font-size: 2rem;
       cursor: pointer;
+      color: #e0e0e0;
+      transition: all 0.3s ease;
+      line-height: 1;
     }
 
     & .star:hover,
-    & .star:hover ~ .star {
-      color: orange;
-    }
-
+    & .star:hover ~ .star,
     & input:checked ~ .star {
-      color: orange;
+      color: #ffd700;
+      transform: scale(1.1);
     }
 
     & .checked {
-      color: orange;
+      color: #ffd700;
     }
   }
 
   & .comment {
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
 
     & label {
-      opacity: 0.5;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #2c3e50;
     }
 
     & textarea {
       width: 100%;
-      height: 100px;
+      height: 120px;
+      padding: 1rem;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      background: #f8f9fa;
       resize: none;
-      border: none;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+
+      &:focus {
+        outline: none;
+        border-color: #006064;
+        box-shadow: 0 0 0 2px rgba(0, 96, 100, 0.1);
+      }
+
+      &::placeholder {
+        color: #999;
+      }
     }
   }
 }

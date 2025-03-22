@@ -60,7 +60,7 @@ const RatingModal = ({
       isOpen={open}
     >
       <div className={classes.rateUserModalHeader}>
-        <h2>Edit user rating</h2>
+        <h2>Rate user</h2>
         <div className={classes.exitButton} onClick={onClose}>
           <p>&times;</p>
         </div>

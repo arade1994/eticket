@@ -43,8 +43,7 @@ const UsersTable: React.FC<React.PropsWithChildren<Props>> = ({
 }) => {
   const isRatingDisabled = useCallback(
     (userId: string, currentUserId: string, ratings: Rating[]) =>
-      userId === currentUserId ||
-      getIsUserRated(userId, ratings, currentUserId),
+      userId === currentUserId || getIsUserRated(userId, ratings),
     []
   );
 
@@ -73,7 +72,7 @@ const UsersTable: React.FC<React.PropsWithChildren<Props>> = ({
                 {getUserRatings(user.id, ratings)?.length
                   ? ` (${getUserRatings(user.id, ratings)?.length})`
                   : ""}
-                {getIsUserRated(user.id, ratings, currentUser.id) ? (
+                {getIsUserRated(user.id, ratings) ? (
                   <div
                     className={classes.viewBtn}
                     onClick={() => {
