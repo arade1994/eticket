@@ -4,7 +4,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <title>eTicket - Your Event Ticket Marketplace</title>
         <meta content="Buy and sell event tickets with confidence on eTicket" name="description" />
         <link href="/favicon.ico" rel="icon" />
         <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
