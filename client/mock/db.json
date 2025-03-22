@@ -11,6 +11,14 @@
   },
   "users": [
     {
+      "id": "sfg4gwg5stgsggw4",
+      "firstName": "Ante",
+      "lastName": "Rade",
+      "age": 30,
+      "email": "anterade99@gmail.com",
+      "password": "anterade1994"
+    },
+    {
       "id": "huw9ufsh9q0fhr0g",
       "firstName": "Marcus",
       "lastName": "Millford",
@@ -43,164 +51,621 @@
       "password": "wash123"
     },
     {
-      "id": "sfg4gwg5stgsggw4",
-      "firstName": "Ante",
-      "lastName": "Rade",
-      "age": 30,
-      "email": "anterade99@gmail.com",
-      "password": "anterade1994"
+      "id": "abc123def456",
+      "firstName": "Sarah",
+      "lastName": "Johnson",
+      "age": 28,
+      "email": "sarah.j@gmail.com",
+      "password": "sarah123"
+    },
+    {
+      "id": "def456ghi789",
+      "firstName": "Michael",
+      "lastName": "Chen",
+      "age": 35,
+      "email": "michael.c@gmail.com",
+      "password": "michael123"
+    },
+    {
+      "id": "ghi789jkl012",
+      "firstName": "Emma",
+      "lastName": "Wilson",
+      "age": 31,
+      "email": "emma.w@gmail.com",
+      "password": "emma123"
+    },
+    {
+      "id": "jkl012mno345",
+      "firstName": "David",
+      "lastName": "Brown",
+      "age": 39,
+      "email": "david.b@gmail.com",
+      "password": "david123"
+    },
+    {
+      "id": "mno345pqr678",
+      "firstName": "Lisa",
+      "lastName": "Anderson",
+      "age": 27,
+      "email": "lisa.a@gmail.com",
+      "password": "lisa123"
+    },
+    {
+      "id": "pqr678stu901",
+      "firstName": "James",
+      "lastName": "Taylor",
+      "age": 42,
+      "email": "james.t@gmail.com",
+      "password": "james123"
+    },
+    {
+      "id": "stu901vwx234",
+      "firstName": "Sophie",
+      "lastName": "Martin",
+      "age": 33,
+      "email": "sophie.m@gmail.com",
+      "password": "sophie123"
+    },
+    {
+      "id": "vwx234yz567",
+      "firstName": "Robert",
+      "lastName": "Lee",
+      "age": 47,
+      "email": "robert.l@gmail.com",
+      "password": "robert123"
+    },
+    {
+      "id": "yz567abc890",
+      "firstName": "Olivia",
+      "lastName": "White",
+      "age": 29,
+      "email": "olivia.w@gmail.com",
+      "password": "olivia123"
+    },
+    {
+      "id": "abc890def123",
+      "firstName": "William",
+      "lastName": "Garcia",
+      "age": 36,
+      "email": "william.g@gmail.com",
+      "password": "william123"
     }
   ],
   "tickets": [
     {
-      "id": "2f3b",
-      "title": "Basketball Game",
+      "id": "t1",
+      "title": "NBA Finals Game 7",
       "userId": "sfg4gwg5stgsggw4",
-      "price": "430.00",
+      "price": "450.00",
       "category": "sport game"
     },
     {
-      "id": "1c8a",
-      "title": "Football Match",
-      "price": "230.00",
+      "id": "t2",
+      "title": "Taylor Swift Eras Tour",
       "userId": "huw9ufsh9q0fhr0g",
-      "category": "sport game"
-    },
-    {
-      "id": "3a4f",
-      "title": "Concert",
-      "userId": "eaegsgsg4sghds5g",
-      "price": "120.00",
+      "price": "280.00",
       "category": "music event"
     },
     {
-      "id": "0bb2",
-      "title": "Bethoveen Concerto",
-      "price": "540.00",
-      "userId": "ydgsrgww422g4wgr",
+      "id": "t3",
+      "title": "Hamilton Musical",
+      "userId": "hhrgrs9g04hsghhr",
+      "price": "180.00",
       "category": "theatre play"
     },
     {
-      "id": "adf3",
-      "title": "Basketball Game",
-      "userId": "sfg4gwg5stgsggw4",
-      "price": "430.00",
-      "category": "sport game"
-    },
-    {
-      "id": "32rd",
-      "title": "Football Match",
-      "price": "230.00",
-      "userId": "huw9ufsh9q0fhr0g",
-      "category": "sport game"
-    },
-    {
-      "id": "13rg",
-      "title": "Concert",
+      "id": "t4",
+      "title": "Champions League Final",
       "userId": "eaegsgsg4sghds5g",
-      "price": "120.00",
+      "price": "320.00",
+      "category": "sport game"
+    },
+    {
+      "id": "t5",
+      "title": "Ed Sheeran Concert",
+      "userId": "ydgsrgww422g4wgr",
+      "price": "150.00",
       "category": "music event"
     },
     {
-      "id": "321g",
-      "title": "Bethoveen Concerto",
-      "price": "540.00",
-      "userId": "ydgsrgww422g4wgr",
+      "id": "t6",
+      "title": "The Lion King",
+      "userId": "abc123def456",
+      "price": "120.00",
       "category": "theatre play"
     },
     {
-      "id": "1tsg",
-      "title": "Basketball Game",
-      "userId": "sfg4gwg5stgsggw4",
-      "price": "430.00",
+      "id": "t7",
+      "title": "World Cup Match",
+      "userId": "def456ghi789",
+      "price": "400.00",
       "category": "sport game"
     },
     {
-      "id": "fgta",
-      "title": "Football Match",
-      "price": "230.00",
-      "userId": "huw9ufsh9q0fhr0g",
-      "category": "sport game"
-    },
-    {
-      "id": "gsdgt",
-      "title": "Concert",
-      "userId": "eaegsgsg4sghds5g",
-      "price": "120.00",
+      "id": "t8",
+      "title": "Coldplay World Tour",
+      "userId": "ghi789jkl012",
+      "price": "200.00",
       "category": "music event"
     },
     {
-      "id": "tss4",
-      "title": "Bethoveen Concerto",
-      "price": "540.00",
+      "id": "t9",
+      "title": "Wicked Musical",
+      "userId": "jkl012mno345",
+      "price": "160.00",
+      "category": "theatre play"
+    },
+    {
+      "id": "t10",
+      "title": "Super Bowl LVIII",
+      "userId": "mno345pqr678",
+      "price": "800.00",
+      "category": "sport game"
+    },
+    {
+      "id": "t11",
+      "title": "Beyoncé Renaissance Tour",
+      "userId": "pqr678stu901",
+      "price": "300.00",
+      "category": "music event"
+    },
+    {
+      "id": "t12",
+      "title": "Phantom of the Opera",
+      "userId": "stu901vwx234",
+      "price": "140.00",
+      "category": "theatre play"
+    },
+    {
+      "id": "t13",
+      "title": "UEFA Euro 2024 Final",
+      "userId": "vwx234yz567",
+      "price": "350.00",
+      "category": "sport game"
+    },
+    {
+      "id": "t14",
+      "title": "Drake It's All A Blur Tour",
+      "userId": "yz567abc890",
+      "price": "250.00",
+      "category": "music event"
+    },
+    {
+      "id": "t15",
+      "title": "Les Misérables",
+      "userId": "abc890def123",
+      "price": "130.00",
+      "category": "theatre play"
+    },
+    {
+      "id": "t16",
+      "title": "NBA All-Star Game",
+      "userId": "sfg4gwg5stgsggw4",
+      "price": "380.00",
+      "category": "sport game"
+    },
+    {
+      "id": "t17",
+      "title": "Adele Las Vegas Residency",
+      "userId": "huw9ufsh9q0fhr0g",
+      "price": "500.00",
+      "category": "music event"
+    },
+    {
+      "id": "t18",
+      "title": "Book of Mormon",
+      "userId": "hhrgrs9g04hsghhr",
+      "price": "170.00",
+      "category": "theatre play"
+    },
+    {
+      "id": "t19",
+      "title": "Formula 1 Grand Prix",
+      "userId": "eaegsgsg4sghds5g",
+      "price": "420.00",
+      "category": "sport game"
+    },
+    {
+      "id": "t20",
+      "title": "Post Malone Tour",
       "userId": "ydgsrgww422g4wgr",
+      "price": "220.00",
+      "category": "music event"
+    },
+    {
+      "id": "t21",
+      "title": "Dear Evan Hansen",
+      "userId": "abc123def456",
+      "price": "110.00",
+      "category": "theatre play"
+    },
+    {
+      "id": "t22",
+      "title": "Wimbledon Finals",
+      "userId": "def456ghi789",
+      "price": "280.00",
+      "category": "sport game"
+    },
+    {
+      "id": "t23",
+      "title": "The Weeknd Tour",
+      "userId": "ghi789jkl012",
+      "price": "240.00",
+      "category": "music event"
+    },
+    {
+      "id": "t24",
+      "title": "Mamma Mia!",
+      "userId": "jkl012mno345",
+      "price": "150.00",
+      "category": "theatre play"
+    },
+    {
+      "id": "t25",
+      "title": "Olympic Games Opening Ceremony",
+      "userId": "mno345pqr678",
+      "price": "600.00",
+      "category": "sport game"
+    },
+    {
+      "id": "t26",
+      "title": "Bruno Mars Las Vegas",
+      "userId": "pqr678stu901",
+      "price": "290.00",
+      "category": "music event"
+    },
+    {
+      "id": "t27",
+      "title": "Cats Musical",
+      "userId": "stu901vwx234",
+      "price": "130.00",
+      "category": "theatre play"
+    },
+    {
+      "id": "t28",
+      "title": "NFL Championship Game",
+      "userId": "vwx234yz567",
+      "price": "450.00",
+      "category": "sport game"
+    },
+    {
+      "id": "t29",
+      "title": "Lady Gaga Las Vegas",
+      "userId": "yz567abc890",
+      "price": "320.00",
+      "category": "music event"
+    },
+    {
+      "id": "t30",
+      "title": "Chicago Musical",
+      "userId": "abc890def123",
+      "price": "140.00",
       "category": "theatre play"
     }
   ],
   "ratings": [
     {
-      "id": "2a37",
+      "id": "r1",
       "rate": 5,
-      "comment": "Proven user, everything on time and very precise",
+      "comment": "Excellent seller! Tickets were delivered instantly and at a great price.",
       "userId": "sfg4gwg5stgsggw4",
       "ratedUserId": "huw9ufsh9q0fhr0g"
     },
     {
-      "id": "2341",
-      "rate": 5,
-      "comment": "Always provides tickets for interesting events, with a acceptable cost. Must recommend",
-      "userId": "ydgsrgww422g4wgr",
-      "ratedUserId": "huw9ufsh9q0fhr0g"
+      "id": "r2",
+      "rate": 4,
+      "comment": "Very reliable seller, tickets were as described. Would buy again!",
+      "userId": "huw9ufsh9q0fhr0g",
+      "ratedUserId": "hhrgrs9g04hsghhr"
     },
     {
-      "id": "5g3d",
-      "rate": 4,
-      "comment": "Good and with a great tickets always, but, very busy and hard to reach. In general, still would recommend😀",
+      "id": "r3",
+      "rate": 5,
+      "comment": "Perfect transaction! Great communication and fast delivery.",
       "userId": "hhrgrs9g04hsghhr",
-      "ratedUserId": "huw9ufsh9q0fhr0g"
+      "ratedUserId": "eaegsgsg4sghds5g"
+    },
+    {
+      "id": "r4",
+      "rate": 5,
+      "comment": "Amazing seller! Got front row tickets at a reasonable price.",
+      "userId": "eaegsgsg4sghds5g",
+      "ratedUserId": "ydgsrgww422g4wgr"
+    },
+    {
+      "id": "r5",
+      "rate": 4,
+      "comment": "Good experience overall. Tickets were valid and delivered on time.",
+      "userId": "ydgsrgww422g4wgr",
+      "ratedUserId": "abc123def456"
+    },
+    {
+      "id": "r6",
+      "rate": 5,
+      "comment": "Best seller I've dealt with! Very professional and helpful.",
+      "userId": "abc123def456",
+      "ratedUserId": "def456ghi789"
+    },
+    {
+      "id": "r7",
+      "rate": 4,
+      "comment": "Great service, tickets were exactly as advertised.",
+      "userId": "def456ghi789",
+      "ratedUserId": "ghi789jkl012"
+    },
+    {
+      "id": "r8",
+      "rate": 5,
+      "comment": "Excellent experience! Will definitely buy from again.",
+      "userId": "ghi789jkl012",
+      "ratedUserId": "jkl012mno345"
+    },
+    {
+      "id": "r9",
+      "rate": 4,
+      "comment": "Good seller, tickets were delivered quickly.",
+      "userId": "jkl012mno345",
+      "ratedUserId": "mno345pqr678"
+    },
+    {
+      "id": "r10",
+      "rate": 5,
+      "comment": "Perfect transaction! Great communication throughout.",
+      "userId": "mno345pqr678",
+      "ratedUserId": "pqr678stu901"
+    },
+    {
+      "id": "r11",
+      "rate": 4,
+      "comment": "Reliable seller, tickets were valid and delivered on time.",
+      "userId": "pqr678stu901",
+      "ratedUserId": "stu901vwx234"
+    },
+    {
+      "id": "r12",
+      "rate": 5,
+      "comment": "Amazing experience! Got great seats at a fair price.",
+      "userId": "stu901vwx234",
+      "ratedUserId": "vwx234yz567"
+    },
+    {
+      "id": "r13",
+      "rate": 4,
+      "comment": "Good seller, would recommend to others.",
+      "userId": "vwx234yz567",
+      "ratedUserId": "yz567abc890"
+    },
+    {
+      "id": "r14",
+      "rate": 5,
+      "comment": "Excellent service! Very professional and helpful.",
+      "userId": "yz567abc890",
+      "ratedUserId": "abc890def123"
+    },
+    {
+      "id": "r15",
+      "rate": 4,
+      "comment": "Great experience overall, tickets were as described.",
+      "userId": "abc890def123",
+      "ratedUserId": "sfg4gwg5stgsggw4"
+    },
+    {
+      "id": "r16",
+      "rate": 5,
+      "comment": "Perfect transaction! Will definitely buy from again.",
+      "userId": "sfg4gwg5stgsggw4",
+      "ratedUserId": "def456ghi789"
+    },
+    {
+      "id": "r17",
+      "rate": 4,
+      "comment": "Good seller, tickets were delivered quickly.",
+      "userId": "huw9ufsh9q0fhr0g",
+      "ratedUserId": "ghi789jkl012"
+    },
+    {
+      "id": "r18",
+      "rate": 5,
+      "comment": "Amazing experience! Great communication throughout.",
+      "userId": "hhrgrs9g04hsghhr",
+      "ratedUserId": "jkl012mno345"
+    },
+    {
+      "id": "r19",
+      "rate": 4,
+      "comment": "Reliable seller, would recommend to others.",
+      "userId": "eaegsgsg4sghds5g",
+      "ratedUserId": "mno345pqr678"
+    },
+    {
+      "id": "r20",
+      "rate": 5,
+      "comment": "Excellent service! Very professional and helpful.",
+      "userId": "ydgsrgww422g4wgr",
+      "ratedUserId": "pqr678stu901"
     }
   ],
   "payments": [],
   "orders": [
     {
-      "id": "5ccb",
-      "ticketId": "1c8a",
+      "id": "o1",
+      "ticketId": "t2",
       "userId": "sfg4gwg5stgsggw4",
       "expiresAt": 1740163067109,
       "status": "created",
       "ticket": {
-        "id": "1c8a",
-        "title": "Football Match",
-        "price": "230.00",
+        "id": "t2",
+        "title": "Taylor Swift Eras Tour",
+        "price": "280.00",
         "userId": "huw9ufsh9q0fhr0g",
+        "category": "music event"
+      }
+    },
+    {
+      "id": "o2",
+      "ticketId": "t4",
+      "userId": "huw9ufsh9q0fhr0g",
+      "expiresAt": 1740163070001,
+      "status": "created",
+      "ticket": {
+        "id": "t4",
+        "title": "Champions League Final",
+        "price": "320.00",
+        "userId": "eaegsgsg4sghds5g",
         "category": "sport game"
       }
     },
     {
-      "id": "6253",
-      "ticketId": "0bb2",
-      "userId": "sfg4gwg5stgsggw4",
-      "expiresAt": 1740163070001,
+      "id": "o3",
+      "ticketId": "t6",
+      "userId": "hhrgrs9g04hsghhr",
+      "expiresAt": 1740163072553,
       "status": "created",
       "ticket": {
-        "id": "0bb2",
-        "title": "Bethoveen Concerto",
-        "price": "540.00",
-        "userId": "ydgsrgww422g4wgr",
+        "id": "t6",
+        "title": "The Lion King",
+        "price": "120.00",
+        "userId": "abc123def456",
         "category": "theatre play"
       }
     },
     {
-      "id": "5c7c",
-      "ticketId": "3a4f",
-      "userId": "sfg4gwg5stgsggw4",
-      "expiresAt": 1740163072553,
+      "id": "o4",
+      "ticketId": "t8",
+      "userId": "eaegsgsg4sghds5g",
+      "expiresAt": 1740163075000,
       "status": "created",
       "ticket": {
-        "id": "3a4f",
-        "title": "Concert",
-        "userId": "eaegsgsg4sghds5g",
-        "price": "120.00",
+        "id": "t8",
+        "title": "Coldplay World Tour",
+        "price": "200.00",
+        "userId": "ghi789jkl012",
+        "category": "music event"
+      }
+    },
+    {
+      "id": "o5",
+      "ticketId": "t10",
+      "userId": "ydgsrgww422g4wgr",
+      "expiresAt": 1740163077500,
+      "status": "created",
+      "ticket": {
+        "id": "t10",
+        "title": "Super Bowl LVIII",
+        "price": "800.00",
+        "userId": "mno345pqr678",
+        "category": "sport game"
+      }
+    },
+    {
+      "id": "o6",
+      "ticketId": "t12",
+      "userId": "abc123def456",
+      "expiresAt": 1740163080000,
+      "status": "created",
+      "ticket": {
+        "id": "t12",
+        "title": "Phantom of the Opera",
+        "price": "140.00",
+        "userId": "stu901vwx234",
+        "category": "theatre play"
+      }
+    },
+    {
+      "id": "o7",
+      "ticketId": "t14",
+      "userId": "def456ghi789",
+      "expiresAt": 1740163082500,
+      "status": "created",
+      "ticket": {
+        "id": "t14",
+        "title": "Drake It's All A Blur Tour",
+        "price": "250.00",
+        "userId": "yz567abc890",
+        "category": "music event"
+      }
+    },
+    {
+      "id": "o8",
+      "ticketId": "t16",
+      "userId": "ghi789jkl012",
+      "expiresAt": 1740163085000,
+      "status": "created",
+      "ticket": {
+        "id": "t16",
+        "title": "NBA All-Star Game",
+        "price": "380.00",
+        "userId": "sfg4gwg5stgsggw4",
+        "category": "sport game"
+      }
+    },
+    {
+      "id": "o9",
+      "ticketId": "t18",
+      "userId": "jkl012mno345",
+      "expiresAt": 1740163087500,
+      "status": "created",
+      "ticket": {
+        "id": "t18",
+        "title": "Book of Mormon",
+        "price": "170.00",
+        "userId": "hhrgrs9g04hsghhr",
+        "category": "theatre play"
+      }
+    },
+    {
+      "id": "o10",
+      "ticketId": "t20",
+      "userId": "mno345pqr678",
+      "expiresAt": 1740163090000,
+      "status": "created",
+      "ticket": {
+        "id": "t20",
+        "title": "Post Malone Tour",
+        "price": "220.00",
+        "userId": "ydgsrgww422g4wgr",
+        "category": "music event"
+      }
+    },
+    {
+      "id": "o11",
+      "ticketId": "t22",
+      "userId": "pqr678stu901",
+      "expiresAt": 1740163092500,
+      "status": "created",
+      "ticket": {
+        "id": "t22",
+        "title": "Wimbledon Finals",
+        "price": "280.00",
+        "userId": "def456ghi789",
+        "category": "sport game"
+      }
+    },
+    {
+      "id": "o12",
+      "ticketId": "t24",
+      "userId": "stu901vwx234",
+      "expiresAt": 1740163095000,
+      "status": "created",
+      "ticket": {
+        "id": "t24",
+        "title": "Mamma Mia!",
+        "price": "150.00",
+        "userId": "jkl012mno345",
+        "category": "theatre play"
+      }
+    },
+    {
+      "id": "o13",
+      "ticketId": "t26",
+      "userId": "vwx234yz567",
+      "expiresAt": 1740163097500,
+      "status": "created",
+      "ticket": {
+        "id": "t26",
+        "title": "Bruno Mars Las Vegas",
+        "price": "290.00",
+        "userId": "pqr678stu901",
         "category": "music event"
       }
     }
