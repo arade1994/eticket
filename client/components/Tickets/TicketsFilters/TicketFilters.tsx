@@ -1,4 +1,5 @@
 import React, { type ChangeEvent, useMemo } from "react";
+import { FaTimes } from "react-icons/fa";
 import Select, { type SingleValue } from "react-select";
 
 import { type User } from "../../../types/user";
@@ -107,9 +108,10 @@ const TicketFilters = ({
         onChange={onItemsPerPageChange}
       />
       {isFiltersApplied && (
-        <div className={classes.resetFilters} onClick={onResetFilters}>
+        <button className={classes.resetFilters} onClick={onResetFilters}>
+          <FaTimes className={classes.resetIcon} />
           Reset filters
-        </div>
+        </button>
       )}
     </div>
   );

@@ -1,4 +1,5 @@
 import { type ChangeEvent } from "react";
+import { FaSearch, FaTimes } from "react-icons/fa";
 import Select, { type SingleValue } from "react-select";
 
 import { statusOptions } from "../../../utils/constants";
@@ -43,13 +44,16 @@ const OrdersFilters: React.FC<React.PropsWithChildren<Props>> = ({
 
   return (
     <div className={classes.ordersFilters}>
-      <input
-        id="searchInput"
-        placeholder="Insert title"
-        type="text"
-        value={searchText}
-        onChange={onChangeSearchText}
-      />
+      <div className={classes.searchInput}>
+        <FaSearch className={classes.searchIcon} />
+        <input
+          id="searchInput"
+          placeholder="Search orders..."
+          type="text"
+          value={searchText}
+          onChange={onChangeSearchText}
+        />
+      </div>
       <Select
         id="userSelect"
         options={[{ value: "-", label: "Any user" }, ...userOptions]}
@@ -63,9 +67,10 @@ const OrdersFilters: React.FC<React.PropsWithChildren<Props>> = ({
         onChange={onSelectStatus}
       />
       {areFiltersApplied && (
-        <div className={classes.resetFiltersBtn} onClick={onResetFilters}>
+        <button className={classes.resetFiltersBtn} onClick={onResetFilters}>
+          <FaTimes className={classes.resetIcon} />
           Reset filters
-        </div>
+        </button>
       )}
     </div>
   );
