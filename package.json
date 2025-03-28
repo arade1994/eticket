@@ -1,0 +1,11 @@
+{
+  "name": "eTicket",
+  "scripts": {
+    "lint": "eslint .",
+    "type-check": "tsc --noEmit",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "turbo": "^2.4.4"
+  }
+}

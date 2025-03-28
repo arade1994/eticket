@@ -1,0 +1,39 @@
+name: CI Pipeline
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run ESLint
+        run: npx turbo run lint --filter=[HEAD^]
+
+      - name: Run TypeScript checks
+        run: npx turbo run type-check --filter=[HEAD^]
+
+      - name: Run Unit Tests
+        run: npx turbo run test --filter=[HEAD^]
+
+      - name: Generate Test Coverage
+        run: npx turbo run test -- --coverage --filter=[HEAD^]
+
+      - name: Upload Coverage Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: ./coverage
