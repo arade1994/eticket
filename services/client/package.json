@@ -3,13 +3,19 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "test": "vitest --watch",
-    "test:ci": "vitest run",
     "db-server": "npx json-server --watch ./mock/db.json",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test-watch": "vitest --watch",
+    "lint": "eslint . --quiet",
     "lint:fix": "eslint --fix",
+    "test-coverage-report": "vitest --coverage --coverageReporters=text-summary",
     "lint:eslint": "eslint --cache",
     "lint:tsc": "tsc --project tsconfig.json --noEmit",
-    "lint:ts-coverage": "type-coverage"
+    "lint:ts-coverage": "type-coverage",
+    "type-check": "tsc --noEmit",
+    "ts-coverage": "type-coverage",
+    "ts-coverage-report": "tsc --noEmit --listFiles | grep '.ts$' | xargs -I {} nyc --reporter=text-summary tsc --noEmit --skipLibCheck"
   },
   "dependencies": {
     "axios": "^1.8.4",
@@ -37,6 +43,7 @@
     "@types/react-modal": "^3.16.3",
     "@typescript-eslint/parser": "^8.27.0",
     "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/coverage-v8": "3.0.9",
     "eslint": "^9.23.0",
     "eslint-config-next": "^15.2.3",
     "eslint-config-prettier": "^10.1.1",
