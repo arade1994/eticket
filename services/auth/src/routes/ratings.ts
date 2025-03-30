@@ -6,7 +6,7 @@ import { Rating } from "../models/Rating";
 const router = express.Router();
 
 router.get(
-  "/api/users/ratings",
+  "/api/ratings",
   validateRequest,
   async (req: Request, res: Response) => {
     const ratings = await Rating.find();
