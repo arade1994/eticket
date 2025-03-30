@@ -3,7 +3,7 @@
   "globalDependencies": ["pnpm-lock.yaml"],
   "tasks": {
     "lint": {
-      "outputs": [],
+      "outputs": ["eslint-report.json"],
       "cache": true,
       "dependsOn": ["^lint"]
     },
