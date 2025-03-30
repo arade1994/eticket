@@ -3,13 +3,17 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "test": "vitest --watch",
-    "test:ci": "vitest run",
     "db-server": "npx json-server --watch ./mock/db.json",
+    "test-watch": "vitest --watch",
+    "test": "vitest run",
+    "test-coverage-report": "vitest --coverage --coverageReporters=text-summary",
+    "lint": "eslint . --max-warnings=0",
     "lint:fix": "eslint --fix",
     "lint:eslint": "eslint --cache",
     "lint:tsc": "tsc --project tsconfig.json --noEmit",
-    "lint:ts-coverage": "type-coverage"
+    "lint:ts-coverage": "type-coverage",
+    "type-check": "tsc --noEmit",
+    "ts-coverage-report": "tsc --noEmit --listFiles | grep '.ts$' | xargs -I {} nyc --reporter=text-summary tsc --noEmit --skipLibCheck"
   },
   "dependencies": {
     "axios": "^1.8.4",

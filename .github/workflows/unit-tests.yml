@@ -1,0 +1,42 @@
+name: Unit Tests and Coverage
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run Unit Tests
+        run: pnpm turbo run test --filter=services/*
+
+      - name: Generate Test Coverage
+        run: pnpm turbo run test -- --coverage --filter=services/*
+
+      - name: Check Test Coverage (Fail if <80%)
+        run: |
+          COVERAGE=$(pnpm test-coverage-report | grep -o '[0-9]*\.[0-9]*' | tail -n1)
+          echo "Test Coverage: $COVERAGE%"
+          if (( $(echo "$COVERAGE < 80" | bc -l) )); then
+            echo "❌ Test coverage is below 80%! PR cannot be merged."
+            exit 1
+          fi
+
+      - name: Upload Coverage Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: ./coverage

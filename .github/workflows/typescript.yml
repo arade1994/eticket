@@ -1,0 +1,35 @@
+name: TypeScript
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  type-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/checkout@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run Typescript checks
+        run: pnpm turbo run type-check --filter=services/*
+
+      - name: Run TypeScript Coverage
+        run: pnpm turbo run ts-coverage --filter=services/*
+
+      - name: Check TypeScript Coverage (Fail if <90%)
+        run: |
+          COVERAGE=${pnpm ts-coverage-report | grep -o '[0-9]*\.[0-9]*' | tail -n1}
+          echo "TS Coverage: $COVERAGE%"
+          if (( ${echo "$COVERAGE < 90" | bc -1})); then
+            echo "❌ TypeScript coverage is below 90%! PR cannot be merged."
+            exit 1

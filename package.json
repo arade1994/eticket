@@ -8,5 +8,8 @@
   "dependencies": {
     "turbo": "^2.4.4"
   },
-  "packageManager": "npm"
+  "packageManager": "pnpm@10.7.0",
+  "devDependencies": {
+    "eslint": "9.23.0"
+  }
 }

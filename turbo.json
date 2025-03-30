@@ -1,6 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "pipeline": {
+  "tasks": {
     "lint": {
       "outputs": [],
       "cache": true
@@ -13,5 +13,6 @@
       "outputs": ["coverage"],
       "cache": true
     }
-  }
+  },
+  "globalDependencies": ["pnpm-lock.yaml"]
 }
