@@ -4,15 +4,17 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "db-server": "npx json-server --watch ./mock/db.json",
-    "test-watch": "vitest --watch",
     "test": "vitest run",
-    "test-coverage-report": "vitest --coverage --coverageReporters=text-summary",
+    "test:coverage": "vitest run --coverage",
+    "test-watch": "vitest --watch",
     "lint": "eslint . --max-warnings=0",
     "lint:fix": "eslint --fix",
+    "type-check": "tsc --noEmit",
+    "ts-coverage": "type-coverage",
+    "test-coverage-report": "vitest --coverage --coverageReporters=text-summary",
     "lint:eslint": "eslint --cache",
     "lint:tsc": "tsc --project tsconfig.json --noEmit",
     "lint:ts-coverage": "type-coverage",
-    "type-check": "tsc --noEmit",
     "ts-coverage-report": "tsc --noEmit --listFiles | grep '.ts$' | xargs -I {} nyc --reporter=text-summary tsc --noEmit --skipLibCheck"
   },
   "dependencies": {

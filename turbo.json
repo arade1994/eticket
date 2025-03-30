@@ -1,18 +1,31 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["pnpm-lock.yaml"],
   "tasks": {
     "lint": {
       "outputs": [],
-      "cache": true
+      "cache": true,
+      "dependsOn": ["^lint"]
     },
     "type-check": {
       "outputs": [],
-      "cache": true
+      "cache": true,
+      "dependsOn": ["^type-check"]
+    },
+    "ts-coverage": {
+      "outputs": ["coverage/ts-coverage.json"],
+      "cache": true,
+      "dependsOn": ["^ts-coverage"]
     },
     "test": {
       "outputs": ["coverage"],
-      "cache": true
+      "cache": true,
+      "dependsOn": ["^test"]
+    },
+    "test:coverage": {
+      "outputs": ["coverage"],
+      "cache": true,
+      "dependsOn": ["^test:coverage"]
     }
-  },
-  "globalDependencies": ["pnpm-lock.yaml"]
+  }
 }

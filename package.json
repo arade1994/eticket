@@ -1,9 +1,12 @@
 {
-  "name": "eTicket",
+  "name": "eticket",
+  "private": true,
   "scripts": {
-    "lint": "eslint .",
-    "type-check": "tsc --noEmit",
-    "test": "vitest"
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check",
+    "test": "turbo run test",
+    "test:coverage": "turbo run test:coverage",
+    "ts-coverage": "turbo run ts-coverage"
   },
   "dependencies": {
     "turbo": "^2.4.4"
@@ -13,7 +16,7 @@
     "eslint": "9.23.0"
   },
   "projects": {
-    "client": {},
+    "services/client": {},
     "services/auth": {},
     "services/tickets": {},
     "services/orders": {},
