@@ -29,7 +29,7 @@ jobs:
         run: pnpm turbo run test --filter=services/*
 
       - name: Generate Test Coverage
-        run: pnpm turbo run test -- --coverage --filter=services/*
+        run: pnpm turbo run test -- --coverage
 
       - name: Check Test Coverage (Fail if <80%)
         run: |
