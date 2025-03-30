@@ -11,5 +11,13 @@
   "packageManager": "pnpm@10.7.0",
   "devDependencies": {
     "eslint": "9.23.0"
+  },
+  "projects": {
+    "client": {},
+    "services/auth": {},
+    "services/tickets": {},
+    "services/orders": {},
+    "services/payments": {},
+    "services/expiration": {}
   }
 }
