@@ -19,7 +19,7 @@
   "devDependencies": {
     "eslint": "9.23.0"
   },
-  "packageManager": "pnpm@10.7.0",
+  "packageManager": "pnpm@10.7.1",
   "projects": {
     "services/client": {},
     "services/auth": {},
