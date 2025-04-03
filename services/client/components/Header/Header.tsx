@@ -9,7 +9,7 @@ import HeaderNavigation from "./HeaderNavigation/HeaderNavigation";
 import classes from "./Header.module.scss";
 
 interface Props {
-  currentUser: User;
+  currentUser?: User;
 }
 
 const Header: React.FC<React.PropsWithChildren<Props>> = ({ currentUser }) => {

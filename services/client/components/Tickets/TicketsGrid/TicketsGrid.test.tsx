@@ -1,4 +1,4 @@
-import { describe, expect, test } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 
 import { render } from "@testing-library/react";
 
@@ -11,14 +11,18 @@ import TicketsGrid from "./TicketsGrid";
 const mockTickets = mockDb.tickets as unknown as Ticket[];
 const mockRatings = mockDb.ratings as unknown as Rating[];
 const mockUsers = mockDb.users as unknown as User[];
+const mockOnPageChange = vi.fn();
 
 describe("<TicketsGrid />", () => {
   test("it should render tickets as expected", () => {
     const { baseElement } = render(
       <TicketsGrid
+        currentPage={1}
+        itemsPerPage={{ value: 8, label: "8 per page" }}
         ratings={mockRatings}
         tickets={mockTickets}
         users={mockUsers}
+        onPageChange={mockOnPageChange}
       />
     );
 

@@ -103,7 +103,7 @@ describe("<CreateTicketModal />", () => {
     await userEvent.click(screen.getByText("Theatre play"));
 
     const submitBtn = screen.getByText("Submit");
-    submitBtn.click();
+    await userEvent.click(submitBtn);
     expect(mockSendRequest).toHaveBeenCalled();
   });
 });

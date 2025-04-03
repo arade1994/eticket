@@ -11,7 +11,7 @@ import { type User } from "../../types/user";
 import classes from "./Hero.module.scss";
 
 interface Props {
-  currentUser: User;
+  currentUser?: User;
 }
 
 const HeroContent: React.FC<React.PropsWithChildren<Props>> = ({

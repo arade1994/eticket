@@ -18,16 +18,19 @@ const mockOnChangeCategory = vi.fn();
 const mockOnChangeSearchText = vi.fn();
 const mockOnResetFilters = vi.fn();
 const mockOnSelectUser = vi.fn();
+const mockOnItemsPerPageChange = vi.fn();
 
 const renderTicketFilters = (searchText: string) =>
   render(
     <TicketFilters
       category={ticketCategoriesOptions[0]}
+      itemsPerPage={{ value: 8, label: "8 per page" }} // TODO: Add unit tests for this filter
       searchText={searchText}
       selectedUser={mockSelectedUser}
       users={mockUsers}
       onChangeCategory={mockOnChangeCategory}
       onChangeSearchText={mockOnChangeSearchText}
+      onItemsPerPageChange={mockOnItemsPerPageChange}
       onResetFilters={mockOnResetFilters}
       onSelectUser={mockOnSelectUser}
     />
@@ -75,6 +78,20 @@ describe("<TicketFilters />", () => {
     await screen.findByText("Ante Rade");
     await userEvent.click(screen.getByText("Ante Rade"));
     expect(mockOnSelectUser).toHaveBeenCalled();
+  });
+
+  test("it should render items per page select", async () => {
+    renderTicketFilters("");
+
+    const itemsPerPageSelect = within(
+      screen.getByTestId("itemsPerPageSelect")
+    ).getByText("8 per page");
+    expect(itemsPerPageSelect).toBeDefined();
+    expect(itemsPerPageSelect.textContent).toEqual("8 per page");
+    await userEvent.click(itemsPerPageSelect);
+    await screen.findByText("24 per page");
+    await userEvent.click(screen.getByText("24 per page"));
+    expect(mockOnItemsPerPageChange).toHaveBeenCalled();
   });
 
   test("it should render reset filters button when filters are applied", async () => {

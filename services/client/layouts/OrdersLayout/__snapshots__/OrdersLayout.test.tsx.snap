@@ -9,12 +9,30 @@ exports[`<OrdersLayout /> > it should match a snapshot when rendered by default 
       <div
         class="_ordersFilters_9576c6"
       >
-        <input
-          id="searchInput"
-          placeholder="Insert title"
-          type="text"
-          value=""
-        />
+        <div
+          class="_searchInput_9576c6"
+        >
+          <svg
+            class="_searchIcon_9576c6"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 512 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+            />
+          </svg>
+          <input
+            id="searchInput"
+            placeholder="Search orders..."
+            type="text"
+            value=""
+          />
+        </div>
         <div
           class="css-b62m3t-container"
           id="userSelect"
@@ -210,51 +228,12 @@ exports[`<OrdersLayout /> > it should match a snapshot when rendered by default 
             <td
               class="_tableItem_eb8f56"
             >
-              Football Match
+              Taylor Swift Eras Tour
             </td>
             <td
               class="_tableItem_eb8f56"
             >
-              230.00
-            </td>
-            <td
-              class="_tableItem_eb8f56"
-            >
-              Ante Rade
-            </td>
-            <td
-              class="_tableItem_eb8f56"
-            >
-              created
-            </td>
-            <td
-              class="_tableItem_eb8f56"
-            >
-              19:37
-            </td>
-            <td
-              class="_tableItem_eb8f56"
-            >
-              <a
-                class="_openOrderLink_eb8f56"
-                href="/orders/5ccb"
-              >
-                Open
-              </a>
-            </td>
-          </tr>
-          <tr
-            class="_ordersTableRow_eb8f56"
-          >
-            <td
-              class="_tableItem_eb8f56"
-            >
-              Bethoveen Concerto
-            </td>
-            <td
-              class="_tableItem_eb8f56"
-            >
-              540.00
+              280.00
             </td>
             <td
               class="_tableItem_eb8f56"
@@ -276,7 +255,7 @@ exports[`<OrdersLayout /> > it should match a snapshot when rendered by default 
             >
               <a
                 class="_openOrderLink_eb8f56"
-                href="/orders/6253"
+                href="/orders/o1"
               >
                 Open
               </a>
@@ -288,7 +267,46 @@ exports[`<OrdersLayout /> > it should match a snapshot when rendered by default 
             <td
               class="_tableItem_eb8f56"
             >
-              Concert
+              Champions League Final
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              320.00
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              Marcus Millford
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              created
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              19:37
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              <a
+                class="_openOrderLink_eb8f56"
+                href="/orders/o2"
+              >
+                Open
+              </a>
+            </td>
+          </tr>
+          <tr
+            class="_ordersTableRow_eb8f56"
+          >
+            <td
+              class="_tableItem_eb8f56"
+            >
+              The Lion King
             </td>
             <td
               class="_tableItem_eb8f56"
@@ -298,7 +316,7 @@ exports[`<OrdersLayout /> > it should match a snapshot when rendered by default 
             <td
               class="_tableItem_eb8f56"
             >
-              Ante Rade
+              Matt Fitzgerald
             </td>
             <td
               class="_tableItem_eb8f56"
@@ -315,7 +333,397 @@ exports[`<OrdersLayout /> > it should match a snapshot when rendered by default 
             >
               <a
                 class="_openOrderLink_eb8f56"
-                href="/orders/5c7c"
+                href="/orders/o3"
+              >
+                Open
+              </a>
+            </td>
+          </tr>
+          <tr
+            class="_ordersTableRow_eb8f56"
+          >
+            <td
+              class="_tableItem_eb8f56"
+            >
+              Coldplay World Tour
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              200.00
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              Marin Miletić
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              created
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              19:37
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              <a
+                class="_openOrderLink_eb8f56"
+                href="/orders/o4"
+              >
+                Open
+              </a>
+            </td>
+          </tr>
+          <tr
+            class="_ordersTableRow_eb8f56"
+          >
+            <td
+              class="_tableItem_eb8f56"
+            >
+              Super Bowl LVIII
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              800.00
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              John Washington
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              created
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              19:37
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              <a
+                class="_openOrderLink_eb8f56"
+                href="/orders/o5"
+              >
+                Open
+              </a>
+            </td>
+          </tr>
+          <tr
+            class="_ordersTableRow_eb8f56"
+          >
+            <td
+              class="_tableItem_eb8f56"
+            >
+              Phantom of the Opera
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              140.00
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              Sarah Johnson
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              created
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              19:38
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              <a
+                class="_openOrderLink_eb8f56"
+                href="/orders/o6"
+              >
+                Open
+              </a>
+            </td>
+          </tr>
+          <tr
+            class="_ordersTableRow_eb8f56"
+          >
+            <td
+              class="_tableItem_eb8f56"
+            >
+              Drake It's All A Blur Tour
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              250.00
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              Michael Chen
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              created
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              19:38
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              <a
+                class="_openOrderLink_eb8f56"
+                href="/orders/o7"
+              >
+                Open
+              </a>
+            </td>
+          </tr>
+          <tr
+            class="_ordersTableRow_eb8f56"
+          >
+            <td
+              class="_tableItem_eb8f56"
+            >
+              NBA All-Star Game
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              380.00
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              Emma Wilson
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              created
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              19:38
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              <a
+                class="_openOrderLink_eb8f56"
+                href="/orders/o8"
+              >
+                Open
+              </a>
+            </td>
+          </tr>
+          <tr
+            class="_ordersTableRow_eb8f56"
+          >
+            <td
+              class="_tableItem_eb8f56"
+            >
+              Book of Mormon
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              170.00
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              David Brown
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              created
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              19:38
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              <a
+                class="_openOrderLink_eb8f56"
+                href="/orders/o9"
+              >
+                Open
+              </a>
+            </td>
+          </tr>
+          <tr
+            class="_ordersTableRow_eb8f56"
+          >
+            <td
+              class="_tableItem_eb8f56"
+            >
+              Post Malone Tour
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              220.00
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              Lisa Anderson
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              created
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              19:38
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              <a
+                class="_openOrderLink_eb8f56"
+                href="/orders/o10"
+              >
+                Open
+              </a>
+            </td>
+          </tr>
+          <tr
+            class="_ordersTableRow_eb8f56"
+          >
+            <td
+              class="_tableItem_eb8f56"
+            >
+              Wimbledon Finals
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              280.00
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              James Taylor
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              created
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              19:38
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              <a
+                class="_openOrderLink_eb8f56"
+                href="/orders/o11"
+              >
+                Open
+              </a>
+            </td>
+          </tr>
+          <tr
+            class="_ordersTableRow_eb8f56"
+          >
+            <td
+              class="_tableItem_eb8f56"
+            >
+              Mamma Mia!
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              150.00
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              Sophie Martin
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              created
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              19:38
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              <a
+                class="_openOrderLink_eb8f56"
+                href="/orders/o12"
+              >
+                Open
+              </a>
+            </td>
+          </tr>
+          <tr
+            class="_ordersTableRow_eb8f56"
+          >
+            <td
+              class="_tableItem_eb8f56"
+            >
+              Bruno Mars Las Vegas
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              290.00
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              Robert Lee
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              created
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              19:38
+            </td>
+            <td
+              class="_tableItem_eb8f56"
+            >
+              <a
+                class="_openOrderLink_eb8f56"
+                href="/orders/o13"
               >
                 Open
               </a>

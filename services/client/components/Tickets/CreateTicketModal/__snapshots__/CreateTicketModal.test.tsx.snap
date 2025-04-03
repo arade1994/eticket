@@ -165,23 +165,23 @@ exports[`<CreateTicketModal /> > it should render create ticket modal by default
                 </div>
               </div>
             </div>
-            <div
-              class="_formActions_279c6c"
-            >
-              <button
-                class="_cancelBtn_279c6c"
-                type="button"
-              >
-                Cancel
-              </button>
-              <button
-                class="_submitBtn_279c6c"
-                type="submit"
-              >
-                Submit
-              </button>
-            </div>
           </form>
+          <div
+            class="_formActions_279c6c"
+          >
+            <button
+              class="_cancelBtn_279c6c"
+              type="button"
+            >
+              Cancel
+            </button>
+            <button
+              class="_submitBtn_279c6c"
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
         </div>
       </div>
     </div>

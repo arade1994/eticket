@@ -47,12 +47,12 @@ exports[`<OrdersTable /> > it should render selected orders inside a table 1`] =
           <td
             class="_tableItem_eb8f56"
           >
-            Football Match
+            Taylor Swift Eras Tour
           </td>
           <td
             class="_tableItem_eb8f56"
           >
-            230.00
+            280.00
           </td>
           <td
             class="_tableItem_eb8f56"
@@ -74,7 +74,7 @@ exports[`<OrdersTable /> > it should render selected orders inside a table 1`] =
           >
             <a
               class="_openOrderLink_eb8f56"
-              href="/orders/5ccb"
+              href="/orders/o1"
             >
               Open
             </a>
@@ -86,17 +86,17 @@ exports[`<OrdersTable /> > it should render selected orders inside a table 1`] =
           <td
             class="_tableItem_eb8f56"
           >
-            Bethoveen Concerto
+            Champions League Final
           </td>
           <td
             class="_tableItem_eb8f56"
           >
-            540.00
+            320.00
           </td>
           <td
             class="_tableItem_eb8f56"
           >
-            Ante Rade
+            Marcus Millford
           </td>
           <td
             class="_tableItem_eb8f56"
@@ -113,7 +113,7 @@ exports[`<OrdersTable /> > it should render selected orders inside a table 1`] =
           >
             <a
               class="_openOrderLink_eb8f56"
-              href="/orders/6253"
+              href="/orders/o2"
             >
               Open
             </a>

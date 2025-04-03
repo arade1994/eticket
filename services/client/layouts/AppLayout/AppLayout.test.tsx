@@ -1,4 +1,4 @@
-import { describe, expect, test } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 
 import { render } from "@testing-library/react";
 
@@ -11,7 +11,25 @@ import AppLayout from "./AppLayout";
 const mockRatings = mockDb.ratings as unknown as Rating[];
 const mockUsers = mockDb.users as unknown as User[];
 const mockTickets = mockDb.tickets as unknown as Ticket[];
-const MockComponent: React.FC = () => <div>Component</div>;
+const MockComponent: React.FC = () => "Component";
+
+vi.mock("next/router", () => ({
+  useRouter: () => ({
+    route: "/",
+    pathname: "/",
+    query: {},
+    asPath: "/",
+    push: vi.fn(),
+  }),
+}));
+
+vi.mock("../../components/Header/Header", () => ({
+  default: () => "Header Component",
+}));
+
+vi.mock("../../components/Footer/Footer", () => ({
+  default: () => "Footer Component",
+}));
 
 describe("<AppLayout />", () => {
   test("it should match a snapshot when rendered by default", () => {

@@ -33,7 +33,7 @@ const RatingModal = ({
     method: "post",
     body: { rate, comment, userId: currentUserId, ratedUserId: selectedUserId },
     onSuccess: () => {
-      console.log("Successfully rated user");
+      toast.success("Successfully rated user");
     },
   });
 

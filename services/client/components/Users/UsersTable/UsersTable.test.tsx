@@ -54,7 +54,7 @@ describe("<UsersTable />", () => {
   test("it should open rating modal when rate action is clicked", async () => {
     renderUsersTable();
 
-    const rateAction = screen.getAllByText("Rate")[1];
+    const rateAction = screen.getAllByText("Rate")[5];
     expect(rateAction).toBeDefined();
     await userEvent.click(rateAction);
     expect(mockOnOpenRatingModal).toHaveBeenCalled();
