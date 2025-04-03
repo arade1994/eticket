@@ -52,6 +52,54 @@ exports[`<UsersTable /> > it should match a snapshot when rendered by default 1`
           <td
             class="_tableItem_15e082"
           >
+            Ante
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            Rade
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            30
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+             
+            anterade99@gmail.com
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            2
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            <div
+              class="_ratingItem_15e082"
+            >
+              -
+            </div>
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            <div
+              class="_rateUserBtn_15e082"
+            >
+              Rate
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="_usersTableRow_15e082"
+        >
+          <td
+            class="_tableItem_15e082"
+          >
             Marcus
           </td>
           <td
@@ -73,7 +121,7 @@ exports[`<UsersTable /> > it should match a snapshot when rendered by default 1`
           <td
             class="_tableItem_15e082"
           >
-            1
+            2
           </td>
           <td
             class="_tableItem_15e082"
@@ -81,8 +129,8 @@ exports[`<UsersTable /> > it should match a snapshot when rendered by default 1`
             <div
               class="_ratingItem_15e082"
             >
-              4.7
-               (3)
+              5.0
+               (1)
               <div
                 class="_viewBtn_15e082"
               >
@@ -127,7 +175,7 @@ exports[`<UsersTable /> > it should match a snapshot when rendered by default 1`
           <td
             class="_tableItem_15e082"
           >
-            0
+            2
           </td>
           <td
             class="_tableItem_15e082"
@@ -135,14 +183,20 @@ exports[`<UsersTable /> > it should match a snapshot when rendered by default 1`
             <div
               class="_ratingItem_15e082"
             >
-              -
+              4.0
+               (1)
+              <div
+                class="_viewBtn_15e082"
+              >
+                View
+              </div>
             </div>
           </td>
           <td
             class="_tableItem_15e082"
           >
             <div
-              class="_rateUserBtn_15e082"
+              class="_rateUserBtn_15e082 _disabledBtn_15e082"
             >
               Rate
             </div>
@@ -175,7 +229,7 @@ exports[`<UsersTable /> > it should match a snapshot when rendered by default 1`
           <td
             class="_tableItem_15e082"
           >
-            1
+            2
           </td>
           <td
             class="_tableItem_15e082"
@@ -190,7 +244,7 @@ exports[`<UsersTable /> > it should match a snapshot when rendered by default 1`
             class="_tableItem_15e082"
           >
             <div
-              class="_rateUserBtn_15e082"
+              class="_rateUserBtn_15e082 _disabledBtn_15e082"
             >
               Rate
             </div>
@@ -223,7 +277,7 @@ exports[`<UsersTable /> > it should match a snapshot when rendered by default 1`
           <td
             class="_tableItem_15e082"
           >
-            1
+            2
           </td>
           <td
             class="_tableItem_15e082"
@@ -232,6 +286,204 @@ exports[`<UsersTable /> > it should match a snapshot when rendered by default 1`
               class="_ratingItem_15e082"
             >
               -
+            </div>
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            <div
+              class="_rateUserBtn_15e082"
+            >
+              Rate
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="_usersTableRow_15e082"
+        >
+          <td
+            class="_tableItem_15e082"
+          >
+            Sarah
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            Johnson
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            28
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+             
+            sarah.j@gmail.com
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            2
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            <div
+              class="_ratingItem_15e082"
+            >
+              -
+            </div>
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            <div
+              class="_rateUserBtn_15e082"
+            >
+              Rate
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="_usersTableRow_15e082"
+        >
+          <td
+            class="_tableItem_15e082"
+          >
+            Michael
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            Chen
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            35
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+             
+            michael.c@gmail.com
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            2
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            <div
+              class="_ratingItem_15e082"
+            >
+              -
+            </div>
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            <div
+              class="_rateUserBtn_15e082"
+            >
+              Rate
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="_usersTableRow_15e082"
+        >
+          <td
+            class="_tableItem_15e082"
+          >
+            Emma
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            Wilson
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            31
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+             
+            emma.w@gmail.com
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            2
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            <div
+              class="_ratingItem_15e082"
+            >
+              -
+            </div>
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            <div
+              class="_rateUserBtn_15e082"
+            >
+              Rate
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="_usersTableRow_15e082"
+        >
+          <td
+            class="_tableItem_15e082"
+          >
+            David
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            Brown
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            39
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+             
+            david.b@gmail.com
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            2
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            <div
+              class="_ratingItem_15e082"
+            >
+              5.0
+               (1)
+              <div
+                class="_viewBtn_15e082"
+              >
+                View
+              </div>
             </div>
           </td>
           <td
@@ -250,28 +502,280 @@ exports[`<UsersTable /> > it should match a snapshot when rendered by default 1`
           <td
             class="_tableItem_15e082"
           >
-            Ante
+            Lisa
           </td>
           <td
             class="_tableItem_15e082"
           >
-            Rade
+            Anderson
           </td>
           <td
             class="_tableItem_15e082"
           >
-            30
+            27
           </td>
           <td
             class="_tableItem_15e082"
           >
              
-            anterade99@gmail.com
+            lisa.a@gmail.com
           </td>
           <td
             class="_tableItem_15e082"
           >
-            1
+            2
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            <div
+              class="_ratingItem_15e082"
+            >
+              4.0
+               (1)
+              <div
+                class="_viewBtn_15e082"
+              >
+                View
+              </div>
+            </div>
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            <div
+              class="_rateUserBtn_15e082 _disabledBtn_15e082"
+            >
+              Rate
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="_usersTableRow_15e082"
+        >
+          <td
+            class="_tableItem_15e082"
+          >
+            James
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            Taylor
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            42
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+             
+            james.t@gmail.com
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            2
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            <div
+              class="_ratingItem_15e082"
+            >
+              5.0
+               (1)
+              <div
+                class="_viewBtn_15e082"
+              >
+                View
+              </div>
+            </div>
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            <div
+              class="_rateUserBtn_15e082 _disabledBtn_15e082"
+            >
+              Rate
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="_usersTableRow_15e082"
+        >
+          <td
+            class="_tableItem_15e082"
+          >
+            Sophie
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            Martin
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            33
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+             
+            sophie.m@gmail.com
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            2
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            <div
+              class="_ratingItem_15e082"
+            >
+              -
+            </div>
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            <div
+              class="_rateUserBtn_15e082"
+            >
+              Rate
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="_usersTableRow_15e082"
+        >
+          <td
+            class="_tableItem_15e082"
+          >
+            Robert
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            Lee
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            47
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+             
+            robert.l@gmail.com
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            2
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            <div
+              class="_ratingItem_15e082"
+            >
+              -
+            </div>
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            <div
+              class="_rateUserBtn_15e082"
+            >
+              Rate
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="_usersTableRow_15e082"
+        >
+          <td
+            class="_tableItem_15e082"
+          >
+            Olivia
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            White
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            29
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+             
+            olivia.w@gmail.com
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            2
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            <div
+              class="_ratingItem_15e082"
+            >
+              -
+            </div>
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            <div
+              class="_rateUserBtn_15e082"
+            >
+              Rate
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="_usersTableRow_15e082"
+        >
+          <td
+            class="_tableItem_15e082"
+          >
+            William
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            Garcia
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            36
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+             
+            william.g@gmail.com
+          </td>
+          <td
+            class="_tableItem_15e082"
+          >
+            2
           </td>
           <td
             class="_tableItem_15e082"

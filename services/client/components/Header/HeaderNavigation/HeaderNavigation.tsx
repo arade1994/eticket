@@ -7,7 +7,7 @@ import { type User } from "../../../types/user";
 import classes from "./HeaderNavigation.module.scss";
 
 interface Props {
-  currentUser: User;
+  currentUser?: User;
 }
 
 const HeaderNavigation: React.FC<React.PropsWithChildren<Props>> = ({

@@ -42,7 +42,7 @@ export const getUserRating = (userId: string, ratings: Rating[]) => {
  * @returns - boolean value for rated status of a user
  */
 export const getIsUserRated = (userId: string, ratings: Rating[]) =>
-  !!ratings.filter((rating) => rating.ratedUserId === userId)?.length;
+  ratings.some((rating) => rating.ratedUserId === userId);
 
 /**
  * Filters users list by first and last name

@@ -10,160 +10,239 @@ exports[`<TicketsLayout /> > it should match a snapshot when rendered by default
         class="_ticketsControls_d63868"
       >
         <div
-          class="_ticketFilters_f019c6"
+          class="_controlsLeft_d63868"
         >
-          <input
-            id="title"
-            placeholder="Insert title"
-            type="text"
-            value=""
-          />
           <div
-            class="css-b62m3t-container"
-            id="categorySelect"
+            class="_ticketFilters_f019c6"
           >
-            <span
-              class="css-1f43avz-a11yText-A11yText"
-              id="react-select-2-live-region"
-            />
-            <span
-              aria-atomic="false"
-              aria-live="polite"
-              aria-relevant="additions text"
-              class="css-1f43avz-a11yText-A11yText"
-              role="log"
+            <input
+              id="title"
+              placeholder="Insert title"
+              type="text"
+              value=""
             />
             <div
-              class="css-13cymwt-control"
+              class="css-b62m3t-container"
+              id="categorySelect"
             >
+              <span
+                class="css-1f43avz-a11yText-A11yText"
+                id="react-select-2-live-region"
+              />
+              <span
+                aria-atomic="false"
+                aria-live="polite"
+                aria-relevant="additions text"
+                class="css-1f43avz-a11yText-A11yText"
+                role="log"
+              />
               <div
-                class="css-hlgwow"
+                class="css-13cymwt-control"
               >
                 <div
-                  class="css-1dimb5e-singleValue"
+                  class="css-hlgwow"
                 >
-                  Any category
-                </div>
-                <div
-                  class="css-19bb58m"
-                  data-value=""
-                >
-                  <input
-                    aria-activedescendant=""
-                    aria-autocomplete="list"
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                    autocapitalize="none"
-                    autocomplete="off"
-                    autocorrect="off"
-                    class=""
-                    id="react-select-2-input"
-                    role="combobox"
-                    spellcheck="false"
-                    style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
-                    tabindex="0"
-                    type="text"
-                    value=""
-                  />
-                </div>
-              </div>
-              <div
-                class="css-1wy0on6"
-              >
-                <span
-                  class="css-1u9des2-indicatorSeparator"
-                />
-                <div
-                  aria-hidden="true"
-                  class="css-1xc3v61-indicatorContainer"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="css-tj5bde-Svg"
-                    focusable="false"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    width="20"
+                  <div
+                    class="css-1dimb5e-singleValue"
                   >
-                    <path
-                      d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                    Any category
+                  </div>
+                  <div
+                    class="css-19bb58m"
+                    data-value=""
+                  >
+                    <input
+                      aria-activedescendant=""
+                      aria-autocomplete="list"
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      autocapitalize="none"
+                      autocomplete="off"
+                      autocorrect="off"
+                      class=""
+                      id="react-select-2-input"
+                      role="combobox"
+                      spellcheck="false"
+                      style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                      tabindex="0"
+                      type="text"
+                      value=""
                     />
-                  </svg>
+                  </div>
+                </div>
+                <div
+                  class="css-1wy0on6"
+                >
+                  <span
+                    class="css-1u9des2-indicatorSeparator"
+                  />
+                  <div
+                    aria-hidden="true"
+                    class="css-1xc3v61-indicatorContainer"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="css-tj5bde-Svg"
+                      focusable="false"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      width="20"
+                    >
+                      <path
+                        d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            class="css-b62m3t-container"
-            id="userSelect"
-          >
-            <span
-              class="css-1f43avz-a11yText-A11yText"
-              id="react-select-3-live-region"
-            />
-            <span
-              aria-atomic="false"
-              aria-live="polite"
-              aria-relevant="additions text"
-              class="css-1f43avz-a11yText-A11yText"
-              role="log"
-            />
             <div
-              class="css-13cymwt-control"
+              class="css-b62m3t-container"
+              id="userSelect"
             >
+              <span
+                class="css-1f43avz-a11yText-A11yText"
+                id="react-select-3-live-region"
+              />
+              <span
+                aria-atomic="false"
+                aria-live="polite"
+                aria-relevant="additions text"
+                class="css-1f43avz-a11yText-A11yText"
+                role="log"
+              />
               <div
-                class="css-hlgwow"
+                class="css-13cymwt-control"
               >
                 <div
-                  class="css-1dimb5e-singleValue"
+                  class="css-hlgwow"
                 >
-                  Any user
+                  <div
+                    class="css-1dimb5e-singleValue"
+                  >
+                    Any user
+                  </div>
+                  <div
+                    class="css-19bb58m"
+                    data-value=""
+                  >
+                    <input
+                      aria-activedescendant=""
+                      aria-autocomplete="list"
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      autocapitalize="none"
+                      autocomplete="off"
+                      autocorrect="off"
+                      class=""
+                      id="react-select-3-input"
+                      role="combobox"
+                      spellcheck="false"
+                      style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                      tabindex="0"
+                      type="text"
+                      value=""
+                    />
+                  </div>
                 </div>
                 <div
-                  class="css-19bb58m"
-                  data-value=""
+                  class="css-1wy0on6"
                 >
-                  <input
-                    aria-activedescendant=""
-                    aria-autocomplete="list"
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                    autocapitalize="none"
-                    autocomplete="off"
-                    autocorrect="off"
-                    class=""
-                    id="react-select-3-input"
-                    role="combobox"
-                    spellcheck="false"
-                    style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
-                    tabindex="0"
-                    type="text"
-                    value=""
+                  <span
+                    class="css-1u9des2-indicatorSeparator"
                   />
+                  <div
+                    aria-hidden="true"
+                    class="css-1xc3v61-indicatorContainer"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="css-tj5bde-Svg"
+                      focusable="false"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      width="20"
+                    >
+                      <path
+                        d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </div>
+            </div>
+            <div
+              class="_itemsPerPageSelect_f019c6 css-b62m3t-container"
+              id="itemsPerPageSelect"
+            >
+              <span
+                class="css-1f43avz-a11yText-A11yText"
+                id="react-select-4-live-region"
+              />
+              <span
+                aria-atomic="false"
+                aria-live="polite"
+                aria-relevant="additions text"
+                class="css-1f43avz-a11yText-A11yText"
+                role="log"
+              />
               <div
-                class="css-1wy0on6"
+                class="css-13cymwt-control"
               >
-                <span
-                  class="css-1u9des2-indicatorSeparator"
-                />
                 <div
-                  aria-hidden="true"
-                  class="css-1xc3v61-indicatorContainer"
+                  class="css-hlgwow"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="css-tj5bde-Svg"
-                    focusable="false"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    width="20"
+                  <div
+                    class="css-1dimb5e-singleValue"
                   >
-                    <path
-                      d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                    8 per page
+                  </div>
+                  <div
+                    class="css-19bb58m"
+                    data-value=""
+                  >
+                    <input
+                      aria-activedescendant=""
+                      aria-autocomplete="list"
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      autocapitalize="none"
+                      autocomplete="off"
+                      autocorrect="off"
+                      class=""
+                      id="react-select-4-input"
+                      role="combobox"
+                      spellcheck="false"
+                      style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                      tabindex="0"
+                      type="text"
+                      value=""
                     />
-                  </svg>
+                  </div>
+                </div>
+                <div
+                  class="css-1wy0on6"
+                >
+                  <span
+                    class="css-1u9des2-indicatorSeparator"
+                  />
+                  <div
+                    aria-hidden="true"
+                    class="css-1xc3v61-indicatorContainer"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="css-tj5bde-Svg"
+                      focusable="false"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      width="20"
+                    >
+                      <path
+                        d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
@@ -176,200 +255,491 @@ exports[`<TicketsLayout /> > it should match a snapshot when rendered by default
         </button>
       </div>
       <div
-        class="_ticketsGrid_f2584c"
+        class="_ticketsContainer_f2584c"
       >
-        <a
-          class="_ticketCard_e6793d"
-          href="/tickets/2f3b"
+        <div
+          class="_ticketsGrid_f2584c"
         >
-          <img
-            alt="Ticket cover photo"
-            class="_coverPhoto_e6793d"
-            data-nimg="1"
-            decoding="async"
-            height="200"
-            loading="lazy"
-            src="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75"
-            srcset="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=256&q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75 2x"
-            style="color: transparent;"
-            width="200"
-          />
-          <h4
-            class="_ticketTitle_e6793d"
+          <a
+            class="_ticketCard_e6793d"
+            href="/tickets/t1"
           >
-            Basketball Game
-          </h4>
-          <div
-            class="_ticketPrice_e6793d"
+            <img
+              alt="Ticket cover photo"
+              class="_coverPhoto_e6793d"
+              data-nimg="1"
+              decoding="async"
+              height="200"
+              loading="lazy"
+              src="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75"
+              srcset="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+            <div
+              class="_ticketContent_e6793d"
+            >
+              <h4
+                class="_ticketTitle_e6793d"
+              >
+                NBA Finals Game 7
+              </h4>
+              <div
+                class="_ticketPrice_e6793d"
+              >
+                <p>
+                  $
+                  450.00
+                </p>
+              </div>
+              <div
+                class="_ticketSeller_e6793d"
+              >
+                <p>
+                  Seller: 
+                  Ante Rade
+                </p>
+              </div>
+              <span
+                class="_ticketCategory_e6793d"
+              >
+                sport game
+              </span>
+            </div>
+          </a>
+          <a
+            class="_ticketCard_e6793d"
+            href="/tickets/t2"
           >
-            <p>
-              Price:
-            </p>
-            <p>
-              430.00
-              $
-            </p>
-          </div>
-          <div
-            class="_ticketSeller_e6793d"
+            <img
+              alt="Ticket cover photo"
+              class="_coverPhoto_e6793d"
+              data-nimg="1"
+              decoding="async"
+              height="200"
+              loading="lazy"
+              src="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75"
+              srcset="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+            <div
+              class="_ticketContent_e6793d"
+            >
+              <h4
+                class="_ticketTitle_e6793d"
+              >
+                Taylor Swift Eras Tour
+              </h4>
+              <div
+                class="_ticketPrice_e6793d"
+              >
+                <p>
+                  $
+                  280.00
+                </p>
+              </div>
+              <div
+                class="_ticketSeller_e6793d"
+              >
+                <p>
+                  Seller: 
+                  Marcus Millford
+                </p>
+                <span
+                  class="_rating_e6793d"
+                >
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 576 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                    />
+                  </svg>
+                   
+                  5.0
+                </span>
+              </div>
+              <span
+                class="_ticketCategory_e6793d"
+              >
+                music event
+              </span>
+            </div>
+          </a>
+          <a
+            class="_ticketCard_e6793d"
+            href="/tickets/t3"
           >
-            <p>
-               Sells:
-            </p>
-            <p>
-               Ante Rade (-)
-            </p>
-          </div>
-          <p
-            class="_ticketCategory_e6793d"
+            <img
+              alt="Ticket cover photo"
+              class="_coverPhoto_e6793d"
+              data-nimg="1"
+              decoding="async"
+              height="200"
+              loading="lazy"
+              src="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75"
+              srcset="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+            <div
+              class="_ticketContent_e6793d"
+            >
+              <h4
+                class="_ticketTitle_e6793d"
+              >
+                Hamilton Musical
+              </h4>
+              <div
+                class="_ticketPrice_e6793d"
+              >
+                <p>
+                  $
+                  180.00
+                </p>
+              </div>
+              <div
+                class="_ticketSeller_e6793d"
+              >
+                <p>
+                  Seller: 
+                  Matt Fitzgerald
+                </p>
+                <span
+                  class="_rating_e6793d"
+                >
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 576 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                    />
+                  </svg>
+                   
+                  4.0
+                </span>
+              </div>
+              <span
+                class="_ticketCategory_e6793d"
+              >
+                theatre play
+              </span>
+            </div>
+          </a>
+          <a
+            class="_ticketCard_e6793d"
+            href="/tickets/t4"
           >
-            sport game
-          </p>
-        </a>
-        <a
-          class="_ticketCard_e6793d"
-          href="/tickets/1c8a"
+            <img
+              alt="Ticket cover photo"
+              class="_coverPhoto_e6793d"
+              data-nimg="1"
+              decoding="async"
+              height="200"
+              loading="lazy"
+              src="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75"
+              srcset="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+            <div
+              class="_ticketContent_e6793d"
+            >
+              <h4
+                class="_ticketTitle_e6793d"
+              >
+                Champions League Final
+              </h4>
+              <div
+                class="_ticketPrice_e6793d"
+              >
+                <p>
+                  $
+                  320.00
+                </p>
+              </div>
+              <div
+                class="_ticketSeller_e6793d"
+              >
+                <p>
+                  Seller: 
+                  Marin Miletić
+                </p>
+              </div>
+              <span
+                class="_ticketCategory_e6793d"
+              >
+                sport game
+              </span>
+            </div>
+          </a>
+          <a
+            class="_ticketCard_e6793d"
+            href="/tickets/t5"
+          >
+            <img
+              alt="Ticket cover photo"
+              class="_coverPhoto_e6793d"
+              data-nimg="1"
+              decoding="async"
+              height="200"
+              loading="lazy"
+              src="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75"
+              srcset="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+            <div
+              class="_ticketContent_e6793d"
+            >
+              <h4
+                class="_ticketTitle_e6793d"
+              >
+                Ed Sheeran Concert
+              </h4>
+              <div
+                class="_ticketPrice_e6793d"
+              >
+                <p>
+                  $
+                  150.00
+                </p>
+              </div>
+              <div
+                class="_ticketSeller_e6793d"
+              >
+                <p>
+                  Seller: 
+                  John Washington
+                </p>
+              </div>
+              <span
+                class="_ticketCategory_e6793d"
+              >
+                music event
+              </span>
+            </div>
+          </a>
+          <a
+            class="_ticketCard_e6793d"
+            href="/tickets/t6"
+          >
+            <img
+              alt="Ticket cover photo"
+              class="_coverPhoto_e6793d"
+              data-nimg="1"
+              decoding="async"
+              height="200"
+              loading="lazy"
+              src="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75"
+              srcset="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+            <div
+              class="_ticketContent_e6793d"
+            >
+              <h4
+                class="_ticketTitle_e6793d"
+              >
+                The Lion King
+              </h4>
+              <div
+                class="_ticketPrice_e6793d"
+              >
+                <p>
+                  $
+                  120.00
+                </p>
+              </div>
+              <div
+                class="_ticketSeller_e6793d"
+              >
+                <p>
+                  Seller: 
+                  Sarah Johnson
+                </p>
+              </div>
+              <span
+                class="_ticketCategory_e6793d"
+              >
+                theatre play
+              </span>
+            </div>
+          </a>
+          <a
+            class="_ticketCard_e6793d"
+            href="/tickets/t7"
+          >
+            <img
+              alt="Ticket cover photo"
+              class="_coverPhoto_e6793d"
+              data-nimg="1"
+              decoding="async"
+              height="200"
+              loading="lazy"
+              src="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75"
+              srcset="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+            <div
+              class="_ticketContent_e6793d"
+            >
+              <h4
+                class="_ticketTitle_e6793d"
+              >
+                World Cup Match
+              </h4>
+              <div
+                class="_ticketPrice_e6793d"
+              >
+                <p>
+                  $
+                  400.00
+                </p>
+              </div>
+              <div
+                class="_ticketSeller_e6793d"
+              >
+                <p>
+                  Seller: 
+                  Michael Chen
+                </p>
+              </div>
+              <span
+                class="_ticketCategory_e6793d"
+              >
+                sport game
+              </span>
+            </div>
+          </a>
+          <a
+            class="_ticketCard_e6793d"
+            href="/tickets/t8"
+          >
+            <img
+              alt="Ticket cover photo"
+              class="_coverPhoto_e6793d"
+              data-nimg="1"
+              decoding="async"
+              height="200"
+              loading="lazy"
+              src="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75"
+              srcset="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+            <div
+              class="_ticketContent_e6793d"
+            >
+              <h4
+                class="_ticketTitle_e6793d"
+              >
+                Coldplay World Tour
+              </h4>
+              <div
+                class="_ticketPrice_e6793d"
+              >
+                <p>
+                  $
+                  200.00
+                </p>
+              </div>
+              <div
+                class="_ticketSeller_e6793d"
+              >
+                <p>
+                  Seller: 
+                  Emma Wilson
+                </p>
+              </div>
+              <span
+                class="_ticketCategory_e6793d"
+              >
+                music event
+              </span>
+            </div>
+          </a>
+        </div>
+        <div
+          class="_pagination_cadbd0"
         >
-          <img
-            alt="Ticket cover photo"
-            class="_coverPhoto_e6793d"
-            data-nimg="1"
-            decoding="async"
-            height="200"
-            loading="lazy"
-            src="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75"
-            srcset="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=256&q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75 2x"
-            style="color: transparent;"
-            width="200"
-          />
-          <h4
-            class="_ticketTitle_e6793d"
+          <button
+            class="_pageButton_cadbd0 _navButton_cadbd0"
+            disabled=""
+            id="paginate-left"
           >
-            Football Match
-          </h4>
-          <div
-            class="_ticketPrice_e6793d"
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 320 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+              />
+            </svg>
+          </button>
+          <button
+            class="_pageButton_cadbd0 _active_cadbd0"
+            id="page-1"
           >
-            <p>
-              Price:
-            </p>
-            <p>
-              230.00
-              $
-            </p>
-          </div>
-          <div
-            class="_ticketSeller_e6793d"
+            1
+          </button>
+          <button
+            class="_pageButton_cadbd0 "
+            id="page-2"
           >
-            <p>
-               Sells:
-            </p>
-            <p>
-               Marcus Millford (4.7)
-            </p>
-          </div>
-          <p
-            class="_ticketCategory_e6793d"
+            2
+          </button>
+          <button
+            class="_pageButton_cadbd0 "
+            id="page-3"
           >
-            sport game
-          </p>
-        </a>
-        <a
-          class="_ticketCard_e6793d"
-          href="/tickets/3a4f"
-        >
-          <img
-            alt="Ticket cover photo"
-            class="_coverPhoto_e6793d"
-            data-nimg="1"
-            decoding="async"
-            height="200"
-            loading="lazy"
-            src="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75"
-            srcset="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=256&q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75 2x"
-            style="color: transparent;"
-            width="200"
-          />
-          <h4
-            class="_ticketTitle_e6793d"
+            3
+          </button>
+          <button
+            class="_pageButton_cadbd0 "
+            id="page-4"
           >
-            Concert
-          </h4>
-          <div
-            class="_ticketPrice_e6793d"
+            4
+          </button>
+          <button
+            class="_pageButton_cadbd0 _navButton_cadbd0"
+            id="paginate-right"
           >
-            <p>
-              Price:
-            </p>
-            <p>
-              120.00
-              $
-            </p>
-          </div>
-          <div
-            class="_ticketSeller_e6793d"
-          >
-            <p>
-               Sells:
-            </p>
-            <p>
-               Marin Miletić (-)
-            </p>
-          </div>
-          <p
-            class="_ticketCategory_e6793d"
-          >
-            music event
-          </p>
-        </a>
-        <a
-          class="_ticketCard_e6793d"
-          href="/tickets/0bb2"
-        >
-          <img
-            alt="Ticket cover photo"
-            class="_coverPhoto_e6793d"
-            data-nimg="1"
-            decoding="async"
-            height="200"
-            loading="lazy"
-            src="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75"
-            srcset="/_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=256&q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fcover.png&w=640&q=75 2x"
-            style="color: transparent;"
-            width="200"
-          />
-          <h4
-            class="_ticketTitle_e6793d"
-          >
-            Bethoveen Concerto
-          </h4>
-          <div
-            class="_ticketPrice_e6793d"
-          >
-            <p>
-              Price:
-            </p>
-            <p>
-              540.00
-              $
-            </p>
-          </div>
-          <div
-            class="_ticketSeller_e6793d"
-          >
-            <p>
-               Sells:
-            </p>
-            <p>
-               John Washington (-)
-            </p>
-          </div>
-          <p
-            class="_ticketCategory_e6793d"
-          >
-            theatre play
-          </p>
-        </a>
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 320 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </div>

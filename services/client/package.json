@@ -6,7 +6,7 @@
     "db-server": "npx json-server --watch ./mock/db.json",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "test-watch": "vitest --watch",
+    "test:watch": "vitest --watch",
     "lint": "eslint . --quiet",
     "lint:fix": "eslint --fix",
     "test-coverage-report": "vitest --coverage --coverageReporters=text-summary",
@@ -21,7 +21,7 @@
     "axios": "^1.8.4",
     "classnames": "^2.5.1",
     "dotenv": "^16.4.7",
-    "next": "^15.2.3",
+    "next": "^15.2.4",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-icons": "^5.5.0",
@@ -58,6 +58,6 @@
     "sass-loader": "^16.0.5",
     "type-coverage": "^2.29.7",
     "typescript-eslint": "^8.27.0",
-    "vitest": "^3.0.9"
+    "vitest": "^3.1.1"
   }
 }

@@ -31,6 +31,7 @@ const TicketsPagination: React.FC<React.PropsWithChildren<Props>> = ({
           className={`${classes.pageButton} ${
             currentPage === i ? classes.active : ""
           }`}
+          id={`page-${i}`}
           onClick={() => onPageChange(i)}
         >
           {i}
@@ -47,6 +48,7 @@ const TicketsPagination: React.FC<React.PropsWithChildren<Props>> = ({
         <button
           className={`${classes.pageButton} ${classes.navButton}`}
           disabled={currentPage === 1}
+          id="paginate-left"
           onClick={() => onPageChange(currentPage - 1)}
         >
           <FaChevronLeft />
@@ -55,6 +57,7 @@ const TicketsPagination: React.FC<React.PropsWithChildren<Props>> = ({
         <button
           className={`${classes.pageButton} ${classes.navButton}`}
           disabled={currentPage === totalPages}
+          id="paginate-right"
           onClick={() => onPageChange(currentPage + 1)}
         >
           <FaChevronRight />

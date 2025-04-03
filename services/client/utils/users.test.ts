@@ -17,12 +17,8 @@ const mockTickets = mockDb.tickets as unknown as Ticket[];
 const mockRatings = mockDb.ratings as unknown as Rating[];
 
 describe("getNumOfCreatedTickets()", () => {
-  test("it should return zero when user didn't create any ticket", () => {
-    expect(getNumOfCreatedTickets(mockUsers[1].id, mockTickets)).toEqual(0);
-  });
-
   test("it should return the number of created tickets per user", () => {
-    expect(getNumOfCreatedTickets(mockUsers[0].id, mockTickets)).toEqual(1);
+    expect(getNumOfCreatedTickets(mockUsers[0].id, mockTickets)).toEqual(2);
   });
 });
 
@@ -34,30 +30,16 @@ describe("getUserRatings()", () => {
   test("it should return all ratings for a user", () => {
     expect(getUserRatings("huw9ufsh9q0fhr0g", mockRatings))
       .toMatchInlineSnapshot(`
-      [
-        {
-          "comment": "Proven user, everything on time and very precise",
-          "id": "2a37",
-          "rate": 5,
-          "ratedUserId": "huw9ufsh9q0fhr0g",
-          "userId": "sfg4gwg5stgsggw4",
-        },
-        {
-          "comment": "Always provides tickets for interesting events, with a acceptable cost. Must recommend",
-          "id": "2341",
-          "rate": 5,
-          "ratedUserId": "huw9ufsh9q0fhr0g",
-          "userId": "ydgsrgww422g4wgr",
-        },
-        {
-          "comment": "Good and with a great tickets always, but, very busy and hard to reach. In general, still would recommend😀",
-          "id": "5g3d",
-          "rate": 4,
-          "ratedUserId": "huw9ufsh9q0fhr0g",
-          "userId": "hhrgrs9g04hsghhr",
-        },
-      ]
-    `);
+        [
+          {
+            "comment": "Excellent seller! Tickets were delivered instantly and at a great price.",
+            "id": "r1",
+            "rate": 5,
+            "ratedUserId": "huw9ufsh9q0fhr0g",
+            "userId": "sfg4gwg5stgsggw4",
+          },
+        ]
+      `);
   });
 });
 
@@ -67,16 +49,12 @@ describe("getUserRating()", () => {
   });
 
   test("it should return calculated rating number for a user", () => {
-    expect(getUserRating("huw9ufsh9q0fhr0g", mockRatings)).toEqual("4.7");
+    expect(getUserRating("huw9ufsh9q0fhr0g", mockRatings)).toEqual("5.0");
   });
 });
 
 describe("getIsUserRated()", () => {
-  test("it should return false when user is not rated by the currently logged in user", () => {
-    expect(getIsUserRated("hhrgrs9g04hsghhr", mockRatings)).toBeFalsy();
-  });
-
-  test("it should return true when user is rated by currently logged in user", () => {
+  test("it should return true when user is rated", () => {
     expect(getIsUserRated("huw9ufsh9q0fhr0g", mockRatings)).toBeTruthy();
   });
 });

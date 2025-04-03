@@ -1,4 +1,4 @@
-import { type FormEvent, useCallback, useState } from "react";
+import { type MouseEvent, useCallback, useState } from "react";
 import Router from "next/router";
 import Modal from "react-modal";
 import Select from "react-select";
@@ -34,7 +34,7 @@ const CreateTicketModal: React.FC<React.PropsWithChildren<Props>> = ({
     },
   });
 
-  const onBlurHandler = useCallback(() => {
+  const handleBlur = useCallback(() => {
     const value = parseFloat(price);
 
     if (isNaN(value)) return;
@@ -42,9 +42,9 @@ const CreateTicketModal: React.FC<React.PropsWithChildren<Props>> = ({
     setPrice(value.toFixed(2));
   }, [price]);
 
-  const onSubmitHandler = useCallback(
-    (event: FormEvent<HTMLFormElement>) => {
-      event.preventDefault();
+  const handleSubmit = useCallback(
+    (event: MouseEvent) => {
+      event?.preventDefault();
 
       sendRequest();
     },
@@ -64,7 +64,7 @@ const CreateTicketModal: React.FC<React.PropsWithChildren<Props>> = ({
             <p>&times;</p>
           </div>
         </div>
-        <form className={classes.createTicketForm} onSubmit={onSubmitHandler}>
+        <form className={classes.createTicketForm}>
           <div className={classes.formGroup}>
             <label className={classes.formLabel} htmlFor="title">
               Title
@@ -85,7 +85,7 @@ const CreateTicketModal: React.FC<React.PropsWithChildren<Props>> = ({
               id="price"
               type="number"
               value={price}
-              onBlur={onBlurHandler}
+              onBlur={handleBlur}
               onChange={(e) => setPrice(e.target.value)}
             />
           </div>
@@ -111,7 +111,11 @@ const CreateTicketModal: React.FC<React.PropsWithChildren<Props>> = ({
           <button className={classes.cancelBtn} type="button" onClick={onClose}>
             Cancel
           </button>
-          <button className={classes.submitBtn} type="submit">
+          <button
+            className={classes.submitBtn}
+            type="submit"
+            onClick={handleSubmit}
+          >
             Submit
           </button>
         </div>

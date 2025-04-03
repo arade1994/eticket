@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<CTA /> > it should match a snapshot when rendered by default 1`] = `
+<body>
+  <div>
+    <section
+      class="_cta_49513d"
+    >
+      <h2>
+        Ready to Get Started?
+      </h2>
+      <p>
+        Join thousands of users who trust eTicket for their event needs
+      </p>
+      <button
+        class="_ctaButton_49513d"
+      >
+        Sign Up Now
+      </button>
+    </section>
+  </div>
+</body>
+`;

@@ -7,7 +7,7 @@ import { type User } from "../../types/user";
 import classes from "./HomeLayout.module.scss";
 
 interface Props {
-  currentUser: User;
+  currentUser?: User;
 }
 
 const HomeLayout: React.FC<React.PropsWithChildren<Props>> = ({

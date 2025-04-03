@@ -8,7 +8,7 @@ import { type User } from "../../../types/user";
 import classes from "./HeaderActions.module.scss";
 
 interface Props {
-  currentUser: User;
+  currentUser?: User;
 }
 
 const HeaderActions: React.FC<React.PropsWithChildren<Props>> = ({
@@ -28,7 +28,7 @@ const HeaderActions: React.FC<React.PropsWithChildren<Props>> = ({
                 // Toggle notifications dropdown
               }}
             >
-              <FaBell />
+              <FaBell aria-label="notifications-bell" />
               {notifications.some((n) => !n.read) && (
                 <span className={classes.notificationBadge} />
               )}

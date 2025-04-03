@@ -103,6 +103,7 @@ const TicketFilters = ({
       />
       <Select
         className={classes.itemsPerPageSelect}
+        id="itemsPerPageSelect"
         options={ITEMS_PER_PAGE_OPTIONS}
         value={itemsPerPage}
         onChange={onItemsPerPageChange}

@@ -1,0 +1,42 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<HeaderNavigation /> > it should match a snapshot when user is signed in by default > Signed in 1`] = `
+<body>
+  <div>
+    <nav
+      class="_nav_1de2af"
+    >
+      <a
+        class="_navLink_1de2af "
+        href="/"
+      >
+        Home
+      </a>
+      <a
+        class="_navLink_1de2af "
+        href="/tickets"
+      >
+        Tickets
+      </a>
+      <a
+        class="_navLink_1de2af "
+        href="/orders"
+      >
+        Orders
+      </a>
+      <a
+        class="_navLink_1de2af "
+        href="/users"
+      >
+        Users
+      </a>
+    </nav>
+  </div>
+</body>
+`;
+
+exports[`<HeaderNavigation /> > it should match a snapshot when user is signed out by default 1`] = `
+<body>
+  <div />
+</body>
+`;
