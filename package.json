@@ -6,7 +6,6 @@
     "dev:client": "pnpm --filter client run dev",
     "dev:auth": "pnpm --filter auth run dev",
     "dev:services": "pnpm turbo run dev --filter=services/* --parallel",
-    "dev:service": "pnpm turbo run dev --filter=",
     "lint": "turbo run lint",
     "type-check": "turbo run type-check",
     "test": "turbo run test",
