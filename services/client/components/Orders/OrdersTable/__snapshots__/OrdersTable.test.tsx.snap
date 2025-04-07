@@ -67,7 +67,7 @@ exports[`<OrdersTable /> > it should render selected orders inside a table 1`] =
           <td
             class="_tableItem_eb8f56"
           >
-            19:37
+            20:37
           </td>
           <td
             class="_tableItem_eb8f56"
@@ -106,7 +106,7 @@ exports[`<OrdersTable /> > it should render selected orders inside a table 1`] =
           <td
             class="_tableItem_eb8f56"
           >
-            19:37
+            11:43
           </td>
           <td
             class="_tableItem_eb8f56"
