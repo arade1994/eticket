@@ -46,15 +46,11 @@ jobs:
 
       - name: Check TypeScript Coverage
         run: |
-          COVERAGE=$(node -e "const coverage = require('./coverage/ts-coverage.json'); console.log(coverage.total.coverage);")
-          echo "TypeScript Coverage: $COVERAGE%"
-          if (( $(echo "$COVERAGE < 90" | bc -l) )); then
-            echo "❌ TypeScript coverage is below 90%! PR cannot be merged."
-            exit 1
-          fi
+          OUTPUT=$(pnpm type-coverage --at-least 90)
+          echo "$OUTPUT"
 
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v4
         with:
           name: ts-coverage-report
-          path: ./coverage/ts-coverage.json
+          path: ts-coverage.json
