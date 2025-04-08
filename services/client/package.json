@@ -6,20 +6,21 @@
     "db-server": "npx json-server --watch ./mock/db.json",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
+    "test:coverage:ui": "vitest run --coverage --coverage.enabled=true",
     "test:watch": "vitest --watch",
     "lint": "eslint . --quiet",
     "lint:fix": "eslint --fix",
-    "test-coverage-report": "vitest --coverage --coverageReporters=text-summary",
     "lint:eslint": "eslint --cache",
     "lint:tsc": "tsc --project tsconfig.json --noEmit",
     "lint:ts-coverage": "type-coverage",
     "type-check": "tsc --noEmit",
-    "ts-coverage": "type-coverage",
+    "ts-coverage": "typescript-coverage-report --project tsconfig.json --outputDir ts-coverage",
     "ts-coverage-report": "tsc --noEmit --listFiles | grep '.ts$' | xargs -I {} nyc --reporter=text-summary tsc --noEmit --skipLibCheck"
   },
   "dependencies": {
     "axios": "^1.8.4",
     "classnames": "^2.5.1",
+    "dayjs": "1.11.13",
     "dotenv": "^16.4.7",
     "next": "^15.2.4",
     "react": "19.0.0",
@@ -56,8 +57,13 @@
     "json-server": "^1.0.0-beta.3",
     "sass": "^1.86.0",
     "sass-loader": "^16.0.5",
+    "semantic-ui-react": "2.1.5",
     "type-coverage": "^2.29.7",
+    "typescript-coverage-report": "1.1.1",
     "typescript-eslint": "^8.27.0",
     "vitest": "^3.1.1"
+  },
+  "typeCoverage": {
+    "atLeast": 90
   }
 }

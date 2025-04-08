@@ -65,3 +65,8 @@ Thumbs.db
 
 # Eslint cache
 .eslintcache
+
+# Typescript coverage
+coverage
+ts-coverage
+ts-coverage.json

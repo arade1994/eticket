@@ -8,5 +8,8 @@ export default defineConfig({
     environment: "jsdom",
     watch: true,
     setupFiles: "./vitest-setup.ts",
+    coverage: {
+      reportsDirectory: "./tests/unit/coverage",
+    },
   },
 });
