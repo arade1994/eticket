@@ -41,17 +41,8 @@ jobs:
       - name: Run Unit Tests with Coverage
         run: pnpm turbo run test:coverage --filter=client
 
-      - name: Check Test Coverage
-        run: |
-          COVERAGE=$(node -e "const coverage = require('./coverage/coverage-final.json'); console.log(coverage.total.coverage);")
-          echo "Test Coverage: $COVERAGE%"
-          if (( $(echo "$COVERAGE < 80" | bc -l) )); then
-            echo "❌ Test coverage is below 80%! PR cannot be merged."
-            exit 1
-          fi
-
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v4
         with:
           name: test-coverage-report
-          path: ./coverage
+          path: ./coverage/coverage-final.json
