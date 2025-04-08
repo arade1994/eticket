@@ -19,7 +19,7 @@
     "eslint": "9.23.0",
     "typescript-coverage-report": "1.1.1"
   },
-  "packageManager": "pnpm@10.7.0",
+  "packageManager": "pnpm@10.8.0",
   "projects": {
     "services/client": {},
     "services/auth": {},
