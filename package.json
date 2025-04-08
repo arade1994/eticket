@@ -16,7 +16,8 @@
     "turbo": "^2.4.4"
   },
   "devDependencies": {
-    "eslint": "9.23.0"
+    "eslint": "9.23.0",
+    "typescript-coverage-report": "1.1.1"
   },
   "packageManager": "pnpm@10.7.0",
   "projects": {

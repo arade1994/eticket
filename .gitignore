@@ -68,3 +68,5 @@ Thumbs.db
 
 # Typescript coverage
 coverage
+ts-coverage
+ts-coverage.json

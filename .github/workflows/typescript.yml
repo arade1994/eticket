@@ -44,13 +44,8 @@ jobs:
       - name: Run TypeScript Coverage
         run: pnpm turbo run ts-coverage --filter=client
 
-      - name: Check TypeScript Coverage
-        run: |
-          OUTPUT=$(pnpm type-coverage --at-least 90)
-          echo "$OUTPUT"
-
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v4
         with:
           name: ts-coverage-report
-          path: ts-coverage.json
+          path: ts-coverage/typescript-coverage.json
