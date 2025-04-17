@@ -1,5 +1,10 @@
 import express, { type Request, type Response } from "express";
-import { validateRequest } from "@radetickets/factory";
+
+import {
+  currentUser,
+  requireAuth,
+  validateRequest,
+} from "@radetickets/factory";
 
 import { Rating } from "../models/Rating";
 
@@ -7,6 +12,8 @@ const router = express.Router();
 
 router.get(
   "/api/ratings",
+  currentUser,
+  requireAuth,
   validateRequest,
   async (req: Request, res: Response) => {
     const ratings = await Rating.find();

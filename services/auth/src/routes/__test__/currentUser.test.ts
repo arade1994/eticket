@@ -4,7 +4,7 @@ import { app } from "../../app";
 
 describe("Api which gives us information about currently loged in user", () => {
   test("Returns some data about authenticated user", async () => {
-    const cookie = await global.signup();
+    const cookie = await globalThis.signup();
 
     const response = await request(app)
       .get("/api/users/currentuser")

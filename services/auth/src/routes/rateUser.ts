@@ -1,5 +1,6 @@
-import express, { Request, Response } from "express";
+import express, { type Request, type Response } from "express";
 import { body } from "express-validator";
+
 import {
   currentUser,
   requireAuth,

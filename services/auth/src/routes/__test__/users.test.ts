@@ -8,7 +8,7 @@ describe("Api which returns all registered users", () => {
   });
 
   test("Returns list of all registered users", async () => {
-    const cookie = await global.signup();
+    const cookie = await globalThis.signup();
 
     await request(app)
       .post("/api/users/signup")

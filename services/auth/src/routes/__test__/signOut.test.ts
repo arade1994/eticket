@@ -4,7 +4,7 @@ import { app } from "../../app";
 
 describe("Api which loggs user out", () => {
   test("Removes the cookie after successfull signout", async () => {
-    const cookie = await global.signup();
+    const cookie = await globalThis.signup();
 
     const response = await request(app)
       .post("/api/users/signout")

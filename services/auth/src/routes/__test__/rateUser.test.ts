@@ -16,7 +16,7 @@ describe("Api which rates user", () => {
   });
 
   test("Returns 400 when some of the data is missing", async () => {
-    const cookie = await global.signup();
+    const cookie = await globalThis.signup();
 
     await request(app)
       .post("/api/users/rate")
@@ -52,7 +52,7 @@ describe("Api which rates user", () => {
   });
 
   test("Successfully saves a rate with comment for a user", async () => {
-    const cookie = await global.signup();
+    const cookie = await globalThis.signup();
 
     await request(app)
       .post("/api/users/rate")
