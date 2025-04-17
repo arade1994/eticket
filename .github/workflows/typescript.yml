@@ -39,10 +39,10 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run TypeScript checks
-        run: pnpm turbo run type-check --filter=client
+        run: pnpm turbo run type-check --filter=client --filter=auth
 
       - name: Run TypeScript Coverage
-        run: pnpm turbo run ts-coverage --filter=client
+        run: pnpm turbo run ts-coverage --filter=client --filter=auth
 
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v4

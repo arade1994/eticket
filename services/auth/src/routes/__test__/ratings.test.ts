@@ -4,11 +4,11 @@ import { app } from "../../app";
 
 describe("Api which returns list of ratings", () => {
   test("Returns status 401 when user is not authenticated", async () => {
-    await request(app).get("/api/users/ratings").expect(401);
+    await request(app).get("/api/ratings").expect(401);
   });
 
   test("Returns list of all ratings from the database", async () => {
-    const cookie = await global.signup();
+    const cookie = await globalThis.signup();
 
     await request(app)
       .post("/api/users/rate")
@@ -33,7 +33,7 @@ describe("Api which returns list of ratings", () => {
       .expect(201);
 
     const response = await request(app)
-      .get("/api/users/ratings")
+      .get("/api/ratings")
       .set("Cookie", cookie)
       .expect(200);
 

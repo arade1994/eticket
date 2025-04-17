@@ -1,6 +1,7 @@
-import express, { Request, Response } from "express";
-import jwt from "jsonwebtoken";
+import express, { type Request, type Response } from "express";
 import { body } from "express-validator";
+import jwt from "jsonwebtoken";
+
 import { BadRequestError, validateRequest } from "@radetickets/factory";
 
 import { User } from "../models/User";

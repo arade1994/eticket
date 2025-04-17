@@ -3,17 +3,24 @@ import mongoose from "mongoose";
 
 import { signup } from "./utils";
 
-let mongo: any;
+jest.setTimeout(20_000);
+
+let mongo: MongoMemoryServer;
 beforeAll(async () => {
-  process.env.JWT_KEY = "asafssgdg";
-
-  mongo = await MongoMemoryServer.create();
-  const mongoURI = await mongo.getUri();
-
-  await mongoose.connect(mongoURI);
+  try {
+    mongo = await MongoMemoryServer.create();
+    const mongoURI = await mongo.getUri();
+    await mongoose.connect(mongoURI);
+  } catch (err) {
+    console.error("Error in beforeAll:", err);
+    throw err;
+  }
 });
 
 beforeEach(async () => {
+  if (!mongoose.connection.db)
+    throw new Error("There is no Mongo database initialized!");
+
   const collections = await mongoose.connection.db.collections();
 
   for (let collection of collections) {
@@ -22,8 +29,8 @@ beforeEach(async () => {
 });
 
 afterAll(async () => {
-  await mongo.stop();
+  if (mongo) await mongo.stop();
   await mongoose.connection.close();
 });
 
-global.signup = signup;
+globalThis.signup = signup;

@@ -33,6 +33,8 @@ const eslintConfig = [
       "public/**/*",
       ".prettierrc.js",
       "next.config.js",
+      "ts-coverage",
+      "coverage",
     ],
   },
   {
