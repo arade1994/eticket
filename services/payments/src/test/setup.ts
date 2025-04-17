@@ -1,17 +1,16 @@
+import dotenv from "dotenv";
 import { MongoMemoryServer } from "mongodb-memory-server";
 import mongoose from "mongoose";
+import path from "path";
 
 import { signin } from "./utils";
 
-process.env.STRIPE_KEY =
-  "sk_test_51JrojjLiD4aXIcPweWza0lGCjoIcF3gQwKzhZ6TLzvahU3v3nmI4sJdnOuLQGdf7IcmEMp9aV8MxaZNBWSIfdDvJ00QeKW57vm";
+dotenv.config({ path: path.join(process.cwd(), ".env.test") });
 
 jest.mock("../natsWrapper.ts");
 
-let mongo: any;
+let mongo: MongoMemoryServer;
 beforeAll(async () => {
-  process.env.JWT_KEY = "asafssgdg";
-
   mongo = await MongoMemoryServer.create();
   const mongoURI = await mongo.getUri();
 
@@ -20,6 +19,10 @@ beforeAll(async () => {
 
 beforeEach(async () => {
   jest.clearAllMocks();
+
+  if (!mongoose.connection.db)
+    throw new Error("There is no Mongo database initialized!");
+
   const collections = await mongoose.connection.db.collections();
 
   for (let collection of collections) {
@@ -32,4 +35,4 @@ afterAll(async () => {
   await mongoose.connection.close();
 });
 
-global.signin = signin;
+globalThis.signin = signin;

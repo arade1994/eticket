@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
-import { app } from "./app";
 import { OrderCancelledListener } from "./events/listeners/OrderCancelledListener";
 import { OrderCreatedListener } from "./events/listeners/OrderCreatedListener";
+import { app } from "./app";
 import { natsWrapper } from "./natsWrapper";
 
 const start = async () => {
