@@ -1,6 +1,7 @@
-import { Message } from "node-nats-streaming";
+import { type Message } from "node-nats-streaming";
+
 import {
-  ExpirationCompleteEvent,
+  type ExpirationCompleteEvent,
   Listener,
   OrderStatus,
   Subjects,
@@ -8,6 +9,7 @@ import {
 
 import { Order } from "../../models/Order";
 import { OrderCancelledPublisher } from "../publishers/OrderCancelledPublisher";
+
 import { queueGroupName } from "./QueueGroupName";
 
 export class ExpirationCompleteListener extends Listener<ExpirationCompleteEvent> {

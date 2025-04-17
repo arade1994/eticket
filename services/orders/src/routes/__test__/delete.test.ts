@@ -1,5 +1,6 @@
-import request from "supertest";
 import mongoose from "mongoose";
+import request from "supertest";
+
 import { OrderStatus } from "@radetickets/factory";
 
 import { app } from "../../app";
@@ -16,7 +17,7 @@ describe("Api which deletes order", () => {
     });
     await ticket.save();
 
-    const user = global.signin();
+    const user = globalThis.signin();
 
     const { body: order } = await request(app)
       .post("/api/orders")
@@ -43,7 +44,7 @@ describe("Api which deletes order", () => {
     });
     await ticket.save();
 
-    const user = global.signin();
+    const user = globalThis.signin();
 
     const { body: order } = await request(app)
       .post("/api/orders")

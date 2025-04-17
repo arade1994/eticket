@@ -1,5 +1,5 @@
-import request from "supertest";
 import mongoose from "mongoose";
+import request from "supertest";
 
 import { app } from "../../app";
 import { Ticket } from "../../models/Ticket";
@@ -13,7 +13,7 @@ describe("Api which fetches one specific order by its id", () => {
     });
     await ticket.save();
 
-    const user = global.signin();
+    const user = globalThis.signin();
 
     const { body: order } = await request(app)
       .post("/api/orders")
@@ -38,7 +38,7 @@ describe("Api which fetches one specific order by its id", () => {
     });
     await ticket.save();
 
-    const user = global.signin();
+    const user = globalThis.signin();
 
     const { body: order } = await request(app)
       .post("/api/orders")
@@ -46,9 +46,9 @@ describe("Api which fetches one specific order by its id", () => {
       .send({ ticketId: ticket.id })
       .expect(201);
 
-    const { body: fetchedOrder } = await request(app)
+    await request(app)
       .get(`/api/orders/${order.id}`)
-      .set("Cookie", global.signin())
+      .set("Cookie", globalThis.signin())
       .send()
       .expect(401);
   });

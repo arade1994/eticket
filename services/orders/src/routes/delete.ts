@@ -1,7 +1,9 @@
-import express, { Request, Response } from "express";
+import express, { type Request, type Response } from "express";
 import mongoose from "mongoose";
+
 import {
   BadRequestError,
+  currentUser,
   NotAuthorizedError,
   NotFoundError,
   OrderStatus,
@@ -9,14 +11,15 @@ import {
   validateRequest,
 } from "@radetickets/factory";
 
-import { Order } from "../models/Order";
 import { OrderCancelledPublisher } from "../events/publishers/OrderCancelledPublisher";
+import { Order } from "../models/Order";
 import { natsWrapper } from "../natsWrapper";
 
 const router = express.Router();
 
 router.delete(
   "/api/orders/:orderId",
+  currentUser,
   requireAuth,
   validateRequest,
   async (req: Request, res: Response) => {

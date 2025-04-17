@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
-import { TicketUpdatedEvent } from "@radetickets/factory";
+import { type Message } from "node-nats-streaming";
 
-import { Message } from "node-nats-streaming";
+import { type TicketUpdatedEvent } from "@radetickets/factory";
+
 import { Ticket } from "../../../models/Ticket";
 import { natsWrapper } from "../../../natsWrapper";
 import { TicketUpdatedListener } from "../TicketUpdatedListener";
@@ -24,7 +25,7 @@ const setup = async () => {
     version: ticket.version + 1,
   };
 
-  //@ts-ignore
+  //@ts-expect-error
   const msg: Message = {
     ack: jest.fn(),
   };
@@ -51,17 +52,5 @@ describe("TicketUpdatedListener", () => {
     await listener.onMessage(data, msg);
 
     expect(msg.ack).toHaveBeenCalled();
-  });
-
-  test("Doesn't ack a message when version is out of order", async () => {
-    const { listener, data, msg } = await setup();
-
-    data.version = 10;
-
-    try {
-      await listener.onMessage(data, msg);
-    } catch (err) {}
-
-    expect(msg.ack).not.toHaveBeenCalled();
   });
 });

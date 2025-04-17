@@ -1,9 +1,9 @@
-import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
+import mongoose from "mongoose";
 import request from "supertest";
 
-import { Ticket } from "../models/Ticket";
 import { app } from "../app";
+import { Ticket } from "../models/Ticket";
 
 export const signin = () => {
   const payload = {

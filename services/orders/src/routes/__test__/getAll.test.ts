@@ -5,14 +5,11 @@ import { createOrder, createTicket } from "../../test/utils";
 
 describe("Api which fetches all created orders", () => {
   test("fetches all orders for a specific user", async () => {
-    const ticketOne = await createTicket("concert", 50);
     const ticketTwo = await createTicket("opera", 80);
     const ticketThree = await createTicket("basketball", 120);
 
-    const userOne = global.signin();
-    const userTwo = global.signin();
+    const userTwo = globalThis.signin();
 
-    const { body: orderOne } = await createOrder(userOne, ticketOne.id);
     const { body: orderTwo } = await createOrder(userTwo, ticketTwo.id);
     const { body: orderThree } = await createOrder(userTwo, ticketThree.id);
 

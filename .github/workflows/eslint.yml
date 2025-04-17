@@ -39,7 +39,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run ESLint
-        run: pnpm turbo run lint --filter=client --filter=auth --filter=expiration -- --output-file=eslint-report.json --format=json
+        run: pnpm turbo run lint --filter=client --filter=auth --filter=expiration --filter=orders -- --output-file=eslint-report.json --format=json
 
       - name: Upload ESLint Report
         uses: actions/upload-artifact@v4

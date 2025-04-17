@@ -1,5 +1,10 @@
 import mongoose from "mongoose";
-import { ExpirationCompleteEvent, OrderStatus } from "@radetickets/factory";
+import { type Message } from "node-nats-streaming";
+
+import {
+  type ExpirationCompleteEvent,
+  OrderStatus,
+} from "@radetickets/factory";
 
 import { Order } from "../../../models/Order";
 import { Ticket } from "../../../models/Ticket";
@@ -28,7 +33,7 @@ const setup = async () => {
     orderId: order.id,
   };
 
-  //@ts-ignore
+  //@ts-expect-error
   const msg: Message = {
     ack: jest.fn(),
   };
