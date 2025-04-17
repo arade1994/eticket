@@ -1,3 +1,7 @@
 namespace globalThis {
-  var signin: (id?: string) => string[];
+  namespace NodeJS {
+    interface Global {
+      signin(): string[];
+    }
+  }
 }

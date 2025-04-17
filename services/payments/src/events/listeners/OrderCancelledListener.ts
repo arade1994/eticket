@@ -1,12 +1,14 @@
-import { Message } from "node-nats-streaming";
+import { type Message } from "node-nats-streaming";
+
 import {
   Listener,
-  OrderCancelledEvent,
+  type OrderCancelledEvent,
   OrderStatus,
   Subjects,
 } from "@radetickets/factory";
 
 import { Order } from "../../models/Order";
+
 import { queueGroupName } from "./QueueGroupName";
 
 export class OrderCancelledListener extends Listener<OrderCancelledEvent> {

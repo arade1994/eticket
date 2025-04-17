@@ -1,17 +1,18 @@
-import request from "supertest";
 import mongoose from "mongoose";
+import request from "supertest";
+
 import { OrderStatus } from "@radetickets/factory";
 
 import { app } from "../../app";
 import { Order } from "../../models/Order";
-import { stripe } from "../../stripe";
 import { Payment } from "../../models/Payment";
+import { stripe } from "../../stripe";
 
 describe("Api which created a new payment process", () => {
   test("Returns a 404 when trying to pay for a unexisting order", async () => {
     await request(app)
       .post("/api/payments")
-      .set("Cookie", global.signin())
+      .set("Cookie", globalThis.signin())
       .send({
         token: "2radgsrg",
         orderId: new mongoose.Types.ObjectId().toHexString(),
@@ -31,7 +32,7 @@ describe("Api which created a new payment process", () => {
 
     await request(app)
       .post("/api/payments")
-      .set("Cookie", global.signin())
+      .set("Cookie", globalThis.signin())
       .send({
         token: "2radgsrg",
         orderId: order.id,
@@ -52,7 +53,7 @@ describe("Api which created a new payment process", () => {
 
     await request(app)
       .post("/api/payments")
-      .set("Cookie", global.signin(userId))
+      .set("Cookie", globalThis.signin(userId))
       .send({
         token: "2radgsrg",
         orderId: order.id,
@@ -74,7 +75,7 @@ describe("Api which created a new payment process", () => {
 
     await request(app)
       .post("/api/payments")
-      .set("Cookie", global.signin(userId))
+      .set("Cookie", globalThis.signin(userId))
       .send({ token: "tok_visa", orderId: order.id })
       .expect(201);
 

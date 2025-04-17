@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import { updateIfCurrentPlugin } from "mongoose-update-if-current";
-import { OrderStatus } from "@radetickets/factory";
+
+import { type OrderStatus } from "@radetickets/factory";
 
 interface OrderAttributes {
   id: string;

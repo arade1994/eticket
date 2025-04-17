@@ -1,7 +1,9 @@
-import { Message } from "node-nats-streaming";
-import { Listener, OrderCreatedEvent, Subjects } from "@radetickets/factory";
+import { type Message } from "node-nats-streaming";
+
+import { Listener, type OrderCreatedEvent, Subjects } from "@radetickets/factory";
 
 import { Order } from "../../models/Order";
+
 import { queueGroupName } from "./QueueGroupName";
 
 export class OrderCreatedListener extends Listener<OrderCreatedEvent> {

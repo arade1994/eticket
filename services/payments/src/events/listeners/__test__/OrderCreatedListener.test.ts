@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
-import { Message } from "node-nats-streaming";
-import { OrderCreatedEvent, OrderStatus } from "@radetickets/factory";
+import { type Message } from "node-nats-streaming";
 
+import { type OrderCreatedEvent, OrderStatus } from "@radetickets/factory";
+
+import { Order } from "../../../models/Order";
 import { natsWrapper } from "../../../natsWrapper";
 import { OrderCreatedListener } from "../OrderCreatedListener";
-import { Order } from "../../../models/Order";
 
 const setup = async () => {
   const listener = new OrderCreatedListener(natsWrapper.client);
