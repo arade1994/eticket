@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
-import { TicketUpdatedEvent } from "@radetickets/factory";
+import { type Message } from "node-nats-streaming";
 
-import { Message } from "node-nats-streaming";
+import { type TicketUpdatedEvent } from "@radetickets/factory";
+
 import { Ticket } from "../../../models/Ticket";
 import { natsWrapper } from "../../../natsWrapper";
 import { TicketUpdatedListener } from "../TicketUpdatedListener";
@@ -24,7 +25,7 @@ const setup = async () => {
     version: ticket.version + 1,
   };
 
-  //@ts-ignore
+  //@ts-expect-error
   const msg: Message = {
     ack: jest.fn(),
   };
@@ -58,9 +59,7 @@ describe("TicketUpdatedListener", () => {
 
     data.version = 10;
 
-    try {
-      await listener.onMessage(data, msg);
-    } catch (err) {}
+    await listener.onMessage(data, msg);
 
     expect(msg.ack).not.toHaveBeenCalled();
   });

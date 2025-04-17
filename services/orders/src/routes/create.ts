@@ -1,17 +1,19 @@
-import express, { Request, Response } from "express";
+import express, { type Request, type Response } from "express";
 import { body } from "express-validator";
 import { Types } from "mongoose";
+
 import {
   BadRequestError,
+  currentUser,
   NotFoundError,
   OrderStatus,
   requireAuth,
   validateRequest,
 } from "@radetickets/factory";
 
-import { Ticket } from "../models/Ticket";
-import { Order } from "../models/Order";
 import { OrderCreatedPublisher } from "../events/publishers/OrderCreatedPublisher";
+import { Order } from "../models/Order";
+import { Ticket } from "../models/Ticket";
 import { natsWrapper } from "../natsWrapper";
 
 const router = express.Router();
@@ -20,6 +22,7 @@ const EXPIRATION_IN_SECONDS = 15 * 60;
 
 router.post(
   "/api/orders",
+  currentUser,
   requireAuth,
   [
     body("ticketId")

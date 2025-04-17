@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
-import { TicketCreatedEvent } from "@radetickets/factory";
+import { type Message } from "node-nats-streaming";
 
-import { Message } from "node-nats-streaming";
+import { type TicketCreatedEvent } from "@radetickets/factory";
+
 import { Ticket } from "../../../models/Ticket";
 import { natsWrapper } from "../../../natsWrapper";
 import { TicketCreatedListener } from "../TicketCreatedListener";
@@ -17,7 +18,7 @@ const setup = () => {
     userId: new mongoose.Types.ObjectId().toHexString(),
   };
 
-  //@ts-ignore
+  //@ts-expect-error
   const msg: Message = {
     ack: jest.fn(),
   };
@@ -43,6 +44,6 @@ describe("TicketCreatedListener", () => {
 
     await listener.onMessage(data, msg);
 
-    expect(msg.ack).toBeCalled();
+    expect(msg.ack).toHaveBeenCalled();
   });
 });

@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
-import { app } from "./app";
 import { ExpirationCompleteListener } from "./events/listeners/ExpirationCompleteListener";
 import { PaymentCreatedListener } from "./events/listeners/PaymentCreatedListener";
 import { TicketCreatedListener } from "./events/listeners/TicketCreatedListener";
 import { TicketUpdatedListener } from "./events/listeners/TicketUpdatedListener";
+import { app } from "./app";
 import { natsWrapper } from "./natsWrapper";
 
 const start = async () => {

@@ -1,10 +1,11 @@
-import request from "supertest";
 import mongoose from "mongoose";
+import request from "supertest";
+
 import { OrderStatus } from "@radetickets/factory";
 
 import { app } from "../../app";
-import { Ticket } from "../../models/Ticket";
 import { Order } from "../../models/Order";
+import { Ticket } from "../../models/Ticket";
 import { natsWrapper } from "../../natsWrapper";
 
 describe("Api which creates a new order for a ticket", () => {
@@ -13,7 +14,7 @@ describe("Api which creates a new order for a ticket", () => {
 
     await request(app)
       .post("/api/orders")
-      .set("Cookie", global.signin())
+      .set("Cookie", globalThis.signin())
       .send({ ticketId })
       .expect(404);
   });
@@ -36,7 +37,7 @@ describe("Api which creates a new order for a ticket", () => {
 
     await request(app)
       .post("/api/orders")
-      .set("Cookie", global.signin())
+      .set("Cookie", globalThis.signin())
       .send({ ticketId: ticket.id })
       .expect(400);
   });
@@ -51,7 +52,7 @@ describe("Api which creates a new order for a ticket", () => {
 
     await request(app)
       .post("/api/orders")
-      .set("Cookie", global.signin())
+      .set("Cookie", globalThis.signin())
       .send({ ticketId: ticket.id })
       .expect(201);
   });
@@ -66,7 +67,7 @@ describe("Api which creates a new order for a ticket", () => {
 
     await request(app)
       .post("/api/orders")
-      .set("Cookie", global.signin())
+      .set("Cookie", globalThis.signin())
       .send({ ticketId: ticket.id })
       .expect(201);
 
