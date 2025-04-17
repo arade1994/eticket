@@ -11,7 +11,7 @@ import { Rating } from "../models/Rating";
 const router = express.Router();
 
 router.get(
-  "/api/ratings",
+  "/api/users/ratings",
   currentUser,
   requireAuth,
   validateRequest,
