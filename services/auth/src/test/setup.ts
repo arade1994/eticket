@@ -6,6 +6,9 @@ import { signup } from "./utils";
 jest.setTimeout(20_000);
 
 let mongo: MongoMemoryServer;
+
+console.log("JWT: ", process.env.JWT_KEY);
+
 beforeAll(async () => {
   try {
     mongo = await MongoMemoryServer.create();
