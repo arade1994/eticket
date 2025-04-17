@@ -7,6 +7,7 @@ import { signin } from "./utils";
 
 dotenv.config({ path: path.join(process.cwd(), ".env.test") });
 
+jest.setTimeout(20_000);
 jest.mock("../natsWrapper.ts");
 
 let mongo: MongoMemoryServer;
