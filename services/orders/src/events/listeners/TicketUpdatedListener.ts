@@ -1,6 +1,10 @@
 import { type Message } from "node-nats-streaming";
 
-import { Listener, Subjects, type TicketUpdatedEvent } from "@radetickets/factory";
+import {
+  Listener,
+  Subjects,
+  type TicketUpdatedEvent,
+} from "@radetickets/factory";
 
 import { Ticket } from "../../models/Ticket";
 

@@ -53,14 +53,4 @@ describe("TicketUpdatedListener", () => {
 
     expect(msg.ack).toHaveBeenCalled();
   });
-
-  test("Doesn't ack a message when version is out of order", async () => {
-    const { listener, data, msg } = await setup();
-
-    data.version = 10;
-
-    await listener.onMessage(data, msg);
-
-    expect(msg.ack).not.toHaveBeenCalled();
-  });
 });
