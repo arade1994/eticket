@@ -1,5 +1,5 @@
 import {
-  ExpirationCompleteEvent,
+  type ExpirationCompleteEvent,
   Publisher,
   Subjects,
 } from "@radetickets/factory";

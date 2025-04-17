@@ -5,12 +5,17 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node-dev src/index.ts",
+    "lint": "eslint . --quiet",
+    "lint:fix": "eslint --fix",
+    "lint:eslint": "eslint --cache --format json --output-file eslint-report.json",
+    "lint:tsc": "tsc --project tsconfig.json --noEmit",
+    "lint:ts-coverage": "type-coverage",
     "test": "jest",
+    "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "test:ci": "jest",
-    "lint": "eslint . --max-warnings=0",
     "type-check": "tsc --noEmit",
-    "ts-coverage": "type-coverage"
+    "ts-coverage": "typescript-coverage-report --project tsconfig.json --outputDir ts-coverage",
+    "ts-coverage-report": "tsc --noEmit --listFiles | grep '.ts$' | xargs -I {} nyc --reporter=text-summary tsc --noEmit --skipLibCheck"
   },
   "jest": {
     "preset": "ts-jest",
@@ -24,19 +29,30 @@
   "license": "ISC",
   "dependencies": {
     "@radetickets/factory": "^1.4.1",
-    "@types/bull": "^4.10.0",
-    "bull": "^4.15.1",
+    "bull": "^4.16.5",
+    "dotenv": "^16.4.7",
     "node-nats-streaming": "^0.3.2",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^5.5.3"
+    "typescript": "^5.8.3"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.12",
-    "@typescript-eslint/eslint-plugin": "^8.27.0",
-    "@typescript-eslint/parser": "^8.27.0",
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.23.0",
+    "@types/jest": "^29.5.14",
+    "@typescript-eslint/eslint-plugin": "^8.30.1",
+    "@typescript-eslint/parser": "^8.30.1",
     "eslint": "^9.23.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-jest": "28.11.0",
+    "eslint-plugin-no-relative-import-paths": "^1.6.1",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "globals": "^16.0.0",
     "jest": "^29.7.0",
-    "ts-jest": "^29.2.3",
-    "type-coverage": "^2.29.7"
+    "ts-jest": "^29.3.2",
+    "ts-node-dev": "^2.0.0",
+    "type-coverage": "^2.29.7",
+    "typescript-eslint": "^8.27.0"
+  },
+  "typeCoverage": {
+    "atLeast": 90
   }
 }
