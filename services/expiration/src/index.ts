@@ -1,5 +1,7 @@
-import { natsWrapper } from "./natsWrapper";
 import { OrderCreatedListener } from "./events/listeners/OrderCreatedListener";
+import { natsWrapper } from "./natsWrapper";
+
+import "dotenv/config";
 
 const start = async () => {
   if (!process.env.NATS_CLIENT_ID) {
