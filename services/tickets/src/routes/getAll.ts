@@ -1,4 +1,5 @@
-import express, { Request, Response } from "express";
+import express, { type Request, type Response } from "express";
+
 import { validateRequest } from "@radetickets/factory";
 
 import { Ticket } from "../models/Ticket";

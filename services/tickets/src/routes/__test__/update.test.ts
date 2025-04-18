@@ -1,9 +1,9 @@
-import request from "supertest";
 import mongoose from "mongoose";
+import request from "supertest";
 
 import { app } from "../../app";
-import { natsWrapper } from "../../natsWrapper";
 import { Ticket } from "../../models/Ticket";
+import { natsWrapper } from "../../natsWrapper";
 
 describe("Api which updates one specific ticket", () => {
   test("return a 401 if user is not authenticated", async () => {
@@ -18,7 +18,7 @@ describe("Api which updates one specific ticket", () => {
     const id = new mongoose.Types.ObjectId().toHexString();
     await request(app)
       .put(`/api/tickets/${id}`)
-      .set("Cookie", global.signin())
+      .set("Cookie", globalThis.signin())
       .send({ title: "Bus Ticket", price: 20, category: "Public Transport" })
       .expect(404);
   });
@@ -26,13 +26,13 @@ describe("Api which updates one specific ticket", () => {
   test("returns a 401 if user does not own the ticket", async () => {
     const response = await request(app)
       .post("/api/tickets")
-      .set("Cookie", global.signin())
+      .set("Cookie", globalThis.signin())
       .send({ title: "Bus Ticket", price: 20, category: "Public Transport" })
       .expect(201);
 
     await request(app)
       .put(`/api/tickets/${response.body.id}`)
-      .set("Cookie", global.signin())
+      .set("Cookie", globalThis.signin())
       .send({
         title: "Monthly Bus Pass",
         price: 100,
@@ -42,7 +42,7 @@ describe("Api which updates one specific ticket", () => {
   });
 
   test("return a 400 if provided bad data", async () => {
-    const cookie = global.signin();
+    const cookie = globalThis.signin();
 
     const response = await request(app)
       .post("/api/tickets")
@@ -76,7 +76,7 @@ describe("Api which updates one specific ticket", () => {
   });
 
   test("returns a 200 when user successfully updates a ticket", async () => {
-    const cookie = global.signin();
+    const cookie = globalThis.signin();
 
     const response = await request(app)
       .post("/api/tickets")
@@ -99,7 +99,7 @@ describe("Api which updates one specific ticket", () => {
   });
 
   test("publishes an ticket update event", async () => {
-    const cookie = global.signin();
+    const cookie = globalThis.signin();
 
     const response = await request(app)
       .post("/api/tickets")
@@ -117,7 +117,7 @@ describe("Api which updates one specific ticket", () => {
   });
 
   test("Rejects the update if ticket is already reserved", async () => {
-    const cookie = global.signin();
+    const cookie = globalThis.signin();
 
     const response = await request(app)
       .post("/api/tickets")

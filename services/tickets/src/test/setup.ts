@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
 import { MongoMemoryServer } from "mongodb-memory-server";
+import mongoose from "mongoose";
 
 import { signin } from "./utils";
 
@@ -17,6 +17,10 @@ beforeAll(async () => {
 
 beforeEach(async () => {
   jest.clearAllMocks();
+
+  if (!mongoose.connection.db)
+    throw new Error("There is no Mongo database initialized!");
+
   const collections = await mongoose.connection.db.collections();
 
   for (let collection of collections) {
@@ -25,7 +29,7 @@ beforeEach(async () => {
 });
 
 afterAll(async () => {
-  await mongo.stop();
+  if (mongo) await mongo.stop();
   await mongoose.connection.close();
 });
 
