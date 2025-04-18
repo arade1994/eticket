@@ -1,5 +1,6 @@
-import express, { Request, Response } from "express";
+import express, { type Request, type Response } from "express";
 import { body } from "express-validator";
+
 import {
   currentUser,
   requireAuth,
@@ -7,8 +8,8 @@ import {
 } from "@radetickets/factory";
 
 import { TicketCreatedPublisher } from "../events/publishers/TicketCreatedPublisher";
-import { natsWrapper } from "../natsWrapper";
 import { Ticket } from "../models/Ticket";
+import { natsWrapper } from "../natsWrapper";
 
 const router = express.Router();
 

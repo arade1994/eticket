@@ -1,5 +1,6 @@
-import express, { Request, Response } from "express";
+import express, { type Request, type Response } from "express";
 import { body } from "express-validator";
+
 import {
   BadRequestError,
   currentUser,
@@ -9,8 +10,8 @@ import {
   validateRequest,
 } from "@radetickets/factory";
 
-import { Ticket } from "../models/Ticket";
 import { TicketUpdatedPublisher } from "../events/publishers/TicketUpdatedPublisher";
+import { Ticket } from "../models/Ticket";
 import { natsWrapper } from "../natsWrapper";
 
 const router = express.Router();

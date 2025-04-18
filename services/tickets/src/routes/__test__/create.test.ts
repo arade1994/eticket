@@ -18,7 +18,7 @@ describe("Api to create new ticket", () => {
   test("returns a status other than 401 if user is authenticated", async () => {
     const response = await request(app)
       .post("/api/tickets")
-      .set("Cookie", global.signin())
+      .set("Cookie", globalThis.signin())
       .send({});
 
     expect(response.status).not.toEqual(401);
@@ -27,13 +27,13 @@ describe("Api to create new ticket", () => {
   test("returns an error when invalid title is provided", async () => {
     await request(app)
       .post("/api/tickets")
-      .set("Cookie", global.signin())
+      .set("Cookie", globalThis.signin())
       .send({ title: "", price: 10, category: "Music Concert" })
       .expect(400);
 
     await request(app)
       .post("/api/tickets")
-      .set("Cookie", global.signin())
+      .set("Cookie", globalThis.signin())
       .send({ price: 10, category: "Sport Event" })
       .expect(400);
   });
@@ -41,13 +41,13 @@ describe("Api to create new ticket", () => {
   test("returns an error when invalid price is provided", async () => {
     await request(app)
       .post("/api/tickets")
-      .set("Cookie", global.signin())
+      .set("Cookie", globalThis.signin())
       .send({ title: "U2 Concert", price: -10, category: "Music Concert" })
       .expect(400);
 
     await request(app)
       .post("/api/tickets")
-      .set("Cookie", global.signin())
+      .set("Cookie", globalThis.signin())
       .send({ title: "U2 Concert", category: "Music Concert" })
       .expect(400);
   });
@@ -55,7 +55,7 @@ describe("Api to create new ticket", () => {
   test("returns an error when no category is provided", async () => {
     await request(app)
       .post("/api/tickets")
-      .set("Cookie", global.signin())
+      .set("Cookie", globalThis.signin())
       .send({ title: "Basketball Game", price: 120 })
       .expect(400);
   });
@@ -70,7 +70,7 @@ describe("Api to create new ticket", () => {
 
     await request(app)
       .post("/api/tickets")
-      .set("Cookie", global.signin())
+      .set("Cookie", globalThis.signin())
       .send({ title, price, category })
       .expect(201);
 

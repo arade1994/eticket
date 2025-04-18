@@ -11,7 +11,7 @@ describe("Api to fetch all created tickets", () => {
 
     const response = await request(app)
       .get("/api/tickets")
-      .set("Cookie", global.signin())
+      .set("Cookie", globalThis.signin())
       .send()
       .expect(200);
 

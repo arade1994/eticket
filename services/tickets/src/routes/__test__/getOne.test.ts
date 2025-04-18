@@ -9,7 +9,7 @@ describe("Api which fetches specific ticket by id", () => {
 
     await request(app)
       .get(`/api/tickets/${id}`)
-      .set("Cookie", global.signin())
+      .set("Cookie", globalThis.signin())
       .send()
       .expect(404);
   });
@@ -21,13 +21,13 @@ describe("Api which fetches specific ticket by id", () => {
 
     const response = await request(app)
       .post("/api/tickets")
-      .set("Cookie", global.signin())
+      .set("Cookie", globalThis.signin())
       .send({ title, price, category })
       .expect(201);
 
     const ticketResponse = await request(app)
       .get(`/api/tickets/${response.body.id}`)
-      .set("Cookie", global.signin())
+      .set("Cookie", globalThis.signin())
       .send()
       .expect(200);
 
