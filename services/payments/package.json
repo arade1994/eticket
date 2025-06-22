@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node-dev src/index.ts",
+    "start": "ts-node-dev src/index.ts --respawn --transpile-only",
     "lint": "eslint . --quiet",
     "lint:fix": "eslint --fix",
     "lint:eslint": "eslint --cache --format json --output-file eslint-report.json",
@@ -39,6 +39,7 @@
     "mongoose-update-if-current": "^1.4.0",
     "node-nats-streaming": "^0.3.2",
     "stripe": "^18.0.0",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.3"
   },
   "devDependencies": {
@@ -61,7 +62,6 @@
     "mongodb-memory-server": "^10.1.4",
     "supertest": "^7.1.0",
     "ts-jest": "^29.3.2",
-    "ts-node-dev": "^2.0.0",
     "type-coverage": "^2.29.7",
     "typescript-eslint": "^8.27.0"
   },

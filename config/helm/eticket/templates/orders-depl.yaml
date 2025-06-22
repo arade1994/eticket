@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: orders
-          image: docker4fiki/orders
+          image: "{{ .Values.orders.image }}"
           env:
             - name: NATS_CLIENT_ID
               valueFrom:
