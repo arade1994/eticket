@@ -1,0 +1,9 @@
+**/node_modules
+.pnpm-store
+**/dist
+.vscode
+.DS_Store
+.env
+.git
+.idea
+*.log

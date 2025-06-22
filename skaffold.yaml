@@ -1,63 +1,79 @@
 apiVersion: skaffold/v4beta11
 kind: Config
+metadata:
+  name: eticket
+
+deploy:
+  helm:
+    releases:
+      - name: eticket
+        chartPath: config/helm/eticket
+        valuesFiles:
+          - config/helm/eticket/values.yaml
+        namespace: default
+        createNamespace: true
+        setValueTemplates:
+          auth.image: "{{.IMAGE_FULLY_QUALIFIED_docker4fiki_auth}}"
+          client.image: "{{.IMAGE_FULLY_QUALIFIED_docker4fiki_client}}"
+          tickets.image: "{{.IMAGE_FULLY_QUALIFIED_docker4fiki_tickets}}"
+          orders.image: "{{.IMAGE_FULLY_QUALIFIED_docker4fiki_orders}}"
+          expiration.image: "{{.IMAGE_FULLY_QUALIFIED_docker4fiki_expiration}}"
+          payments.image: "{{.IMAGE_FULLY_QUALIFIED_docker4fiki_payments}}"
+
 build:
   artifacts:
     - image: docker4fiki/auth
-      context: auth
+      context: .
+      docker:
+        dockerfile: services/auth/Dockerfile
       sync:
         manual:
-          - src: src/**/*.ts
+          - src: services/auth/src/**/*.ts
             dest: .
-      docker:
-        dockerfile: Dockerfile
     - image: docker4fiki/client
-      context: client
+      context: .
+      docker:
+        dockerfile: services/client/Dockerfile
       sync:
         manual:
-          - src: "**/*.ts"
+          - src: "services/client/**/*.ts"
             dest: .
-          - src: "**/*.scss"
+          - src: "services/client/**/*.scss"
             dest: .
-          - src: "**/*.tsx"
+          - src: "services/client/**/*.tsx"
             dest: .
-      docker:
-        dockerfile: Dockerfile
     - image: docker4fiki/tickets
-      context: tickets
+      context: .
+      docker:
+        dockerfile: services/tickets/Dockerfile
       sync:
         manual:
-          - src: src/**/*.ts
+          - src: services/tickets/src/**/*.ts
             dest: .
-      docker:
-        dockerfile: Dockerfile
     - image: docker4fiki/orders
-      context: orders
+      context: .
+      docker:
+        dockerfile: services/orders/Dockerfile
       sync:
         manual:
-          - src: src/**/*.ts
+          - src: services/orders/src/**/*.ts
             dest: .
-      docker:
-        dockerfile: Dockerfile
     - image: docker4fiki/expiration
-      context: expiration
+      context: .
+      docker:
+        dockerfile: services/expiration/Dockerfile
       sync:
         manual:
-          - src: src/**/*.ts
+          - src: services/expiration/src/**/*.ts
             dest: .
-      docker:
-        dockerfile: Dockerfile
     - image: docker4fiki/payments
-      context: payments
+      context: .
+      docker:
+        dockerfile: services/payments/Dockerfile
       sync:
         manual:
-          - src: src/**/*.ts
+          - src: services/payments/src/**/*.ts
             dest: .
-      docker:
-        dockerfile: Dockerfile
   local:
     push: false
-manifests:
-  rawYaml:
-    - ./config/k8s/*
-deploy:
-  kubectl: {}
+    concurrency: 1

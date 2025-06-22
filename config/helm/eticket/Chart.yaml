@@ -1,0 +1,4 @@
+apiVersion: v2
+name: eticket
+description: A Helm chart for eticket microservices
+version: 0.1.0

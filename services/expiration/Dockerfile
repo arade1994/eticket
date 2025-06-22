@@ -1,16 +1,25 @@
-ARG NODE_VERSION=20.18.0
+ARG NODE_VERSION=22.13.1
+ARG PNPM_VERSION=10.7.0
 
-FROM node:${NODE_VERSION}-alpine
+FROM node:${NODE_VERSION}
+
+# Install pnpm
+RUN npm install -g pnpm@${PNPM_VERSION}
 
 WORKDIR /app
-COPY package.json .
-RUN --mount=type=bind,source=package.json,target=package.json \
-    --mount=type=bind,source=package-lock.json,target=package-lock.json \
-    --mount=type=cache,target=/root/.npm \ 
-    npm ci --omit=dev
 
-COPY . .
+# Copy root lockfile and .npmrc
+COPY pnpm-lock.yaml package.json .npmrc pnpm-workspace.yaml ./
+
+# Copy the entire monorepo (use .dockerignore to exclude node_modules!)
+COPY services ./services
+
+# Install only the service dependencies
+RUN pnpm install --prod --filter expiration
+
+# Set working dir to specific service
+WORKDIR /app/services/expiration
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["pnpm", "start"]

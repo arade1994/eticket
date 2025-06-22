@@ -1,0 +1,35 @@
+auth:
+  image: docker4fiki/auth
+  port: 3000
+
+tickets:
+  image: docker4fiki/tickets
+  port: 3000
+
+orders:
+  image: docker4fiki/orders
+  port: 3000
+
+expiration:
+  image: docker4fiki/expiration
+  port: 3000
+
+payments:
+  image: docker4fiki/payments
+  port: 3000
+
+client:
+  image: docker4fiki/client
+  port: 3000
+
+ingress:
+  host: eticket.dev
+
+redis:
+  image: redis
+
+nats:
+  image: nats-streaming:0.17.0
+
+mongo:
+  image: mongo
