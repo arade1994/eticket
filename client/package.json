@@ -57,11 +57,10 @@
     "json-server": "^1.0.0-beta.3",
     "sass": "^1.86.0",
     "sass-loader": "^16.0.5",
-    "semantic-ui-react": "2.1.5",
     "type-coverage": "^2.29.7",
     "typescript-coverage-report": "1.1.1",
     "typescript-eslint": "^8.27.0",
-    "vitest": "^3.1.1"
+    "vitest": "^3.0.9"
   },
   "typeCoverage": {
     "atLeast": 90

@@ -60,9 +60,6 @@ Thumbs.db
 # TS Build
 *tsconfig.tsbuildinfo
 
-# Turbo
-.turbo/
-
 # Eslint cache
 .eslintcache
 
