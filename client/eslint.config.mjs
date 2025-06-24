@@ -7,7 +7,6 @@ import globals from "globals";
 
 import { FlatCompat } from "@eslint/eslintrc";
 import eslintJs from "@eslint/js";
-import nextEslintPlugin from "@next/eslint-plugin-next";
 import tsParser from "@typescript-eslint/parser";
 
 const compat = new FlatCompat({
@@ -20,7 +19,6 @@ const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
     plugins: {
-      "@next/next": nextEslintPlugin,
       "no-relative-import-paths": noRelativeImportPaths,
       "react-hooks": reactHooks,
       "eslint-plugin-simple-import-sort": eslintSimpleImportSort,

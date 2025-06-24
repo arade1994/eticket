@@ -10,18 +10,18 @@ build:
             dest: .
       docker:
         dockerfile: Dockerfile
-    - image: docker4fiki/client
-      context: client
-      sync:
-        manual:
-          - src: "**/*.ts"
-            dest: .
-          - src: "**/*.scss"
-            dest: .
-          - src: "**/*.tsx"
-            dest: .
-      docker:
-        dockerfile: Dockerfile
+    # - image: docker4fiki/client
+    #   context: client
+    #   sync:
+    #     manual:
+    #       - src: "**/*.ts"
+    #         dest: .
+    #       - src: "**/*.scss"
+    #         dest: .
+    #       - src: "**/*.tsx"
+    #         dest: .
+    #   docker:
+    #     dockerfile: Dockerfile
     - image: docker4fiki/tickets
       context: tickets
       sync:
@@ -56,6 +56,7 @@ build:
         dockerfile: Dockerfile
   local:
     push: false
+    concurrency: 1
 manifests:
   rawYaml:
     - ./config/k8s/*
