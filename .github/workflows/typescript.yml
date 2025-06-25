@@ -18,13 +18,13 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: cd client && npm install
+        run: cd app && npm install
 
       - name: Run TypeScript checks
-        run: cd client && npm run type-check
+        run: cd app && npm run type-check
 
       - name: Run TypeScript Coverage
-        run: cd client && npm run ts-coverage
+        run: cd app && npm run ts-coverage
 
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v4
