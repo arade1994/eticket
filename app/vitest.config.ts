@@ -9,7 +9,14 @@ export default defineConfig({
     watch: true,
     setupFiles: "./vitest-setup.ts",
     coverage: {
-      reportsDirectory: "./tests/unit/coverage",
+      enabled: true,
+      reporter: ["text", "json", "lcov"],
+      thresholds: {
+        lines: 80,
+        functions: 80,
+        branches: 80,
+        statements: 80,
+      },
     },
   },
 });
