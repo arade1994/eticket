@@ -14,8 +14,7 @@
     "lint:tsc": "tsc --project tsconfig.json --noEmit",
     "lint:ts-coverage": "type-coverage",
     "type-check": "tsc --noEmit",
-    "ts-coverage": "typescript-coverage-report --project tsconfig.json --outputDir ts-coverage --reporters=json,text-summary",
-    "ts-coverage-report": "tsc --noEmit --listFiles | grep '.ts$' | xargs -I {} nyc --reporter=text-summary tsc --noEmit --skipLibCheck"
+    "ts-coverage": "type-coverage --detail --at-least 90"
   },
   "dependencies": {
     "axios": "^1.8.4",
@@ -58,7 +57,6 @@
     "sass": "^1.86.0",
     "sass-loader": "^16.0.5",
     "type-coverage": "^2.29.7",
-    "typescript-coverage-report": "1.1.1",
     "typescript-eslint": "^8.27.0",
     "vitest": "^3.0.9"
   },
