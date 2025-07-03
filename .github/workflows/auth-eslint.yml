@@ -1,0 +1,30 @@
+name: "[Auth] ESLint"
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: cd services/auth && npm install
+
+      - name: Run ESLint
+        run: cd services/auth && npm run lint:ci
+
+      - name: Upload ESLint Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: eslint-report
+          path: services/auth/eslint-report.json
