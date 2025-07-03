@@ -14,7 +14,7 @@ const SignUpForm: React.FC = () => {
   const [password, setPassword] = useState("");
 
   const { sendRequest, errors } = useRequest({
-    url: "/api/users/signup",
+    url: "http://eticket.dev/api/users/signup",
     method: "post",
     body: { firstName, lastName, age, email, password },
     onSuccess: () => {
