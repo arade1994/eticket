@@ -1,4 +1,4 @@
-name: App TypeScript
+name: "[App] TypeScript"
 
 on:
   pull_request:
