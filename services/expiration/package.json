@@ -6,6 +6,7 @@
   "scripts": {
     "start": "ts-node-dev src/index.ts",
     "lint": "eslint . --quiet",
+    "lint:ci": "eslint . --quiet",
     "lint:fix": "eslint --fix",
     "lint:eslint": "eslint --cache --format json --output-file eslint-report.json",
     "lint:tsc": "tsc --project tsconfig.json --noEmit",
@@ -14,8 +15,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "type-check": "tsc --noEmit",
-    "ts-coverage": "typescript-coverage-report --project tsconfig.json --outputDir ts-coverage",
-    "ts-coverage-report": "tsc --noEmit --listFiles | grep '.ts$' | xargs -I {} nyc --reporter=text-summary tsc --noEmit --skipLibCheck"
+    "ts-coverage": "type-coverage --detail --at-least 90"
   },
   "jest": {
     "preset": "ts-jest",
