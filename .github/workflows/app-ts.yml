@@ -25,9 +25,3 @@ jobs:
 
       - name: Run TypeScript Coverage
         run: cd app && npm run ts-coverage
-
-      - name: Upload Coverage Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: ts-coverage-report
-          path: ts-coverage/typescript-coverage.json
