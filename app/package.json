@@ -14,7 +14,7 @@
     "lint:tsc": "tsc --project tsconfig.json --noEmit",
     "lint:ts-coverage": "type-coverage",
     "type-check": "tsc --noEmit",
-    "ts-coverage": "typescript-coverage-report --project tsconfig.json --outputDir ts-coverage",
+    "ts-coverage": "typescript-coverage-report --project tsconfig.json --outputDir ts-coverage --reporters=json,text-summary",
     "ts-coverage-report": "tsc --noEmit --listFiles | grep '.ts$' | xargs -I {} nyc --reporter=text-summary tsc --noEmit --skipLibCheck"
   },
   "dependencies": {
