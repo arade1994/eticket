@@ -1,4 +1,4 @@
-name: "[Expiration Service] - TypeScript"
+name: "[Orders Service] - TypeScript"
 
 on:
   pull_request:
@@ -18,10 +18,10 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: cd services/expiration && npm install
+        run: cd services/orders && npm install
 
       - name: Run TypeScript checks
-        run: cd services/expiration && npm run type-check
+        run: cd services/orders && npm run type-check
 
       - name: Run TypeScript Coverage
-        run: cd services/expiration && npm run ts-coverage
+        run: cd services/orders && npm run ts-coverage

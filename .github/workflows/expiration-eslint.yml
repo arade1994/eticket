@@ -1,4 +1,4 @@
-name: "[Expiration] ESLint"
+name: "[Expiration Service] - ESLint"
 
 on:
   pull_request:

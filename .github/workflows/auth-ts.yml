@@ -1,4 +1,4 @@
-name: "[Auth] TypeScript"
+name: "[Auth Service] - TypeScript"
 
 on:
   pull_request:

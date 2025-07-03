@@ -1,4 +1,4 @@
-name: "[Auth] ESLint"
+name: "[Auth Service] - ESLint"
 
 on:
   pull_request:

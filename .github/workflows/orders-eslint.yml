@@ -1,11 +1,11 @@
-name: "[Auth Service] - Unit Tests and Coverage"
+name: "[Orders Service] - ESLint"
 
 on:
   pull_request:
     branches: [master]
 
 jobs:
-  unit-tests:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -18,13 +18,13 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: cd services/auth && npm install
+        run: cd services/orders && npm install
 
-      - name: Run Unit Tests with Coverage
-        run: cd services/auth && npm run test:coverage
+      - name: Run ESLint
+        run: cd services/orders && npm run lint:ci
 
-      - name: Upload Coverage Report
+      - name: Upload ESLint Report
         uses: actions/upload-artifact@v4
         with:
-          name: test-coverage-report
-          path: ./services/auth/coverage/coverage-final.json
+          name: eslint-report
+          path: services/orders/eslint-report.json
