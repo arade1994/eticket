@@ -8,7 +8,7 @@
     "test:coverage": "vitest run --coverage",
     "test:coverage:ui": "vitest run --coverage --coverage.enabled=true",
     "test:watch": "vitest --watch",
-    "lint": "eslint . --quiet",
+    "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "lint:eslint": "eslint --cache",
     "lint:tsc": "tsc --project tsconfig.json --noEmit",
