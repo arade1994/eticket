@@ -1,4 +1,4 @@
-name: "[App] - TypeScript"
+name: "[Auth Service] - TypeScript"
 
 on:
   pull_request:
@@ -18,10 +18,10 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: cd app && npm install
+        run: cd services/auth && npm install
 
       - name: Run TypeScript checks
-        run: cd app && npm run type-check
+        run: cd services/auth && npm run type-check
 
       - name: Run TypeScript Coverage
-        run: cd app && npm run ts-coverage
+        run: cd services/auth && npm run ts-coverage

@@ -1,4 +1,4 @@
-name: "[App] - Unit Tests and Coverage"
+name: "[Tickets Service] - Unit Tests and Coverage"
 
 on:
   pull_request:
@@ -18,13 +18,13 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: cd app && npm install
+        run: cd services/tickets && npm install
 
       - name: Run Unit Tests with Coverage
-        run: cd app && npm run test:coverage
+        run: cd services/tickets && npm run test:coverage
 
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v4
         with:
           name: test-coverage-report
-          path: ./app/coverage/coverage-final.json
+          path: ./services/tickets/coverage/coverage-final.json
