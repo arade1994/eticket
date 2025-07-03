@@ -10,7 +10,7 @@ export default defineConfig({
     setupFiles: "./vitest-setup.ts",
     coverage: {
       enabled: true,
-      reporter: ["text", "json", "lcov"],
+      reporter: ["text", "text-summary", "json", "lcov"],
       thresholds: {
         lines: 80,
         functions: 80,
