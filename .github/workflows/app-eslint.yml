@@ -21,10 +21,10 @@ jobs:
         run: cd app && npm install
 
       - name: Run ESLint
-        run: cd app && npm run lint:ci || true
+        run: cd app && npm run lint:ci
 
       - name: Upload ESLint Report
         uses: actions/upload-artifact@v4
         with:
           name: eslint-report
-          path: eslint-report.json
+          path: app/eslint-report.json
