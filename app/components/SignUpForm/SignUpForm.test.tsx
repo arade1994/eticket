@@ -98,7 +98,7 @@ describe("<SignUpForm />", () => {
     await userEvent.type(passwordInput, "password");
 
     const signInBtn = screen.getByRole("button");
-    signInBtn.click();
+    await userEvent.click(signInBtn);
     expect(mockSendRequest).toHaveBeenCalled();
   });
 });

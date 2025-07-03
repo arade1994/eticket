@@ -1,11 +1,11 @@
-name: ESLint
+name: "[App] TypeScript"
 
 on:
   pull_request:
     branches: [master]
 
 jobs:
-  lint:
+  type-check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -20,11 +20,8 @@ jobs:
       - name: Install dependencies
         run: cd app && npm install
 
-      - name: Run ESLint
-        run: cd app && npm run lint -- --output-file=eslint-report.json --format=json
+      - name: Run TypeScript checks
+        run: cd app && npm run type-check
 
-      - name: Upload ESLint Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: eslint-report
-          path: eslint-report.json
+      - name: Run TypeScript Coverage
+        run: cd app && npm run ts-coverage

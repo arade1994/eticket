@@ -60,7 +60,7 @@ describe("<SignInForm />", () => {
     const passwordInput = screen.getByTestId("password") as HTMLInputElement;
     await userEvent.type(passwordInput, "password");
     const signInBtn = screen.getByRole("button");
-    signInBtn.click();
+    await userEvent.click(signInBtn);
     expect(mockSendRequest).toHaveBeenCalled();
   });
 });
