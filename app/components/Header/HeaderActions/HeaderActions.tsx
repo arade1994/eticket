@@ -14,7 +14,7 @@ interface Props {
 const HeaderActions: React.FC<React.PropsWithChildren<Props>> = ({
   currentUser,
 }) => {
-  const { signOut } = useAuth();
+  const { logOut } = useAuth();
   const { notifications, markAsRead, clearAll } = useNotification();
 
   return (
@@ -58,14 +58,19 @@ const HeaderActions: React.FC<React.PropsWithChildren<Props>> = ({
               </div>
             </div>
           </div>
-          <button className={classes.signOutButton} onClick={signOut}>
-            Sign Out
+          <button className={classes.signOutButton} onClick={logOut}>
+            Log Out
           </button>
         </>
       ) : (
-        <Link className={classes.signInButton} href="/auth/signin">
-          Sign In
-        </Link>
+        <>
+          <Link className={classes.signInButton} href="/auth/signin">
+            Login
+          </Link>
+          <Link className={classes.signInButton} href="/auth/signup">
+            Register
+          </Link>
+        </>
       )}
     </div>
   );

@@ -5,17 +5,35 @@ import { PasswordService } from "../utils/Password";
 interface UserAttributes {
   firstName: string;
   lastName: string;
-  age: number;
+  dayOfBirth: number;
+  monthOfBirth: number;
+  yearOfBirth: number;
+  street: string;
+  houseNumber: number;
+  city: string;
+  postalCode: number;
+  country: string;
   email: string;
   password: string;
+  username: string;
+  phoneNumber: string;
 }
 
 interface UserDocument extends mongoose.Document {
   firstName: string;
   lastName: string;
-  age: number;
+  dayOfBirth: number;
+  monthOfBirth: number;
+  yearOfBirth: number;
+  street: string;
+  houseNumber: number;
+  city: string;
+  postalCode: number;
+  country: string;
   email: string;
   password: string;
+  username: string;
+  phoneNumber: string;
 }
 
 interface UserModel extends mongoose.Model<UserDocument> {
@@ -32,8 +50,36 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    age: {
+    dayOfBirth: {
       type: Number,
+      required: true,
+    },
+    monthOfBirth: {
+      type: Number,
+      required: true,
+    },
+    yearOfBirth: {
+      type: Number,
+      required: true,
+    },
+    street: {
+      type: String,
+      required: true,
+    },
+    houseNumber: {
+      type: Number,
+      required: true,
+    },
+    postalCode: {
+      type: Number,
+      required: true,
+    },
+    city: {
+      type: String,
+      required: true,
+    },
+    country: {
+      type: String,
       required: true,
     },
     email: {
@@ -44,6 +90,14 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    username: {
+      type: String,
+      required: true,
+    },
+    phoneNumber: {
+      type: String,
+      required: true,
+    },
     ratings: {
       type: Array,
       required: false,
@@ -51,7 +105,7 @@ const userSchema = new mongoose.Schema(
   },
   {
     toJSON: {
-      transform(doc, ret) {
+      transform(doc, ret: any) {
         ret.id = ret._id;
         delete ret._id;
         delete ret.password;

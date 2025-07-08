@@ -5,7 +5,7 @@ module.exports = {
     return [
       {
         source: "/api/:path*",
-        destination: "http://eticket.dev/api/:path*",
+        destination: "http://eticket.local/api/:path*",
       },
     ];
   },
