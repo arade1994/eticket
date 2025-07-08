@@ -9,17 +9,18 @@ exports[`<SignInForm /> > it should render sign in form as expected 1`] = `
       <h1>
         Sign In
       </h1>
+      <p
+        class="_subtitle_070d36"
+      >
+        Welcome back! Please sign in.
+      </p>
       <div
         class="_formGroup_070d36"
       >
-        <label
-          class="_formLabel_070d36"
-        >
-          Email Address:
-        </label>
         <input
           class="_formControl_070d36"
           id="email"
+          placeholder="Email Address"
           type="email"
           value=""
         />
@@ -27,17 +28,30 @@ exports[`<SignInForm /> > it should render sign in form as expected 1`] = `
       <div
         class="_formGroup_070d36"
       >
-        <label
-          class="_formLabel_070d36"
-        >
-          Password:
-        </label>
         <input
           class="_formControl_070d36"
           id="password"
+          placeholder="Password"
           type="password"
           value=""
         />
+        <span
+          class="_passwordToggle_070d36"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 576 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z"
+            />
+          </svg>
+        </span>
       </div>
       <button
         class="_submitBtn_070d36"

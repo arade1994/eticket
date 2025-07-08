@@ -3,9 +3,7 @@
 exports[`<FormErrors /> > it should display box with errors enlisted 1`] = `
 <body>
   <div>
-    <div
-      class="_formErrors_b88b92"
-    >
+    <div>
       <h4>
         Form validation error!
       </h4>

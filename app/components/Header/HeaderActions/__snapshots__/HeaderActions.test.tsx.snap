@@ -50,7 +50,7 @@ exports[`<HeaderActions /> > it should match a snapshot when user is signed in b
       <button
         class="_signOutButton_99caa7"
       >
-        Sign Out
+        Log Out
       </button>
     </div>
   </div>
@@ -67,7 +67,13 @@ exports[`<HeaderActions /> > it should match a snapshot when user is signed out 
         class="_signInButton_99caa7"
         href="/auth/signin"
       >
-        Sign In
+        Login
+      </a>
+      <a
+        class="_signInButton_99caa7"
+        href="/auth/signup"
+      >
+        Register
       </a>
     </div>
   </div>
