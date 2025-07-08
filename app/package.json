@@ -2,7 +2,7 @@
   "name": "app",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev --hostname app.eticket.local",
     "db-server": "npx json-server --watch ./mock/db.json",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
