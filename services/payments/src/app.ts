@@ -1,5 +1,6 @@
 import { json } from "body-parser";
 import cookieSession from "cookie-session";
+import cors from "cors";
 import express, {
   type NextFunction,
   type Request,
@@ -15,11 +16,20 @@ import "dotenv/config";
 const app = express();
 
 app.set("trust proxy", true);
+app.use(
+  cors({
+    origin: "http://app.eticket.local:3000",
+    credentials: true,
+  })
+);
 
 app.use(
   cookieSession({
     signed: false,
-    secure: process.env.NODE_ENV !== "test",
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    domain:
+      process.env.NODE_ENV === "development" ? ".eticket.local" : undefined,
   })
 );
 app.use(json());

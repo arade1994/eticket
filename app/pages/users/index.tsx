@@ -3,12 +3,12 @@ import {
   type GetServerSidePropsContext,
   type PreviewData,
 } from "next";
-import axios from "axios";
 import { type ParsedUrlQuery } from "querystring";
 
+import buildClient from "../../api/buildClient";
 import UsersLayout from "../../layouts/UsersLayout/UsersLayout";
 import { type Ticket } from "../../types/ticket";
-import { type RequestWithUser, type User } from "../../types/user";
+import { type User } from "../../types/user";
 
 interface Props {
   users: User[];
@@ -25,26 +25,17 @@ const UserList = ({ users, tickets, currentUser }: Props) => {
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
 ) => {
-  const isDemoMode = !!process.env.NEXT_PUBLIC_DEMO_MODE;
-  const req = context.req as RequestWithUser;
+  const client = buildClient(context);
 
-  const baseURL = !isDemoMode
-    ? process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api"
-    : "http://localhost:3000";
-
-  const client = axios.create({
-    baseURL,
-    headers: context.req.headers,
-  });
-
-  const { data: tickets } = await client.get("/tickets");
-  const { data: users } = await client.get("/users");
+  const { data: tickets } = await client.get("/api/tickets");
+  const { data: users } = await client.get("/api/users");
+  const { data: currentUser } = await client.get("/api/users/currentuser");
 
   return {
     props: {
       tickets,
       users,
-      currentUser: req.currentUser || { id: "", email: "" },
+      currentUser,
     },
   };
 };

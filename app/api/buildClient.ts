@@ -1,7 +1,15 @@
-import { type NextPageContext } from "next";
 import axios from "axios";
 
-const buildClient = (ctx?: NextPageContext) => {
+const buildClient = (ctx?: any) => {
+  const isDemoMode = !!process.env.NEXT_PUBLIC_DEMO_MODE;
+
+  if (isDemoMode) {
+    return axios.create({
+      baseURL: "http://localhost:3000",
+      headers: ctx?.req?.headers,
+    });
+  }
+
   if (typeof window === "undefined") {
     return axios.create({
       baseURL: "http://eticket.local",

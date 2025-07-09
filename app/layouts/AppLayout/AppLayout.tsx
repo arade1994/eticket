@@ -27,7 +27,7 @@ const AppLayout: React.FC<React.PropsWithChildren<Props>> = ({
     <div className={classes.app}>
       <Header currentUser={currentUser} />
       <main className={classes.main}>
-        <Component {...pageProps} />
+        <Component {...pageProps} currentUser={currentUser} />
       </main>
       <Footer />
       <ToastContainer

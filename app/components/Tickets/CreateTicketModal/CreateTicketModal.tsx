@@ -4,10 +4,12 @@ import Modal from "react-modal";
 import Select from "react-select";
 import { toast } from "react-toastify";
 
-import { useRequest } from "../../../hooks/useRequest";
+import buildClient from "../../../api/buildClient";
 import { ticketCategoriesOptions } from "../../../utils/constants";
 
 import classes from "./CreateTicketModal.module.scss";
+
+const client = buildClient();
 
 interface Props {
   isOpen: boolean;
@@ -22,18 +24,6 @@ const CreateTicketModal: React.FC<React.PropsWithChildren<Props>> = ({
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState(ticketCategoriesOptions[0]);
 
-  const { sendRequest, errors } = useRequest({
-    url: !process.env.NEXT_PUBLIC_DEMO_MODE
-      ? "/api/tickets"
-      : "http://localhost:3000/tickets",
-    method: "post",
-    body: { title, price, category: category.value },
-    onSuccess: () => {
-      toast.success("Successfully created new ticket");
-      Router.push("/");
-    },
-  });
-
   const handleBlur = useCallback(() => {
     const value = parseFloat(price);
 
@@ -43,12 +33,23 @@ const CreateTicketModal: React.FC<React.PropsWithChildren<Props>> = ({
   }, [price]);
 
   const handleSubmit = useCallback(
-    (event: MouseEvent) => {
+    async (event: MouseEvent) => {
       event?.preventDefault();
 
-      sendRequest();
+      try {
+        await client.post("/api/tickets", {
+          title,
+          price,
+          category: category.value,
+        });
+        toast.success("Successfully created new ticket");
+        Router.push("/tickets");
+        onClose();
+      } catch (error: any) {
+        toast.error(error.response.data.message);
+      }
     },
-    [sendRequest]
+    [category.value, price, title, onClose]
   );
 
   return (
@@ -106,7 +107,6 @@ const CreateTicketModal: React.FC<React.PropsWithChildren<Props>> = ({
             />
           </div>
         </form>
-        {errors}
         <div className={classes.formActions}>
           <button className={classes.cancelBtn} type="button" onClick={onClose}>
             Cancel

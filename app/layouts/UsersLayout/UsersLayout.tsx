@@ -5,17 +5,20 @@ import {
   useMemo,
   useState,
 } from "react";
+import { toast } from "react-toastify";
 
+import buildClient from "../../api/buildClient";
 import RatingModal from "../../components/Users/RateUserModal/RateUserModal";
 import RatingModalList from "../../components/Users/RatingsPreviewModal/RatingsPreviewModal";
 import UsersFilters from "../../components/Users/UsersFilters/UsersFilters";
 import UsersTable from "../../components/Users/UsersTable/UsersTable";
-import { useRequest } from "../../hooks/useRequest";
 import { type Ticket } from "../../types/ticket";
 import { type Rating, type User } from "../../types/user";
 import { filterUsers } from "../../utils/users";
 
 import classes from "./UsersLayout.module.scss";
+
+const client = buildClient();
 
 interface Props {
   users: User[];
@@ -34,16 +37,14 @@ const UsersLayout: React.FC<React.PropsWithChildren<Props>> = ({
   const [selectedUserId, setSelectedUserId] = useState("");
   const [searchText, setSearchText] = useState("");
 
-  const { sendRequest } = useRequest({
-    url: !process.env.NEXT_PUBLIC_DEMO_MODE
-      ? "/api/users/ratings"
-      : "http://localhost:3000/ratings",
-    method: "get",
-    body: {},
-    onSuccess: (data: Rating[]) => {
-      setRatings(data);
-    },
-  });
+  const handleFetchRatings = useCallback(async () => {
+    try {
+      const { data: ratings } = await client.get("/api/users/ratings");
+      setRatings(ratings);
+    } catch (error: any) {
+      toast.error(error.response.data.message);
+    }
+  }, []);
 
   const handleChangeSearchText = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => setSearchText(event.target.value),
@@ -73,8 +74,8 @@ const UsersLayout: React.FC<React.PropsWithChildren<Props>> = ({
   );
 
   useEffect(() => {
-    sendRequest();
-  }, [sendRequest]);
+    handleFetchRatings();
+  }, [handleFetchRatings]);
 
   return (
     <div className={classes.usersLayout}>
@@ -98,7 +99,7 @@ const UsersLayout: React.FC<React.PropsWithChildren<Props>> = ({
           open={showRatingModal}
           selectedUserId={selectedUserId}
           onClose={handleToggleRatingModal}
-          onFetchRatings={sendRequest}
+          onFetchRatings={handleFetchRatings}
         />
       )}
       {showRatingsModalList && (
