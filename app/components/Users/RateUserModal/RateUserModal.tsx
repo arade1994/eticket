@@ -2,11 +2,13 @@ import { type ChangeEvent, useCallback, useState } from "react";
 import Modal from "react-modal";
 import { toast } from "react-toastify";
 
-import { useRequest } from "../../../hooks/useRequest";
+import buildClient from "../../../api/buildClient";
 
 import RateInput from "./RateInput/RateInput";
 
 import classes from "./RateUserModal.module.scss";
+
+const client = buildClient();
 
 interface Props {
   open: boolean;
@@ -26,17 +28,6 @@ const RatingModal = ({
   const [rate, setRate] = useState(5);
   const [comment, setComment] = useState("");
 
-  const { sendRequest } = useRequest({
-    url: !process.env.NEXT_PUBLIC_DEMO_MODE
-      ? "/api/users/rate"
-      : "http://localhost:3000/ratings",
-    method: "post",
-    body: { rate, comment, userId: currentUserId, ratedUserId: selectedUserId },
-    onSuccess: () => {
-      toast.success("Successfully rated user");
-    },
-  });
-
   const handleChangeRate = useCallback((value: number) => setRate(value), []);
 
   const handleChangeComment = useCallback(
@@ -44,12 +35,21 @@ const RatingModal = ({
     []
   );
 
-  const handleSave = useCallback(async () => {
-    await sendRequest();
-    onClose();
-    toast.success("User rated");
-    onFetchRatings();
-  }, [sendRequest, onClose, onFetchRatings]);
+  const handleRateUser = useCallback(async () => {
+    try {
+      await client.post("/api/users/rate", {
+        rate,
+        comment,
+        userId: currentUserId,
+        ratedUserId: selectedUserId,
+      });
+      onClose();
+      toast.success("Successfully rated user");
+      onFetchRatings();
+    } catch (error: any) {
+      toast.error(error.response.data.message);
+    }
+  }, [comment, currentUserId, onClose, onFetchRatings, rate, selectedUserId]);
 
   return (
     <Modal
@@ -74,7 +74,7 @@ const RatingModal = ({
         <button className={classes.cancelBtn} onClick={onClose}>
           Cancel
         </button>
-        <button className={classes.submitBtn} onClick={handleSave}>
+        <button className={classes.submitBtn} onClick={handleRateUser}>
           Save rating
         </button>
       </div>

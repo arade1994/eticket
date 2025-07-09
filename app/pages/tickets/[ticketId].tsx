@@ -1,20 +1,20 @@
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import {
   type GetServerSideProps,
   type GetServerSidePropsContext,
   type PreviewData,
 } from "next";
 import Router from "next/router";
-import axios from "axios";
 import { type ParsedUrlQuery } from "querystring";
 import { toast } from "react-toastify";
 
-import { useRequest } from "../../hooks/useRequest";
-import { type Order } from "../../types/order";
+import buildClient from "../../api/buildClient";
 import { type Ticket } from "../../types/ticket";
 import { type Rating, type RequestWithUser, type User } from "../../types/user";
 import { calculateExpirationDate } from "../../utils/date";
 import { getUserRating } from "../../utils/users";
+
+const client = buildClient();
 
 interface Props {
   ticket: Ticket;
@@ -24,25 +24,23 @@ interface Props {
 }
 
 const TicketView = ({ ticket, users, ratings, currentUser }: Props) => {
-  const { sendRequest, errors } = useRequest({
-    url: !process.env.NEXT_PUBLIC_DEMO_MODE
-      ? "/api/orders"
-      : "http://localhost:3000/orders",
-    method: "post",
-    body: {
-      ticketId: ticket.id,
-      ...(process.env.NEXT_PUBLIC_DEMO_MODE && {
-        userId: currentUser.id,
-        expiresAt: calculateExpirationDate(),
-        status: "created",
-        ticket,
-      }),
-    },
-    onSuccess: (order: Order) => {
+  const handleOrder = useCallback(async () => {
+    try {
+      const { data: order } = await client.post("/api/orders", {
+        ticketId: ticket.id,
+        ...(process.env.NEXT_PUBLIC_DEMO_MODE && {
+          userId: currentUser.id,
+          expiresAt: calculateExpirationDate(),
+          status: "created",
+          ticket,
+        }),
+      });
       toast.success("Order created!");
       Router.push("/orders/[orderId]", `/orders/${order.id}`);
-    },
-  });
+    } catch (error: any) {
+      toast.error(error.response.data.message);
+    }
+  }, [currentUser.id, ticket]);
 
   const user = useMemo(
     () => users?.find((user) => user.id === ticket.userId),
@@ -65,9 +63,8 @@ const TicketView = ({ ticket, users, ratings, currentUser }: Props) => {
         </p>
       )}
       <p>Category: {ticket.category}</p>
-      {errors}
       {!isCurrentUser && (
-        <button className="btn btn-primary" onClick={() => sendRequest()}>
+        <button className="btn btn-primary" onClick={handleOrder}>
           Order
         </button>
       )}
@@ -78,22 +75,13 @@ const TicketView = ({ ticket, users, ratings, currentUser }: Props) => {
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
 ) => {
-  const isDemoMode = !!process.env.NEXT_PUBLIC_DEMO_MODE;
   const { ticketId } = context.query;
   const req = context.req as RequestWithUser;
+  const client = buildClient(context);
 
-  const baseURL = !isDemoMode
-    ? process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api"
-    : "http://localhost:3000";
-
-  const client = axios.create({
-    baseURL,
-    headers: context.req.headers,
-  });
-
-  const { data: ticket } = await client.get(`/tickets/${ticketId}`);
-  const { data: users } = await client.get("/users");
-  const { data: ratings } = await client.get("/ratings");
+  const { data: ticket } = await client.get(`/api/tickets/${ticketId}`);
+  const { data: users } = await client.get("/api/users");
+  const { data: ratings } = await client.get("/api/users/ratings");
 
   return {
     props: {
