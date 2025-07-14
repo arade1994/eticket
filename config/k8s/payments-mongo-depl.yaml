@@ -15,6 +15,13 @@ spec:
       containers:
         - name: payments-mongo
           image: mongo
+          volumeMounts:
+            - name: payments-mongo-storage
+              mountPath: /data/db
+      volumes:
+        - name: payments-mongo-storage
+          persistentVolumeClaim:
+            claimName: payments-mongo-pvc
 ---
 apiVersion: v1
 kind: Service

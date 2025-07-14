@@ -15,6 +15,13 @@ spec:
       containers:
         - name: orders-mongo
           image: mongo
+          volumeMounts:
+            - name: orders-mongo-storage
+              mountPath: /data/db
+      volumes:
+        - name: orders-mongo-storage
+          persistentVolumeClaim:
+            claimName: orders-mongo-pvc
 ---
 apiVersion: v1
 kind: Service
