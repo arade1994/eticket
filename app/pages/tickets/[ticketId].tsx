@@ -28,7 +28,7 @@ const TicketView = ({ ticket, users, ratings, currentUser }: Props) => {
     try {
       const { data: order } = await client.post("/api/orders", {
         ticketId: ticket.id,
-        ...(process.env.NEXT_PUBLIC_DEMO_MODE && {
+        ...(process.env.NEXT_PUBLIC_DEMO_MODE === "true" && {
           userId: currentUser.id,
           expiresAt: calculateExpirationDate(),
           status: "created",

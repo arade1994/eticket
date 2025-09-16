@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const buildClient = (ctx?: any) => {
-  const isDemoMode = !!process.env.NEXT_PUBLIC_DEMO_MODE;
+  const isDemoMode = process.env.NEXT_PUBLIC_DEMO_MODE === "true";
 
   if (isDemoMode) {
     return axios.create({
