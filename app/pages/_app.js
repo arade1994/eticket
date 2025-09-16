@@ -14,7 +14,7 @@ const AppComponent = ({ Component, pageProps, currentUser }) => {
 };
 
 AppComponent.getInitialProps = async ({ Component, ctx }) => {
-  const isDemoMode = !!process.env.NEXT_PUBLIC_DEMO_MODE;
+  const isDemoMode = process.env.NEXT_PUBLIC_DEMO_MODE === "true";
   const client = buildClient(ctx);
 
   try {

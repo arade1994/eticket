@@ -22,7 +22,7 @@ export const ticketCategoriesOptions = [
   "Music event",
   "Theatre play",
   "Public transport",
-  "Online tickets",
+  "Others",
 ].map((category) => ({
   value: category.toLowerCase(),
   label: category,

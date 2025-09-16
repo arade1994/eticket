@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { useRouter } from "next/router";
 import {
   FaCalendarAlt,
@@ -18,6 +19,14 @@ const HeroContent: React.FC<React.PropsWithChildren<Props>> = ({
   currentUser,
 }) => {
   const router = useRouter();
+
+  const handleBrowseTickets = useCallback(() => {
+    if (!currentUser) {
+      router.push("/auth/signin");
+      return;
+    }
+    router.push("/tickets");
+  }, [currentUser, router]);
 
   return (
     <section className={classes.hero}>
@@ -57,7 +66,7 @@ const HeroContent: React.FC<React.PropsWithChildren<Props>> = ({
             )}
             <button
               className={`${classes.ctaButton} ${classes.secondaryButton}`}
-              onClick={() => router.push("/tickets")}
+              onClick={handleBrowseTickets}
             >
               Browse Tickets
             </button>
